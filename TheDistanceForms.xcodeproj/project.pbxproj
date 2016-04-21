@@ -10,10 +10,53 @@
 		A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5F0DE361CC8C5F80032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
 		A5F0DE3B1CC8C5F80032534D /* TheDistanceFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */; };
+		A5F0DE4D1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE4C1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5F0DE541CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */; };
+		A5F0DE591CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE581CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift */; };
+		A5F0DE671CC8C6A90032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
+		A5F0DE681CC8C6A90032534D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
+		A5F0DE691CC8C6A90032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
+		A5F0DE6C1CC8C6BC0032534D /* AdvancedOperationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */; };
+		A5F0DE6D1CC8C6BC0032534D /* PSOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */; };
+		A5F0DE801CC8C7EF0032534D /* CreatedStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */; };
+		A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */; };
+		A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */; };
+		A5F0DE831CC8C7EF0032534D /* StringsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE731CC8C7EF0032534D /* StringsStack.swift */; };
+		A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */; };
+		A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE761CC8C7EF0032534D /* SegmentedTextFieldStack.swift */; };
+		A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */; };
+		A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE781CC8C7EF0032534D /* TextStack.swift */; };
+		A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */; };
+		A5F0DE891CC8C7EF0032534D /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7A1CC8C7EF0032534D /* Validation.swift */; };
+		A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */; };
+		A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */; };
+		A5F0DE8C1CC8C7EF0032534D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7F1CC8C7EF0032534D /* StackView.swift */; };
+		A5F0DE931CC8C80A0032534D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */; };
+		A5F0DE941CC8C80A0032534D /* PhotosStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */; };
+		A5F0DE951CC8C80A0032534D /* PhotoStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */; };
+		A5F0DE961CC8C80A0032534D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DE921CC8C80A0032534D /* Media.xcassets */; };
+		A5F0DE991CC8CBB60032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
+		A5F0DE9A1CC8CBBC0032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
+		A5F0DE9B1CC8CBBC0032534D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
+		A5F0DE9C1CC8CBBC0032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		A5F0DE371CC8C5F80032534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5F0DE221CC8C5F80032534D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5F0DE2A1CC8C5F80032534D;
+			remoteInfo = TheDistanceForms;
+		};
+		A5F0DE551CC8C60C0032534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5F0DE221CC8C5F80032534D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5F0DE491CC8C60C0032534D;
+			remoteInfo = TheDistanceFormsPhotosVideos;
+		};
+		A5F0DE971CC8CBAE0032534D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A5F0DE221CC8C5F80032534D /* Project object */;
 			proxyType = 1;
@@ -29,6 +72,34 @@
 		A5F0DE351CC8C5F80032534D /* TheDistanceFormsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheDistanceFormsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDistanceFormsTests.swift; sourceTree = "<group>"; };
 		A5F0DE3C1CC8C5F80032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TheDistanceFormsPhotosVideos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F0DE4C1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheDistanceFormsPhotosVideos.h; sourceTree = "<group>"; };
+		A5F0DE4E1CC8C60C0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DE531CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheDistanceFormsPhotosVideosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F0DE581CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDistanceFormsPhotosVideosTests.swift; sourceTree = "<group>"; };
+		A5F0DE5A1CC8C60C0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DE641CC8C6A90032534D /* StackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StackView.framework; path = Carthage/Build/iOS/StackView.framework; sourceTree = "<group>"; };
+		A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TheDistanceCore.framework; path = Carthage/Build/iOS/TheDistanceCore.framework; sourceTree = "<group>"; };
+		A5F0DE661CC8C6A90032534D /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
+		A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdvancedOperationKit.framework; path = Carthage/Build/iOS/AdvancedOperationKit.framework; sourceTree = "<group>"; };
+		A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSOperations.framework; path = Carthage/Build/iOS/PSOperations.framework; sourceTree = "<group>"; };
+		A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatedStack.swift; sourceTree = "<group>"; };
+		A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStack.swift; sourceTree = "<group>"; };
+		A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerDataControllers.swift; sourceTree = "<group>"; };
+		A5F0DE731CC8C7EF0032534D /* StringsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsStack.swift; sourceTree = "<group>"; };
+		A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStack.swift; sourceTree = "<group>"; };
+		A5F0DE761CC8C7EF0032534D /* SegmentedTextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTextFieldStack.swift; sourceTree = "<group>"; };
+		A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStack.swift; sourceTree = "<group>"; };
+		A5F0DE781CC8C7EF0032534D /* TextStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStack.swift; sourceTree = "<group>"; };
+		A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewStack.swift; sourceTree = "<group>"; };
+		A5F0DE7A1CC8C7EF0032534D /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ErrorTextStack+Form.swift"; sourceTree = "<group>"; };
+		A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStack.swift; sourceTree = "<group>"; };
+		A5F0DE7F1CC8C7EF0032534D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
+		A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
+		A5F0DE921CC8C80A0032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DE681CC8C6A90032534D /* TheDistanceCore.framework in Frameworks */,
+				A5F0DE671CC8C6A90032534D /* StackView.framework in Frameworks */,
+				A5F0DE691CC8C6A90032534D /* TZStackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,14 +121,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DE461CC8C60C0032534D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DE991CC8CBB60032534D /* TheDistanceForms.framework in Frameworks */,
+				A5F0DE6C1CC8C6BC0032534D /* AdvancedOperationKit.framework in Frameworks */,
+				A5F0DE6D1CC8C6BC0032534D /* PSOperations.framework in Frameworks */,
+				A5F0DE9A1CC8CBBC0032534D /* StackView.framework in Frameworks */,
+				A5F0DE9B1CC8CBBC0032534D /* TheDistanceCore.framework in Frameworks */,
+				A5F0DE9C1CC8CBBC0032534D /* TZStackView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DE501CC8C60C0032534D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DE541CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A5F0DE211CC8C5F80032534D = {
 			isa = PBXGroup;
 			children = (
+				A5F0DE611CC8C6520032534D /* Frameworks */,
 				A5F0DE2D1CC8C5F80032534D /* TheDistanceForms */,
 				A5F0DE391CC8C5F80032534D /* TheDistanceFormsTests */,
+				A5F0DE4B1CC8C60C0032534D /* TheDistanceFormsPhotosVideos */,
+				A5F0DE571CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests */,
 				A5F0DE2C1CC8C5F80032534D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +162,8 @@
 			children = (
 				A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */,
 				A5F0DE351CC8C5F80032534D /* TheDistanceFormsTests.xctest */,
+				A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */,
+				A5F0DE531CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */,
+				A5F0DE6E1CC8C7EF0032534D /* Classes */,
+				A5F0DE7B1CC8C7EF0032534D /* Extensions */,
+				A5F0DE7D1CC8C7EF0032534D /* Protocols */,
 				A5F0DE301CC8C5F80032534D /* Info.plist */,
 			);
 			path = TheDistanceForms;
@@ -86,6 +189,124 @@
 			path = TheDistanceFormsTests;
 			sourceTree = "<group>";
 		};
+		A5F0DE4B1CC8C60C0032534D /* TheDistanceFormsPhotosVideos */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE4C1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h */,
+				A5F0DE8D1CC8C80A0032534D /* Classes */,
+				A5F0DE911CC8C80A0032534D /* Resources */,
+				A5F0DE4E1CC8C60C0032534D /* Info.plist */,
+			);
+			path = TheDistanceFormsPhotosVideos;
+			sourceTree = "<group>";
+		};
+		A5F0DE571CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE581CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift */,
+				A5F0DE5A1CC8C60C0032534D /* Info.plist */,
+			);
+			path = TheDistanceFormsPhotosVideosTests;
+			sourceTree = "<group>";
+		};
+		A5F0DE611CC8C6520032534D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE621CC8C6590032534D /* Core */,
+				A5F0DE631CC8C66D0032534D /* Photos & Videos */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5F0DE621CC8C6590032534D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE641CC8C6A90032534D /* StackView.framework */,
+				A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */,
+				A5F0DE661CC8C6A90032534D /* TZStackView.framework */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		A5F0DE631CC8C66D0032534D /* Photos & Videos */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */,
+				A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */,
+			);
+			name = "Photos & Videos";
+			sourceTree = "<group>";
+		};
+		A5F0DE6E1CC8C7EF0032534D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */,
+				A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */,
+				A5F0DE711CC8C7EF0032534D /* Pickers */,
+				A5F0DE731CC8C7EF0032534D /* StringsStack.swift */,
+				A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */,
+				A5F0DE751CC8C7EF0032534D /* Text Stacks */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A5F0DE711CC8C7EF0032534D /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		A5F0DE751CC8C7EF0032534D /* Text Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE761CC8C7EF0032534D /* SegmentedTextFieldStack.swift */,
+				A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */,
+				A5F0DE781CC8C7EF0032534D /* TextStack.swift */,
+				A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */,
+				A5F0DE7A1CC8C7EF0032534D /* Validation.swift */,
+			);
+			path = "Text Stacks";
+			sourceTree = "<group>";
+		};
+		A5F0DE7B1CC8C7EF0032534D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5F0DE7D1CC8C7EF0032534D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */,
+				A5F0DE7F1CC8C7EF0032534D /* StackView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A5F0DE8D1CC8C80A0032534D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */,
+				A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */,
+				A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */,
+			);
+			name = Classes;
+			path = TheDistanceFormsPhotosVideosTests/Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		A5F0DE911CC8C80A0032534D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DE921CC8C80A0032534D /* Media.xcassets */,
+			);
+			name = Resources;
+			path = TheDistanceFormsPhotosVideosTests/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +314,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DE4D1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h in Headers */,
 				A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DE471CC8C60C0032534D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +365,43 @@
 			productReference = A5F0DE351CC8C5F80032534D /* TheDistanceFormsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A5F0DE491CC8C60C0032534D /* TheDistanceFormsPhotosVideos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5F0DE5B1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideos" */;
+			buildPhases = (
+				A5F0DE451CC8C60C0032534D /* Sources */,
+				A5F0DE461CC8C60C0032534D /* Frameworks */,
+				A5F0DE471CC8C60C0032534D /* Headers */,
+				A5F0DE481CC8C60C0032534D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5F0DE981CC8CBAE0032534D /* PBXTargetDependency */,
+			);
+			name = TheDistanceFormsPhotosVideos;
+			productName = TheDistanceFormsPhotosVideos;
+			productReference = A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A5F0DE521CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5F0DE5E1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideosTests" */;
+			buildPhases = (
+				A5F0DE4F1CC8C60C0032534D /* Sources */,
+				A5F0DE501CC8C60C0032534D /* Frameworks */,
+				A5F0DE511CC8C60C0032534D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5F0DE561CC8C60C0032534D /* PBXTargetDependency */,
+			);
+			name = TheDistanceFormsPhotosVideosTests;
+			productName = TheDistanceFormsPhotosVideosTests;
+			productReference = A5F0DE531CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,6 +416,12 @@
 						CreatedOnToolsVersion = 7.3;
 					};
 					A5F0DE341CC8C5F80032534D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A5F0DE491CC8C60C0032534D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A5F0DE521CC8C60C0032534D = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -168,6 +440,8 @@
 			targets = (
 				A5F0DE2A1CC8C5F80032534D /* TheDistanceForms */,
 				A5F0DE341CC8C5F80032534D /* TheDistanceFormsTests */,
+				A5F0DE491CC8C60C0032534D /* TheDistanceFormsPhotosVideos */,
+				A5F0DE521CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +461,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DE481CC8C60C0032534D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DE961CC8C80A0032534D /* Media.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DE511CC8C60C0032534D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +483,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */,
+				A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */,
+				A5F0DE801CC8C7EF0032534D /* CreatedStack.swift in Sources */,
+				A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */,
+				A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */,
+				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
+				A5F0DE831CC8C7EF0032534D /* StringsStack.swift in Sources */,
+				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
+				A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */,
+				A5F0DE8C1CC8C7EF0032534D /* StackView.swift in Sources */,
+				A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */,
+				A5F0DE891CC8C7EF0032534D /* Validation.swift in Sources */,
+				A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +507,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DE451CC8C60C0032534D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DE931CC8C80A0032534D /* PhotoCollectionViewCell.swift in Sources */,
+				A5F0DE951CC8C80A0032534D /* PhotoStackManager.swift in Sources */,
+				A5F0DE941CC8C80A0032534D /* PhotosStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DE4F1CC8C60C0032534D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DE591CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -212,6 +532,16 @@
 			isa = PBXTargetDependency;
 			target = A5F0DE2A1CC8C5F80032534D /* TheDistanceForms */;
 			targetProxy = A5F0DE371CC8C5F80032534D /* PBXContainerItemProxy */;
+		};
+		A5F0DE561CC8C60C0032534D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5F0DE491CC8C60C0032534D /* TheDistanceFormsPhotosVideos */;
+			targetProxy = A5F0DE551CC8C60C0032534D /* PBXContainerItemProxy */;
+		};
+		A5F0DE981CC8CBAE0032534D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5F0DE2A1CC8C5F80032534D /* TheDistanceForms */;
+			targetProxy = A5F0DE971CC8CBAE0032534D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -314,8 +644,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TheDistanceForms/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceForms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -330,8 +665,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TheDistanceForms/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceForms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +695,66 @@
 				INFOPLIST_FILE = TheDistanceFormsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A5F0DE5C1CC8C60C0032534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = TheDistanceFormsPhotosVideos/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A5F0DE5D1CC8C60C0032534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = TheDistanceFormsPhotosVideos/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A5F0DE5F1CC8C60C0032534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TheDistanceFormsPhotosVideosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A5F0DE601CC8C60C0032534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TheDistanceFormsPhotosVideosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -384,6 +784,22 @@
 			buildConfigurations = (
 				A5F0DE431CC8C5F80032534D /* Debug */,
 				A5F0DE441CC8C5F80032534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5F0DE5B1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5F0DE5C1CC8C60C0032534D /* Debug */,
+				A5F0DE5D1CC8C60C0032534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5F0DE5E1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5F0DE5F1CC8C60C0032534D /* Debug */,
+				A5F0DE601CC8C60C0032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

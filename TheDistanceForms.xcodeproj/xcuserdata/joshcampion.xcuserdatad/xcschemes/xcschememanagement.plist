@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TheDistanceFormsPhotosVideos.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>A5F0DE341CC8C5F80032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DE491CC8C60C0032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DE521CC8C60C0032534D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,5 @@
+github "PluralSight/PSOperations" "2.2.0"
+github "tomvanzummeren/TZStackView" "1.1.2"
+git "git@bitbucket.org:thedistance/TheDistanceCore.git" "0.7.3"
+git "git@bitbucket.org:joshcampion89/AdvancedOperationKit" "0.1"
+git "git@bitbucket.org:joshcampion89/StackView.git" "1.0.1"
