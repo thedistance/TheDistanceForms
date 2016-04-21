@@ -8,7 +8,7 @@
 
 import Foundation
 
-import TZStackView
+import StackView
 import TheDistanceCore
 
 /**

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StackView
 
 public class SwitchStack: ErrorStack, ValueElement {
     

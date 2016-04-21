@@ -9,7 +9,7 @@
 import Foundation
 
 import TheDistanceCore
-import TZStackView
+import StackView
 
 /// Convenience view for creating a `UITextField` which can optionally show an error below it, through the `errorText` property.
 @IBDesignable

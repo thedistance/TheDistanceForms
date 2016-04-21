@@ -8,6 +8,7 @@
 
 import UIKit
 import TheDistanceCore
+import StackView
 
 /// Error Stack containing a `UISegemntedControl` and a `TextStack`. This is a `ValueElement` with a default validation property for the segemented control and a validateValue that validates both the `validation` property and the `inputStack.validtion`. This component allows for a scoped text field. Override the method `typeChanged()` to respond to the scope change and call `reloadInputViews` if the text component's input view should change.
 public class SegmentedTextFieldStack: ErrorStack, ValueElement {

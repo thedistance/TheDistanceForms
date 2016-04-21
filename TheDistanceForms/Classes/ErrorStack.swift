@@ -8,6 +8,8 @@
 
 import Foundation
 
+import StackView
+
 public class ErrorStack:CreatedStack {
     
     // MARK: Errors

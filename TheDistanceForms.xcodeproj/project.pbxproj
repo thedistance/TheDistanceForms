@@ -18,10 +18,8 @@
 		A5F0DE691CC8C6A90032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
 		A5F0DE6C1CC8C6BC0032534D /* AdvancedOperationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */; };
 		A5F0DE6D1CC8C6BC0032534D /* PSOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */; };
-		A5F0DE801CC8C7EF0032534D /* CreatedStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */; };
 		A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */; };
 		A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */; };
-		A5F0DE831CC8C7EF0032534D /* StringsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE731CC8C7EF0032534D /* StringsStack.swift */; };
 		A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */; };
 		A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE761CC8C7EF0032534D /* SegmentedTextFieldStack.swift */; };
 		A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */; };
@@ -30,7 +28,6 @@
 		A5F0DE891CC8C7EF0032534D /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7A1CC8C7EF0032534D /* Validation.swift */; };
 		A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */; };
 		A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */; };
-		A5F0DE8C1CC8C7EF0032534D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7F1CC8C7EF0032534D /* StackView.swift */; };
 		A5F0DE931CC8C80A0032534D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */; };
 		A5F0DE941CC8C80A0032534D /* PhotosStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */; };
 		A5F0DE951CC8C80A0032534D /* PhotoStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */; };
@@ -83,10 +80,8 @@
 		A5F0DE661CC8C6A90032534D /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdvancedOperationKit.framework; path = Carthage/Build/iOS/AdvancedOperationKit.framework; sourceTree = "<group>"; };
 		A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSOperations.framework; path = Carthage/Build/iOS/PSOperations.framework; sourceTree = "<group>"; };
-		A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatedStack.swift; sourceTree = "<group>"; };
 		A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStack.swift; sourceTree = "<group>"; };
 		A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerDataControllers.swift; sourceTree = "<group>"; };
-		A5F0DE731CC8C7EF0032534D /* StringsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsStack.swift; sourceTree = "<group>"; };
 		A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStack.swift; sourceTree = "<group>"; };
 		A5F0DE761CC8C7EF0032534D /* SegmentedTextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTextFieldStack.swift; sourceTree = "<group>"; };
 		A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStack.swift; sourceTree = "<group>"; };
@@ -95,7 +90,6 @@
 		A5F0DE7A1CC8C7EF0032534D /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ErrorTextStack+Form.swift"; sourceTree = "<group>"; };
 		A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStack.swift; sourceTree = "<group>"; };
-		A5F0DE7F1CC8C7EF0032534D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
 		A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
@@ -240,10 +234,8 @@
 		A5F0DE6E1CC8C7EF0032534D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A5F0DE6F1CC8C7EF0032534D /* CreatedStack.swift */,
 				A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */,
 				A5F0DE711CC8C7EF0032534D /* Pickers */,
-				A5F0DE731CC8C7EF0032534D /* StringsStack.swift */,
 				A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */,
 				A5F0DE751CC8C7EF0032534D /* Text Stacks */,
 			);
@@ -282,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */,
-				A5F0DE7F1CC8C7EF0032534D /* StackView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -485,14 +476,11 @@
 			files = (
 				A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */,
 				A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */,
-				A5F0DE801CC8C7EF0032534D /* CreatedStack.swift in Sources */,
 				A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */,
 				A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
-				A5F0DE831CC8C7EF0032534D /* StringsStack.swift in Sources */,
 				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
 				A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */,
-				A5F0DE8C1CC8C7EF0032534D /* StackView.swift in Sources */,
 				A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */,
 				A5F0DE891CC8C7EF0032534D /* Validation.swift in Sources */,
 				A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */,
@@ -778,6 +766,7 @@
 				A5F0DE411CC8C5F80032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5F0DE421CC8C5F80032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsTests" */ = {
 			isa = XCConfigurationList;
@@ -786,6 +775,7 @@
 				A5F0DE441CC8C5F80032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5F0DE5B1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideos" */ = {
 			isa = XCConfigurationList;
@@ -794,6 +784,7 @@
 				A5F0DE5D1CC8C60C0032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5F0DE5E1CC8C60C0032534D /* Build configuration list for PBXNativeTarget "TheDistanceFormsPhotosVideosTests" */ = {
 			isa = XCConfigurationList;
@@ -802,6 +793,7 @@
 				A5F0DE601CC8C60C0032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
