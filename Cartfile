@@ -2,3 +2,4 @@ git "git@bitbucket.org:joshcampion89/StackView.git"
 git "git@bitbucket.org:thedistance/TheDistanceCore.git" >= 0.7.3
 
 git "git@bitbucket.org:joshcampion89/AdvancedOperationKit"
+github "SwiftyJSON/SwiftyJSON"

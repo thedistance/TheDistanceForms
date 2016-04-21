@@ -1,0 +1,96 @@
+{
+    "title": "Test Form",
+    "questions": [
+        {
+            "key": "first_name",
+            "type": "TextSingle", // "TextMultiline"
+            "prompt": "First Name",
+            "keyboard_type": "Default",
+            "capitalization": "Sentences",
+            "auto_correct": true,
+            "secure_text_entry": false,
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "Please enter your name"
+            }
+        },
+        {
+            "key": "birthday",
+            "type": "Date",
+            "prompt": "Birthday",
+            "date_format_style": "Medium",
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "Date",
+                "message": "Please enter your name"
+            }
+        },
+        {
+            "key": "event_start",
+            "type": "Time", // DateTime
+            "prompt": "Event Start Time",
+            "time_format_style": "Medium",
+            "miniute_interval": 1, // 1 - 30, factor of 60
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "Date",
+                "message": "Please enter the start time"
+            }
+        },
+         {
+             "key": "station",
+            "type": "ChoiceDropdown", // DateTime
+            "prompt": "Select a station",
+            "choices":[
+                "London King's Cross",
+                "Peterborough",
+                "York",
+                "Darlington",
+                "Durham",
+                "Newcastle",
+                "Edinburgh Weverley"
+            ],
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "You must select a station"
+            }
+        },
+        {
+            "key": "gender",
+            "type": "ChoiceSegments", // DateTime
+            "prompt": "What is your preferred method of contact",
+            "choices":[
+                "Email",
+                "Phone",
+                "SMS"
+            ],
+            "validation": {
+                "type": "NotEmpty", // only not empty can be used with Number
+                "value_type": "Number",
+                "message": "You must select a preference"
+            }
+        },
+        {
+            "key": "newsletter",
+            "type": "Boolean", // DateTime
+            "title": "Newsletter",
+            "subtitle": "Would you like to keep up to date with all our latest news and offers?",
+            "default": false,
+            "validation": null
+        },
+        {
+            "key": "view_terms",
+            "type": "Button", // DateTime
+            "title": "View Terms & Conditions",
+            "validation": null
+        },
+        {
+            "key": "Submit",
+            "type": "Button", // DateTime
+            "title": "Submit",
+            "validation": null
+        }
+    ]
+}

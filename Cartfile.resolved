@@ -1,4 +1,5 @@
 github "PluralSight/PSOperations" "2.2.0"
+github "SwiftyJSON/SwiftyJSON" "2.3.3"
 github "tomvanzummeren/TZStackView" "1.1.2"
 git "git@bitbucket.org:thedistance/TheDistanceCore.git" "0.7.3"
 git "git@bitbucket.org:joshcampion89/AdvancedOperationKit" "0.1"

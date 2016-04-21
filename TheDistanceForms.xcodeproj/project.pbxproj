@@ -36,6 +36,15 @@
 		A5F0DE9A1CC8CBBC0032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
 		A5F0DE9B1CC8CBBC0032534D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
 		A5F0DE9C1CC8CBBC0032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
+		A5F0DED31CC9004C0032534D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DED21CC9004C0032534D /* AppDelegate.swift */; };
+		A5F0DED51CC9004C0032534D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DED41CC9004C0032534D /* ViewController.swift */; };
+		A5F0DED81CC9004C0032534D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DED61CC9004C0032534D /* Main.storyboard */; };
+		A5F0DEDA1CC9004C0032534D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DED91CC9004C0032534D /* Assets.xcassets */; };
+		A5F0DEDD1CC9004C0032534D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEDB1CC9004C0032534D /* LaunchScreen.storyboard */; };
+		A5F0DEE81CC9004C0032534D /* FormsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */; };
+		A5F0DEF21CC900710032534D /* Form.json in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEF11CC900710032534D /* Form.json */; };
+		A5F0DEF51CC901640032534D /* DynamicFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEF41CC901640032534D /* DynamicFormView.swift */; };
+		A5F0DEF71CC902320032534D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A5F0DE2A1CC8C5F80032534D;
 			remoteInfo = TheDistanceForms;
+		};
+		A5F0DEE41CC9004C0032534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5F0DE221CC8C5F80032534D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5F0DECF1CC9004C0032534D;
+			remoteInfo = FormsDemo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,6 +110,27 @@
 		A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
 		A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
 		A5F0DE921CC8C80A0032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A5F0DEAD1CC8FFED0032534D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5F0DEAF1CC8FFED0032534D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5F0DEB21CC8FFED0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5F0DEB41CC8FFED0032534D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5F0DEB71CC8FFED0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5F0DEB91CC8FFED0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DEC21CC8FFED0032534D /* FormsTestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsTestsTests.swift; sourceTree = "<group>"; };
+		A5F0DEC41CC8FFED0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DED01CC9004C0032534D /* FormsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F0DED21CC9004C0032534D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5F0DED41CC9004C0032534D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5F0DED71CC9004C0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5F0DED91CC9004C0032534D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5F0DEDC1CC9004C0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5F0DEDE1CC9004C0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DEE31CC9004C0032534D /* FormsDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormsDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsDemoTests.swift; sourceTree = "<group>"; };
+		A5F0DEE91CC9004C0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F0DEF11CC900710032534D /* Form.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Form.json; path = Resources/Form.json; sourceTree = "<group>"; };
+		A5F0DEF41CC901640032534D /* DynamicFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFormView.swift; sourceTree = "<group>"; };
+		A5F0DEF61CC902320032534D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DEF71CC902320032534D /* SwiftyJSON.framework in Frameworks */,
 				A5F0DE681CC8C6A90032534D /* TheDistanceCore.framework in Frameworks */,
 				A5F0DE671CC8C6A90032534D /* StackView.framework in Frameworks */,
 				A5F0DE691CC8C6A90032534D /* TZStackView.framework in Frameworks */,
@@ -136,12 +174,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DECD1CC9004C0032534D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DEE01CC9004C0032534D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A5F0DE211CC8C5F80032534D = {
 			isa = PBXGroup;
 			children = (
+				A5F0DEAC1CC8FFED0032534D /* FormsTests */,
+				A5F0DEC11CC8FFED0032534D /* FormsTestsTests */,
+				A5F0DED11CC9004C0032534D /* FormsDemo */,
+				A5F0DEE61CC9004C0032534D /* FormsDemoTests */,
 				A5F0DE611CC8C6520032534D /* Frameworks */,
 				A5F0DE2D1CC8C5F80032534D /* TheDistanceForms */,
 				A5F0DE391CC8C5F80032534D /* TheDistanceFormsTests */,
@@ -158,6 +214,8 @@
 				A5F0DE351CC8C5F80032534D /* TheDistanceFormsTests.xctest */,
 				A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */,
 				A5F0DE531CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.xctest */,
+				A5F0DED01CC9004C0032534D /* FormsDemo.app */,
+				A5F0DEE31CC9004C0032534D /* FormsDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */,
+				A5F0DEF31CC9013F0032534D /* DynamicForms */,
 				A5F0DE6E1CC8C7EF0032534D /* Classes */,
 				A5F0DE7B1CC8C7EF0032534D /* Extensions */,
 				A5F0DE7D1CC8C7EF0032534D /* Protocols */,
@@ -178,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */,
+				A5F0DECB1CC8FFF60032534D /* Resources */,
 				A5F0DE3C1CC8C5F80032534D /* Info.plist */,
 			);
 			path = TheDistanceFormsTests;
@@ -215,6 +275,7 @@
 		A5F0DE621CC8C6590032534D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0DEF61CC902320032534D /* SwiftyJSON.framework */,
 				A5F0DE641CC8C6A90032534D /* StackView.framework */,
 				A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */,
 				A5F0DE661CC8C6A90032534D /* TZStackView.framework */,
@@ -274,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */,
+				A5F0DEF41CC901640032534D /* DynamicFormView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -297,6 +359,73 @@
 			name = Resources;
 			path = TheDistanceFormsPhotosVideosTests/Resources;
 			sourceTree = SOURCE_ROOT;
+		};
+		A5F0DEAC1CC8FFED0032534D /* FormsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DEAD1CC8FFED0032534D /* AppDelegate.swift */,
+				A5F0DEAF1CC8FFED0032534D /* ViewController.swift */,
+				A5F0DEB11CC8FFED0032534D /* Main.storyboard */,
+				A5F0DEB41CC8FFED0032534D /* Assets.xcassets */,
+				A5F0DEB61CC8FFED0032534D /* LaunchScreen.storyboard */,
+				A5F0DEB91CC8FFED0032534D /* Info.plist */,
+			);
+			path = FormsTests;
+			sourceTree = "<group>";
+		};
+		A5F0DEC11CC8FFED0032534D /* FormsTestsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DEC21CC8FFED0032534D /* FormsTestsTests.swift */,
+				A5F0DEC41CC8FFED0032534D /* Info.plist */,
+			);
+			path = FormsTestsTests;
+			sourceTree = "<group>";
+		};
+		A5F0DECB1CC8FFF60032534D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A5F0DED11CC9004C0032534D /* FormsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DED21CC9004C0032534D /* AppDelegate.swift */,
+				A5F0DED41CC9004C0032534D /* ViewController.swift */,
+				A5F0DEF01CC9005D0032534D /* Resources */,
+				A5F0DED61CC9004C0032534D /* Main.storyboard */,
+				A5F0DED91CC9004C0032534D /* Assets.xcassets */,
+				A5F0DEDB1CC9004C0032534D /* LaunchScreen.storyboard */,
+				A5F0DEDE1CC9004C0032534D /* Info.plist */,
+			);
+			path = FormsDemo;
+			sourceTree = "<group>";
+		};
+		A5F0DEE61CC9004C0032534D /* FormsDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */,
+				A5F0DEE91CC9004C0032534D /* Info.plist */,
+			);
+			path = FormsDemoTests;
+			sourceTree = "<group>";
+		};
+		A5F0DEF01CC9005D0032534D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0DEF11CC900710032534D /* Form.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A5F0DEF31CC9013F0032534D /* DynamicForms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DynamicForms;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -393,6 +522,41 @@
 			productReference = A5F0DE531CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A5F0DECF1CC9004C0032534D /* FormsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5F0DEEA1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemo" */;
+			buildPhases = (
+				A5F0DECC1CC9004C0032534D /* Sources */,
+				A5F0DECD1CC9004C0032534D /* Frameworks */,
+				A5F0DECE1CC9004C0032534D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FormsDemo;
+			productName = FormsDemo;
+			productReference = A5F0DED01CC9004C0032534D /* FormsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5F0DEE21CC9004C0032534D /* FormsDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5F0DEED1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemoTests" */;
+			buildPhases = (
+				A5F0DEDF1CC9004C0032534D /* Sources */,
+				A5F0DEE01CC9004C0032534D /* Frameworks */,
+				A5F0DEE11CC9004C0032534D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5F0DEE51CC9004C0032534D /* PBXTargetDependency */,
+			);
+			name = FormsDemoTests;
+			productName = FormsDemoTests;
+			productReference = A5F0DEE31CC9004C0032534D /* FormsDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -415,6 +579,13 @@
 					A5F0DE521CC8C60C0032534D = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					A5F0DECF1CC9004C0032534D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A5F0DEE21CC9004C0032534D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = A5F0DECF1CC9004C0032534D;
+					};
 				};
 			};
 			buildConfigurationList = A5F0DE251CC8C5F80032534D /* Build configuration list for PBXProject "TheDistanceForms" */;
@@ -423,6 +594,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A5F0DE211CC8C5F80032534D;
 			productRefGroup = A5F0DE2C1CC8C5F80032534D /* Products */;
@@ -433,6 +605,8 @@
 				A5F0DE341CC8C5F80032534D /* TheDistanceFormsTests */,
 				A5F0DE491CC8C60C0032534D /* TheDistanceFormsPhotosVideos */,
 				A5F0DE521CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests */,
+				A5F0DECF1CC9004C0032534D /* FormsDemo */,
+				A5F0DEE21CC9004C0032534D /* FormsDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -467,6 +641,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DECE1CC9004C0032534D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DEDD1CC9004C0032534D /* LaunchScreen.storyboard in Resources */,
+				A5F0DEF21CC900710032534D /* Form.json in Resources */,
+				A5F0DEDA1CC9004C0032534D /* Assets.xcassets in Resources */,
+				A5F0DED81CC9004C0032534D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DEE11CC9004C0032534D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -478,6 +670,7 @@
 				A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */,
 				A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */,
 				A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */,
+				A5F0DEF51CC901640032534D /* DynamicFormView.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
 				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
 				A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */,
@@ -513,6 +706,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5F0DECC1CC9004C0032534D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DED51CC9004C0032534D /* ViewController.swift in Sources */,
+				A5F0DED31CC9004C0032534D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5F0DEDF1CC9004C0032534D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F0DEE81CC9004C0032534D /* FormsDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -531,7 +741,47 @@
 			target = A5F0DE2A1CC8C5F80032534D /* TheDistanceForms */;
 			targetProxy = A5F0DE971CC8CBAE0032534D /* PBXContainerItemProxy */;
 		};
+		A5F0DEE51CC9004C0032534D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5F0DECF1CC9004C0032534D /* FormsDemo */;
+			targetProxy = A5F0DEE41CC9004C0032534D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A5F0DEB11CC8FFED0032534D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5F0DEB21CC8FFED0032534D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5F0DEB61CC8FFED0032534D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5F0DEB71CC8FFED0032534D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A5F0DED61CC9004C0032534D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5F0DED71CC9004C0032534D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5F0DEDB1CC9004C0032534D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5F0DEDC1CC9004C0032534D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A5F0DE3D1CC8C5F80032534D /* Debug */ = {
@@ -747,6 +997,52 @@
 			};
 			name = Release;
 		};
+		A5F0DEEB1CC9004C0032534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FormsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A5F0DEEC1CC9004C0032534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FormsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A5F0DEEE1CC9004C0032534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FormsDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormsDemo.app/FormsDemo";
+			};
+			name = Debug;
+		};
+		A5F0DEEF1CC9004C0032534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FormsDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormsDemo.app/FormsDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,6 +1090,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A5F0DEEA1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5F0DEEB1CC9004C0032534D /* Debug */,
+				A5F0DEEC1CC9004C0032534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5F0DEED1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5F0DEEE1CC9004C0032534D /* Debug */,
+				A5F0DEEF1CC9004C0032534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

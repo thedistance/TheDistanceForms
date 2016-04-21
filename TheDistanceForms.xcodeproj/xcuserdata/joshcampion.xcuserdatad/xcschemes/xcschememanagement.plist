@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FormsDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>FormsTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>TheDistanceForms.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +43,26 @@
 			<true/>
 		</dict>
 		<key>A5F0DE521CC8C60C0032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DEAA1CC8FFEC0032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DEBD1CC8FFED0032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DECF1CC9004C0032534D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5F0DEE21CC9004C0032534D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

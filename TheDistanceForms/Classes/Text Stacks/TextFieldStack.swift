@@ -21,6 +21,12 @@ import TheDistanceCore
 @IBDesignable
 public class TextFieldStack: TextStack {
     
+    /// Optional variable that retains a reference to a `UIPickerViewDataController` if one is requried.
+    var pickerController:UIPickerViewDataController?
+    
+    /// Optional variable that retains a reference to a `UIDatePickerDataController` if one is requried.
+    var dateController:UIDatePickerDataController?
+    
     // MARK: - Properties
     /// The whitespace trimmed text entered into the `textField`.
     override public var text:String? {

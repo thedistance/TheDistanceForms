@@ -13,6 +13,9 @@ import StackView
 /// Error Stack containing a `UISegemntedControl` and a `TextStack`. This is a `ValueElement` with a default validation property for the segemented control and a validateValue that validates both the `validation` property and the `inputStack.validtion`. This component allows for a scoped text field. Override the method `typeChanged()` to respond to the scope change and call `reloadInputViews` if the text component's input view should change.
 public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     
+    public let titleLabel:UILabel
+    public let subtitleLabel:UILabel
+
     public let choiceControl:UISegmentedControl
     
     public let inputStack:TextStack
@@ -29,14 +32,24 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     
     public init(control:UISegmentedControl,
         inputStack:TextStack,
+        titleLabel:UILabel = UILabel(),
+        subtitleLabel:UILabel = UILabel(),
         errorLabel:UILabel = UILabel(),
         errorImageView:UIImageView = UIImageView(),
         iconImageView:UIImageView = UIImageView()) {
             
             choiceControl = control
             self.inputStack = inputStack
-            
-            var contentStack = CreateStackView([choiceControl, inputStack.stackView])
+        inputStack.stackView.hidden = true
+        
+        self.titleLabel = titleLabel
+        self.subtitleLabel = subtitleLabel
+        
+        var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
+        textStack.axis = .Vertical
+        textStack.spacing = 4.0
+        
+            var contentStack = CreateStackView([textStack.view, choiceControl, inputStack.stackView])
             contentStack.axis = .Vertical
             contentStack.spacing = 12.0
             
