@@ -90,6 +90,10 @@ public extension FormContainer where Self:UIViewController {
             multiplier: 1.0,
             constant: -withInsets.totalXInset))
         
+        if let title = form.title {
+            self.title = title
+        }
+        
         return form
     }
 }

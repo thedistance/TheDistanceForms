@@ -34,8 +34,6 @@ class ViewController: UIViewController, FormContainer {
             else { return }
         
         self.form = form
-        self.title = form.title
-        
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
     }
 

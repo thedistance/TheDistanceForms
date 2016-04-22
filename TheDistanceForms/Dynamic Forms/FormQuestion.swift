@@ -28,7 +28,7 @@ public class FormQuestion {
         definition = json
         
         if let key = json["key"].string,
-            let typeString = json["type"].string,
+            let typeString = json["question_type"].string,
             let type = FormQuestionType(rawValue: typeString) {
             
             self.key = key
@@ -73,7 +73,7 @@ public class FormQuestion {
     
     public func checkQuestionDefinition(questionDefinition:JSON, isOneOfType:[FormQuestionType]) -> Bool {
         
-        if let typeString = questionDefinition["type"].string,
+        if let typeString = questionDefinition["question_type"].string,
             let type = FormQuestionType(rawValue: typeString) {
             return isOneOfType.contains(type)
         }
@@ -169,7 +169,7 @@ public class FormQuestion {
     
     public func dateTimeViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
-        guard let typeString = questionDefinition["type"].string,
+        guard let typeString = questionDefinition["question_type"].string,
             let type = FormQuestionType(rawValue: typeString)
             where [.Date, .Time, .DateTime].contains(type),
             let prompt = questionDefinition["prompt"].string else { return nil }
@@ -216,11 +216,11 @@ public class FormQuestion {
         
         // validation
         
-        if let typeString = questionDefinition["type"].string,
+        if let typeString = questionDefinition["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = questionDefinition["value_type"].string,
             let valueType = ValidationValueType(rawValue: valueTypeString),
-            let message = questionDefinition["type"].string
+            let message = questionDefinition["question_type"].string
             where valueType == .Date &&
                 type == .NotEmpty {
             
@@ -329,7 +329,7 @@ public class FormQuestion {
     
     public func stringValidationForDefinition(definition:JSON?) -> Validation<String>? {
         
-        guard let typeString = definition?["type"].string,
+        guard let typeString = definition?["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = ValidationValueType(rawValue: valueTypeString),
@@ -358,11 +358,11 @@ public class FormQuestion {
     
     public func numberValidationForDefinition(definition:JSON?) -> Validation<Int>? {
         
-        guard let typeString = definition?["type"].string,
+        guard let typeString = definition?["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = ValidationValueType(rawValue: valueTypeString),
-            let message = definition?["type"].string
+            let message = definition?["question_type"].string
             where valueType == .Number
             else { return nil }
         

@@ -3,7 +3,7 @@
     "questions": [
         {
             "key": "first_name",
-            "type": "TextSingle",
+            "question_type": "TextSingle",
             "prompt": "First Name",
             "keyboard_type": "Default",
             "capitalization": "Sentences",
@@ -17,7 +17,7 @@
         },
         {
             "key": "birthday",
-            "type": "Date",
+            "question_type": "Date",
             "prompt": "Birthday",
             "date_format_style": "Medium",
             "validation": {
@@ -28,7 +28,7 @@
         },
         {
             "key": "event_start",
-            "type": "Time",
+            "question_type": "Time",
             "prompt": "Event Start Time",
             "time_format_style": "Medium",
             "miniute_interval": 1,
@@ -40,7 +40,7 @@
         },
          {
             "key": "station",
-            "type": "ChoiceDropdown",
+            "question_type": "ChoiceDropdown",
             "prompt": "Select a station",
             "choices":[
                 "London King's Cross",
@@ -59,7 +59,7 @@
         },
         {
             "key": "contact",
-            "type": "ChoiceSegments",
+            "question_type": "ChoiceSegments",
                   "title": "Contact Preferences",
             "subtitle": "How would you like us to keep in touch with you?",
             "choices":[
@@ -75,23 +75,20 @@
         },
         {
             "key": "newsletter",
-            "type": "Boolean",
+            "question_type": "Boolean",
             "title": "Newsletter",
             "subtitle": "Would you like to keep up to date with all our latest news and offers?",
-            "default": false,
-            "validation": null
+            "default": false
         },
         {
             "key": "view_terms",
-            "type": "Button",
-            "title": "View Terms & Conditions",
-            "validation": null
+            "question_type": "Button",
+            "title": "View Terms & Conditions"
         },
         {
             "key": "Submit",
-            "type": "Button",
-            "title": "Submit",
-            "validation": null
+            "question_type": "Button",
+            "title": "Submit"
         }
     ]
 }
