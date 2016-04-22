@@ -10,11 +10,30 @@ import Foundation
 import SwiftyJSON
 import StackView
 
-public class Form {
+extension String: RawRepresentable {
+    
+    public typealias RawValue = String
+    
+    public var rawValue:String {
+        return self
+    }
+    
+    public init(rawValue: String) {
+        self.init(rawValue)
+    }
+}
+
+public class Form: KeyedValueElementContainer {
+    
+    public typealias KeyType = String
     
     public let title:String?
     
     public let questions:[FormQuestion]
+    
+    public var elements: [ValueElement] {
+        return questions.map { $0.questionView }
+    }
     
     public let formView:StackView
     
@@ -38,9 +57,9 @@ public class Form {
         formView.spacing = 26.0
     }
     
-    func buttonTapped(sender: UIButton) {
-        
-        
-        
+    public func elementForKey(key: String) -> ValueElement? {
+        return questions.filter({ $0.key == key }).first?.questionView
     }
+    
+    
 }

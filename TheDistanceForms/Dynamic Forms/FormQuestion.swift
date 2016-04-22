@@ -114,7 +114,7 @@ public class FormQuestion {
         // Validation
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = ValidationValueType(rawValue: validationTypeString) {
+            let validationValue = FormValueType(rawValue: validationTypeString) {
             
             switch validationValue {
             case .String:
@@ -158,7 +158,7 @@ public class FormQuestion {
         // Validation
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = ValidationValueType(rawValue: validationTypeString)
+            let validationValue = FormValueType(rawValue: validationTypeString)
             where validationValue == .String {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
@@ -219,7 +219,7 @@ public class FormQuestion {
         if let typeString = questionDefinition["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = questionDefinition["value_type"].string,
-            let valueType = ValidationValueType(rawValue: valueTypeString),
+            let valueType = FormValueType(rawValue: valueTypeString),
             let message = questionDefinition["question_type"].string
             where valueType == .Date &&
                 type == .NotEmpty {
@@ -257,7 +257,7 @@ public class FormQuestion {
         textElement.pickerController = controller
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = ValidationValueType(rawValue: validationTypeString)
+            let validationValue = FormValueType(rawValue: validationTypeString)
             where validationValue == .String {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
@@ -283,7 +283,7 @@ public class FormQuestion {
         segmentElement.subtitleLabel.hidden = segmentElement.subtitleLabel.text?.isEmpty ?? true
         
         if let validationValueTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = ValidationValueType(rawValue: validationValueTypeString)
+            let validationValue = FormValueType(rawValue: validationValueTypeString)
             where validationValue == .Number {
             
             segmentElement.validation = numberValidationForDefinition(questionDefinition["validation"])
@@ -332,7 +332,7 @@ public class FormQuestion {
         guard let typeString = definition?["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
-            let valueType = ValidationValueType(rawValue: valueTypeString),
+            let valueType = FormValueType(rawValue: valueTypeString),
             let message = definition?["message"].string
             where valueType == .String
             else { return nil }
@@ -361,7 +361,7 @@ public class FormQuestion {
         guard let typeString = definition?["question_type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
-            let valueType = ValidationValueType(rawValue: valueTypeString),
+            let valueType = FormValueType(rawValue: valueTypeString),
             let message = definition?["question_type"].string
             where valueType == .Number
             else { return nil }

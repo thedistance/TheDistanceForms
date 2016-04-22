@@ -51,7 +51,18 @@ public enum ValidationType:String {
     
 }
 
-public enum ValidationValueType:String {
+/// Enum used to define the value that a `ValueElemnt` can return.
+public enum FormQuestionValue {
+    
+    case String(NSString)
+    case Date(NSDate)
+    case Boolean(Bool)
+    case Number(NSNumber)
+    case Custom(Any)
+}
+
+/// Enum used to interpret the value types for validation objects from form json.
+public enum FormValueType:String {
     
     case String
     case Date

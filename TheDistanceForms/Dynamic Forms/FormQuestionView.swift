@@ -10,9 +10,7 @@ import Foundation
 
 import KeyboardResponder
 
-public enum FormQuestionView {
-    
-    
+public enum FormQuestionView: ValueElement {
     
     case TextSingle(TextFieldStack)
     case TextMultiline(TextViewStack)
@@ -68,6 +66,163 @@ public enum FormQuestionView {
         }
     }
     
+    public func getValue() -> Any? {
+        
+        switch self {
+        case .TextSingle(let tf):
+            return tf.getValue()
+        case .TextMultiline(let tv):
+            return tv.getValue()
+        case .Date(let tf, let controller):
+            
+            if tf.getValue() != nil {
+                return controller.datePicker.date
+            } else {
+                return nil
+            }
+            
+        case .Time(let tf, let controller):
+            
+            if tf.getValue() != nil {
+                return controller.datePicker.date
+            } else {
+                return nil
+            }
+            
+        case .DateTime(let tf, let controller):
+            
+            if tf.getValue() != nil {
+                return controller.datePicker.date
+            } else {
+                return nil
+            }
+            
+        case .ChoiceDropdown(let tf, _):
+            return tf.getValue()
+        case .ChoiceSegments(let segments):
+            return segments.stringValue()
+        case .Boolean(let switchControl):
+            return switchControl.getValue()
+        case .Button(_):
+            return nil
+        }
+    }
+
+    public func setValue<T>(value: T?) -> Bool {
+        
+        switch self {
+        case .TextSingle(let tf):
+            return tf.setValue(value)
+        case .TextMultiline(let tv):
+            return tv.setValue(value)
+        case .Date(_, let controller):
+            
+            if let date = value as? NSDate {
+                controller.datePicker.date = date
+                controller.dateChanged(controller.datePicker)
+                return true
+            } else {
+                return false
+            }
+            
+        case .Time(_, let controller):
+            
+            if let date = value as? NSDate {
+                controller.datePicker.date = date
+                controller.dateChanged(controller.datePicker)
+                return true
+            } else {
+                return false
+            }
+            
+        case .DateTime(_, let controller):
+            
+            if let date = value as? NSDate {
+                controller.datePicker.date = date
+                controller.dateChanged(controller.datePicker)
+                return true
+            } else {
+                return false
+            }
+            
+        case .ChoiceDropdown(let tf, let controller):
+            
+            guard let string = value as? String  else { return false }
+            
+            var component:Int = 0
+            for array in controller.choices {
+                
+                component += 1
+                
+                if let row = array.indexOf(string) {
+                    controller.pickerView.selectRow(row, inComponent: component, animated: true)
+                    return tf.setValue(value)
+                }
+            }
+            
+            return false
+            
+        case .ChoiceSegments(let segments):
+            
+            guard let string = value as? String  else { return false }
+            
+            let n = segments.choiceControl.numberOfSegments
+            for t in 0..<n {
+                if segments.choiceControl.titleForSegmentAtIndex(t) == string {
+                    segments.setValue(t)
+                    return true
+                }
+            }
+            
+            return false
+            
+        case .Boolean(let switchControl):
+            return switchControl.setValue(value)
+        case .Button(_):
+            return false
+        }
+    }
+
+    public func validateValue() -> ValidationResult {
+        
+        switch self {
+        case .TextSingle(let tf):
+            
+            return tf.validateValue()
+            
+        case .TextMultiline(let tv):
+            
+            return tv.validateValue()
+            
+        case .Date(let tf, _):
+            
+            return tf.validateValue()
+            
+        case .Time(let tf, _):
+            
+            return tf.validateValue()
+            
+        case .DateTime(let tf, _):
+            
+            return tf.validateValue()
+            
+        case .ChoiceDropdown(let tf, _):
+            
+            return tf.validateValue()
+            
+        case .ChoiceSegments(let segments):
+            
+            return segments.validateValue()
+            
+        case .Boolean(let switchControl):
+            
+            return switchControl.validateValue()
+            
+        case .Button(_):
+            return ValidationResult.Valid
+        }
+        
+    }
     /*
     var questionType:FormQuestionType {
         switch self {
