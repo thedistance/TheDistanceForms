@@ -3,7 +3,7 @@
     "questions": [
         {
             "key": "first_name",
-            "type": "TextSingle", // "TextMultiline"
+            "type": "TextSingle",
             "prompt": "First Name",
             "keyboard_type": "Default",
             "capitalization": "Sentences",
@@ -28,10 +28,10 @@
         },
         {
             "key": "event_start",
-            "type": "Time", // DateTime
+            "type": "Time",
             "prompt": "Event Start Time",
             "time_format_style": "Medium",
-            "miniute_interval": 1, // 1 - 30, factor of 60
+            "miniute_interval": 1,
             "validation": {
                 "type": "NotEmpty",
                 "value_type": "Date",
@@ -39,8 +39,8 @@
             }
         },
          {
-             "key": "station",
-            "type": "ChoiceDropdown", // DateTime
+            "key": "station",
+            "type": "ChoiceDropdown",
             "prompt": "Select a station",
             "choices":[
                 "London King's Cross",
@@ -58,23 +58,24 @@
             }
         },
         {
-            "key": "gender",
-            "type": "ChoiceSegments", // DateTime
-            "prompt": "What is your preferred method of contact",
+            "key": "contact",
+            "type": "ChoiceSegments",
+                  "title": "Contact Preferences",
+            "subtitle": "How would you like us to keep in touch with you?",
             "choices":[
                 "Email",
                 "Phone",
                 "SMS"
             ],
             "validation": {
-                "type": "NotEmpty", // only not empty can be used with Number
+                "type": "NotEmpty",
                 "value_type": "Number",
                 "message": "You must select a preference"
             }
         },
         {
             "key": "newsletter",
-            "type": "Boolean", // DateTime
+            "type": "Boolean",
             "title": "Newsletter",
             "subtitle": "Would you like to keep up to date with all our latest news and offers?",
             "default": false,
@@ -82,13 +83,13 @@
         },
         {
             "key": "view_terms",
-            "type": "Button", // DateTime
+            "type": "Button",
             "title": "View Terms & Conditions",
             "validation": null
         },
         {
             "key": "Submit",
-            "type": "Button", // DateTime
+            "type": "Button",
             "title": "Submit",
             "validation": null
         }

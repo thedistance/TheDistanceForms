@@ -28,7 +28,10 @@ public class SwitchStack: ErrorStack, ValueElement {
             self.switchControl = switchControl
             
             self.titleLabel = titleLabel
+        self.titleLabel.numberOfLines = 0
+        
             self.subtitleLabel = subtitleLabel
+        self.subtitleLabel.numberOfLines = 0
             
             var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
             textStack.axis = .Vertical

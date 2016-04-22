@@ -15,7 +15,7 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     
     public let titleLabel:UILabel
     public let subtitleLabel:UILabel
-
+    
     public let choiceControl:UISegmentedControl
     
     public let inputStack:TextStack
@@ -31,37 +31,40 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     public var validation:Validation<Int>?
     
     public init(control:UISegmentedControl,
-        inputStack:TextStack,
-        titleLabel:UILabel = UILabel(),
-        subtitleLabel:UILabel = UILabel(),
-        errorLabel:UILabel = UILabel(),
-        errorImageView:UIImageView = UIImageView(),
-        iconImageView:UIImageView = UIImageView()) {
-            
-            choiceControl = control
-            self.inputStack = inputStack
+                inputStack:TextStack,
+                titleLabel:UILabel = UILabel(),
+                subtitleLabel:UILabel = UILabel(),
+                errorLabel:UILabel = UILabel(),
+                errorImageView:UIImageView = UIImageView(),
+                iconImageView:UIImageView = UIImageView()) {
+        
+        choiceControl = control
+        self.inputStack = inputStack
         inputStack.stackView.hidden = true
         
         self.titleLabel = titleLabel
+        self.titleLabel.numberOfLines = 0
+        
         self.subtitleLabel = subtitleLabel
+        self.subtitleLabel.numberOfLines = 0
         
         var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
         textStack.axis = .Vertical
         textStack.spacing = 4.0
         
-            var contentStack = CreateStackView([textStack.view, choiceControl, inputStack.stackView])
-            contentStack.axis = .Vertical
-            contentStack.spacing = 12.0
-            
-            super.init(centerComponent: contentStack.view,
-                errorLabel: errorLabel,
-                errorImageView: errorImageView,
-                iconImageView: iconImageView)
-            
-            stack.axis = .Vertical
-            stack.spacing = 12.0
-            
-            target = ObjectTarget(control:choiceControl, forControlEvents: .ValueChanged, completion: typeChange)
+        var contentStack = CreateStackView([textStack.view, choiceControl, inputStack.stackView])
+        contentStack.axis = .Vertical
+        contentStack.spacing = 12.0
+        
+        super.init(centerComponent: contentStack.view,
+                   errorLabel: errorLabel,
+                   errorImageView: errorImageView,
+                   iconImageView: iconImageView)
+        
+        stack.axis = .Vertical
+        stack.spacing = 12.0
+        
+        target = ObjectTarget(control:choiceControl, forControlEvents: .ValueChanged, completion: typeChange)
     }
     
     public func selectSegment(idx:Int) {
@@ -91,8 +94,8 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     public func setValue<T>(value: T?) -> Bool {
         if let idx = value as? Int
             where idx >= 0 && idx < choiceControl.numberOfSegments {
-                choiceControl.selectedSegmentIndex = idx
-                return true
+            choiceControl.selectedSegmentIndex = idx
+            return true
         } else {
             return false
         }

@@ -43,8 +43,27 @@
 		A5F0DEDD1CC9004C0032534D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEDB1CC9004C0032534D /* LaunchScreen.storyboard */; };
 		A5F0DEE81CC9004C0032534D /* FormsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */; };
 		A5F0DEF21CC900710032534D /* Form.json in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEF11CC900710032534D /* Form.json */; };
-		A5F0DEF51CC901640032534D /* DynamicFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEF41CC901640032534D /* DynamicFormView.swift */; };
 		A5F0DEF71CC902320032534D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; };
+		A5F0DEFA1CCA19790032534D /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEF91CCA19790032534D /* Form.swift */; };
+		A5F0DEFC1CCA198B0032534D /* FormQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEFB1CCA198B0032534D /* FormQuestion.swift */; };
+		A5F0DEFE1CCA19B80032534D /* FormEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEFD1CCA19B80032534D /* FormEnums.swift */; };
+		A5F0DF011CCA2C4B0032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
+		A5F0DF021CCA2C4B0032534D /* TheDistanceForms.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF041CCA2C510032534D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; };
+		A5F0DF051CCA2C510032534D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF061CCA2C510032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
+		A5F0DF071CCA2C510032534D /* StackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF081CCA2C510032534D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
+		A5F0DF091CCA2C510032534D /* TheDistanceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF0A1CCA2C510032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
+		A5F0DF0B1CCA2C510032534D /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF0D1CCA343E0032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
+		A5F0DF0E1CCA343E0032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
+		A5F0DF0F1CCA35E00032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
+		A5F0DF101CCA35E00032534D /* KeyboardResponder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5F0DF121CCA3C080032534D /* FormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DF111CCA3C080032534D /* FormContainer.swift */; };
+		A5F0DF141CCA49B40032534D /* FormQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DF131CCA49B40032534D /* FormQuestionView.swift */; };
+		A5F0DF161CCA55A30032534D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DF151CCA55A30032534D /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +95,33 @@
 			remoteGlobalIDString = A5F0DECF1CC9004C0032534D;
 			remoteInfo = FormsDemo;
 		};
+		A5F0DEFF1CCA2C430032534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5F0DE221CC8C5F80032534D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5F0DE2A1CC8C5F80032534D;
+			remoteInfo = TheDistanceForms;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5F0DF031CCA2C4C0032534D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A5F0DF071CCA2C510032534D /* StackView.framework in Embed Frameworks */,
+				A5F0DF0B1CCA2C510032534D /* TZStackView.framework in Embed Frameworks */,
+				A5F0DF101CCA35E00032534D /* KeyboardResponder.framework in Embed Frameworks */,
+				A5F0DF051CCA2C510032534D /* SwiftyJSON.framework in Embed Frameworks */,
+				A5F0DF091CCA2C510032534D /* TheDistanceCore.framework in Embed Frameworks */,
+				A5F0DF021CCA2C4B0032534D /* TheDistanceForms.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TheDistanceForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,14 +155,6 @@
 		A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
 		A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
 		A5F0DE921CC8C80A0032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		A5F0DEAD1CC8FFED0032534D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5F0DEAF1CC8FFED0032534D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A5F0DEB21CC8FFED0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A5F0DEB41CC8FFED0032534D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A5F0DEB71CC8FFED0032534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A5F0DEB91CC8FFED0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5F0DEC21CC8FFED0032534D /* FormsTestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsTestsTests.swift; sourceTree = "<group>"; };
-		A5F0DEC41CC8FFED0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5F0DED01CC9004C0032534D /* FormsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F0DED21CC9004C0032534D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5F0DED41CC9004C0032534D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,8 +166,14 @@
 		A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsDemoTests.swift; sourceTree = "<group>"; };
 		A5F0DEE91CC9004C0032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5F0DEF11CC900710032534D /* Form.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Form.json; path = Resources/Form.json; sourceTree = "<group>"; };
-		A5F0DEF41CC901640032534D /* DynamicFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFormView.swift; sourceTree = "<group>"; };
 		A5F0DEF61CC902320032534D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		A5F0DEF91CCA19790032534D /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		A5F0DEFB1CCA198B0032534D /* FormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormQuestion.swift; sourceTree = "<group>"; };
+		A5F0DEFD1CCA19B80032534D /* FormEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormEnums.swift; sourceTree = "<group>"; };
+		A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardResponder.framework; path = Carthage/Build/iOS/KeyboardResponder.framework; sourceTree = "<group>"; };
+		A5F0DF111CCA3C080032534D /* FormContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormContainer.swift; sourceTree = "<group>"; };
+		A5F0DF131CCA49B40032534D /* FormQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormQuestionView.swift; sourceTree = "<group>"; };
+		A5F0DF151CCA55A30032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DF0D1CCA343E0032534D /* KeyboardResponder.framework in Frameworks */,
 				A5F0DEF71CC902320032534D /* SwiftyJSON.framework in Frameworks */,
 				A5F0DE681CC8C6A90032534D /* TheDistanceCore.framework in Frameworks */,
 				A5F0DE671CC8C6A90032534D /* StackView.framework in Frameworks */,
@@ -178,6 +222,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DF061CCA2C510032534D /* StackView.framework in Frameworks */,
+				A5F0DF0F1CCA35E00032534D /* KeyboardResponder.framework in Frameworks */,
+				A5F0DF0A1CCA2C510032534D /* TZStackView.framework in Frameworks */,
+				A5F0DF0E1CCA343E0032534D /* KeyboardResponder.framework in Frameworks */,
+				A5F0DF041CCA2C510032534D /* SwiftyJSON.framework in Frameworks */,
+				A5F0DF081CCA2C510032534D /* TheDistanceCore.framework in Frameworks */,
+				A5F0DF011CCA2C4B0032534D /* TheDistanceForms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +245,6 @@
 		A5F0DE211CC8C5F80032534D = {
 			isa = PBXGroup;
 			children = (
-				A5F0DEAC1CC8FFED0032534D /* FormsTests */,
-				A5F0DEC11CC8FFED0032534D /* FormsTestsTests */,
 				A5F0DED11CC9004C0032534D /* FormsDemo */,
 				A5F0DEE61CC9004C0032534D /* FormsDemoTests */,
 				A5F0DE611CC8C6520032534D /* Frameworks */,
@@ -224,7 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */,
-				A5F0DEF31CC9013F0032534D /* DynamicForms */,
+				A5F0DF151CCA55A30032534D /* Media.xcassets */,
+				A5F0DEF81CCA19790032534D /* Dynamic Forms */,
 				A5F0DE6E1CC8C7EF0032534D /* Classes */,
 				A5F0DE7B1CC8C7EF0032534D /* Extensions */,
 				A5F0DE7D1CC8C7EF0032534D /* Protocols */,
@@ -275,6 +325,7 @@
 		A5F0DE621CC8C6590032534D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */,
 				A5F0DEF61CC902320032534D /* SwiftyJSON.framework */,
 				A5F0DE641CC8C6A90032534D /* StackView.framework */,
 				A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */,
@@ -335,7 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */,
-				A5F0DEF41CC901640032534D /* DynamicFormView.swift */,
+				A5F0DF111CCA3C080032534D /* FormContainer.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -359,28 +410,6 @@
 			name = Resources;
 			path = TheDistanceFormsPhotosVideosTests/Resources;
 			sourceTree = SOURCE_ROOT;
-		};
-		A5F0DEAC1CC8FFED0032534D /* FormsTests */ = {
-			isa = PBXGroup;
-			children = (
-				A5F0DEAD1CC8FFED0032534D /* AppDelegate.swift */,
-				A5F0DEAF1CC8FFED0032534D /* ViewController.swift */,
-				A5F0DEB11CC8FFED0032534D /* Main.storyboard */,
-				A5F0DEB41CC8FFED0032534D /* Assets.xcassets */,
-				A5F0DEB61CC8FFED0032534D /* LaunchScreen.storyboard */,
-				A5F0DEB91CC8FFED0032534D /* Info.plist */,
-			);
-			path = FormsTests;
-			sourceTree = "<group>";
-		};
-		A5F0DEC11CC8FFED0032534D /* FormsTestsTests */ = {
-			isa = PBXGroup;
-			children = (
-				A5F0DEC21CC8FFED0032534D /* FormsTestsTests.swift */,
-				A5F0DEC41CC8FFED0032534D /* Info.plist */,
-			);
-			path = FormsTestsTests;
-			sourceTree = "<group>";
 		};
 		A5F0DECB1CC8FFF60032534D /* Resources */ = {
 			isa = PBXGroup;
@@ -420,11 +449,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A5F0DEF31CC9013F0032534D /* DynamicForms */ = {
+		A5F0DEF81CCA19790032534D /* Dynamic Forms */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0DEF91CCA19790032534D /* Form.swift */,
+				A5F0DEFB1CCA198B0032534D /* FormQuestion.swift */,
+				A5F0DF131CCA49B40032534D /* FormQuestionView.swift */,
+				A5F0DEFD1CCA19B80032534D /* FormEnums.swift */,
 			);
-			name = DynamicForms;
+			path = "Dynamic Forms";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,10 +562,12 @@
 				A5F0DECC1CC9004C0032534D /* Sources */,
 				A5F0DECD1CC9004C0032534D /* Frameworks */,
 				A5F0DECE1CC9004C0032534D /* Resources */,
+				A5F0DF031CCA2C4C0032534D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A5F0DF001CCA2C430032534D /* PBXTargetDependency */,
 			);
 			name = FormsDemo;
 			productName = FormsDemo;
@@ -616,6 +651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0DF161CCA55A30032534D /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,15 +703,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */,
+				A5F0DF121CCA3C080032534D /* FormContainer.swift in Sources */,
+				A5F0DEFC1CCA198B0032534D /* FormQuestion.swift in Sources */,
 				A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */,
 				A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */,
 				A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */,
-				A5F0DEF51CC901640032534D /* DynamicFormView.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
 				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
 				A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */,
+				A5F0DEFA1CCA19790032534D /* Form.swift in Sources */,
 				A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */,
 				A5F0DE891CC8C7EF0032534D /* Validation.swift in Sources */,
+				A5F0DEFE1CCA19B80032534D /* FormEnums.swift in Sources */,
+				A5F0DF141CCA49B40032534D /* FormQuestionView.swift in Sources */,
 				A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,25 +786,14 @@
 			target = A5F0DECF1CC9004C0032534D /* FormsDemo */;
 			targetProxy = A5F0DEE41CC9004C0032534D /* PBXContainerItemProxy */;
 		};
+		A5F0DF001CCA2C430032534D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5F0DE2A1CC8C5F80032534D /* TheDistanceForms */;
+			targetProxy = A5F0DEFF1CCA2C430032534D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A5F0DEB11CC8FFED0032534D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5F0DEB21CC8FFED0032534D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A5F0DEB61CC8FFED0032534D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5F0DEB71CC8FFED0032534D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		A5F0DED61CC9004C0032534D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1001,7 +1030,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FormsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1012,7 +1047,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FormsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

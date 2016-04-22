@@ -10,6 +10,7 @@ import Foundation
 
 import StackView
 import TheDistanceCore
+import KeyboardResponder
 
 /**
 
@@ -19,13 +20,8 @@ import TheDistanceCore
  
 */
 @IBDesignable
-public class TextFieldStack: TextStack {
+public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     
-    /// Optional variable that retains a reference to a `UIPickerViewDataController` if one is requried.
-    var pickerController:UIPickerViewDataController?
-    
-    /// Optional variable that retains a reference to a `UIDatePickerDataController` if one is requried.
-    var dateController:UIDatePickerDataController?
     
     // MARK: - Properties
     /// The whitespace trimmed text entered into the `textField`.
@@ -56,6 +52,18 @@ public class TextFieldStack: TextStack {
     
     private var textBeginObserver:NotificationObserver?
     private var textEndObserver:NotificationObserver?
+    
+    /// The component to use with a `KeyboardResponder`.
+    public var inputComponent: KeyboardResponderInputType {
+        return .TextField(textField)
+    }
+    
+    /// Optional variable that retains a reference to a `UIPickerViewDataController` if one is requried.
+    var pickerController:UIPickerViewDataController?
+    
+    /// Optional variable that retains a reference to a `UIDatePickerDataController` if one is requried.
+    var dateController:UIDatePickerDataController?
+    
     
     // MARK: - CreatedStack Methods
     

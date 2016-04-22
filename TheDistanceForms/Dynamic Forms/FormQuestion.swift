@@ -1,37 +1,42 @@
 //
-//  DynamicFormView.swift
+//  FormQuestion.swift
 //  TheDistanceForms
 //
-//  Created by Josh Campion on 21/04/2016.
+//  Created by Josh Campion on 22/04/2016.
 //  Copyright © 2016 The Distance. All rights reserved.
 //
 
 import Foundation
-import SwiftyJSON
+
 import StackView
+import SwiftyJSON
 
 public class FormQuestion {
     
-    private(set) var questionView:CreatedStack
+    // MARK: Properties
     
-    let key:String
+    private(set) var questionView:FormQuestionView!
     
-    let definition:JSON
+    public let key:String
     
-    init?(json:JSON) {
+    public let definition:JSON
+    
+    // MARK: Initialisers
+    
+    public init?(json:JSON) {
         
         definition = json
         
         if let key = json["key"].string,
             let typeString = json["type"].string,
-            let type = FormType(rawValue: typeString) {
+            let type = FormQuestionType(rawValue: typeString) {
             
             self.key = key
             
             // create a blank one so the view can be created in a method not this initialiser
-            questionView = CreatedStack(arrangedSubviews: [])
+            questionView = .None
             
-            let view:CreatedStack?
+            let view:FormQuestionView?
             switch type {
             case .TextSingle:
                 view = textSingleViewForQuestion(json)
@@ -43,10 +48,10 @@ public class FormQuestion {
                 view = dropdownViewForQuestion(json)
             case .ChoiceSegments:
                 view = segmentViewForQuestion(json)
-            case .Switch:
+            case .Boolean:
                 view = switchViewForQuestion(json)
-            default:
-                view = nil
+            case .Button:
+                view = buttonViewForQuestion(json)
             }
             
             if let v = view {
@@ -58,31 +63,33 @@ public class FormQuestion {
         } else {
             return nil
         }
-
-        
     }
     
-    public func checkQuestionDefinition(questionDefinition:JSON, isType:FormType) -> Bool {
+    // MARK: Convenience Methods
+    
+    public func checkQuestionDefinition(questionDefinition:JSON, isType:FormQuestionType) -> Bool {
         return checkQuestionDefinition(questionDefinition, isOneOfType: [isType])
     }
     
-    public func checkQuestionDefinition(questionDefinition:JSON, isOneOfType:[FormType]) -> Bool {
+    public func checkQuestionDefinition(questionDefinition:JSON, isOneOfType:[FormQuestionType]) -> Bool {
         
         if let typeString = questionDefinition["type"].string,
-            let type = FormType(rawValue: typeString) {
+            let type = FormQuestionType(rawValue: typeString) {
             return isOneOfType.contains(type)
         }
         
         return false
     }
     
-    public func textSingleViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    // MARK: Configured View Creation
+    
+    public func textSingleViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
         guard checkQuestionDefinition(questionDefinition, isType: .TextSingle),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // Create the view
-        let textElement = TextFieldStack()
+        let textElement = newTextSingleView()
         textElement.placeholderText = prompt
         
         // UITextInputTraits
@@ -117,35 +124,35 @@ public class FormQuestion {
             }
         }
         
-        return textElement
+        return .TextSingle(textElement)
     }
     
-    public func textMultiViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    public func textMultiViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
         guard checkQuestionDefinition(questionDefinition, isType: .TextSingle),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // create the view
-        let textElement = TextFieldStack()
+        let textElement = newTextMultilineView()
         textElement.placeholderText = prompt
         
         // UITextInputTraits
         if let kbTypeString = questionDefinition["keyboardType"].string,
             let kbType = KeyboardType(rawValue: kbTypeString) {
-            textElement.textField.keyboardType = kbType.uiKeyboardType
+            textElement.textView.keyboardType = kbType.uiKeyboardType
         }
         
         if let capitalString = questionDefinition["capitalization"].string,
             let capital = CapitalizationType(rawValue: capitalString) {
-            textElement.textField.autocapitalizationType = capital.uiAutoCapitalizationType
+            textElement.textView.autocapitalizationType = capital.uiAutoCapitalizationType
         }
         
         if let autoCorrect = questionDefinition["auto_correct"].bool {
-            textElement.textField.autocorrectionType = autoCorrect ? .Yes : .No
+            textElement.textView.autocorrectionType = autoCorrect ? .Yes : .No
         }
         
         if let secure = questionDefinition["secure_text_entry"].bool {
-            textElement.textField.secureTextEntry = secure
+            textElement.textView.secureTextEntry = secure
         }
         
         // Validation
@@ -157,18 +164,18 @@ public class FormQuestion {
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
         
-        return textElement
+        return .TextMultiline(textElement)
     }
     
-    public func dateTimeViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    public func dateTimeViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
         guard let typeString = questionDefinition["type"].string,
-            let type = FormType(rawValue: typeString)
+            let type = FormQuestionType(rawValue: typeString)
             where [.Date, .Time, .DateTime].contains(type),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // Create the view
-        let textElement = TextFieldStack()
+        let textElement = newTextSingleView()
         textElement.placeholderText = prompt
         
         // Create the picker
@@ -203,6 +210,10 @@ public class FormQuestion {
             dateController.dateFormatter.timeStyle = timeFormat.dateFormatStyle
         }
         
+        if let interval = questionDefinition["miniute_interval"].int {
+            dateController.datePicker.minuteInterval = interval
+        }
+        
         // validation
         
         if let typeString = questionDefinition["type"].string,
@@ -216,10 +227,19 @@ public class FormQuestion {
             textElement.validation = NonEmptyStringValidation(message)
         }
         
-        return textElement
+        switch type {
+        case .Date:
+            return .Date(textElement, dateController)
+        case .DateTime:
+            return .DateTime(textElement, dateController)
+        case .Time:
+            return .Time(textElement, dateController)
+        default:
+            return nil
+        }
     }
     
-    public func dropdownViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    public func dropdownViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
         guard checkQuestionDefinition(questionDefinition, isType: .ChoiceDropdown),
             let prompt = questionDefinition["prompt"].string,
@@ -228,7 +248,7 @@ public class FormQuestion {
             else { return nil }
         
         // Create the view
-        let textElement = TextFieldStack()
+        let textElement = newTextSingleView()
         textElement.placeholderText = prompt
         
         // Create the picker
@@ -243,22 +263,24 @@ public class FormQuestion {
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
         
-        return textElement
+        return .ChoiceDropdown(textElement, controller)
     }
     
-    public func segmentViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    public func segmentViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .ChoiceDropdown),
-            let prompt = questionDefinition["prompt"].string,
+        guard checkQuestionDefinition(questionDefinition, isType: .ChoiceSegments),
             let choices = questionDefinition["choices"].array?.flatMap({ $0.string })
             where choices.count > 0
             else { return nil }
-
-        let segments = UISegmentedControl(items: choices)
         
-        let segmentElement = SegmentedTextFieldStack(control: segments, inputStack: TextFieldStack())
+        let segmentElement = newSegmentChoiceViewWithChoices(choices)
         
-        segmentElement.titleLabel.text = prompt
+        
+        segmentElement.titleLabel.text = questionDefinition["title"].string
+        segmentElement.titleLabel.hidden = segmentElement.titleLabel.text?.isEmpty ?? true
+        
+        segmentElement.subtitleLabel.text = questionDefinition["subtitle"].string
+        segmentElement.subtitleLabel.hidden = segmentElement.subtitleLabel.text?.isEmpty ?? true
         
         if let validationValueTypeString = questionDefinition["validation", "value_type"].string,
             let validationValue = ValidationValueType(rawValue: validationValueTypeString)
@@ -267,17 +289,15 @@ public class FormQuestion {
             segmentElement.validation = numberValidationForDefinition(questionDefinition["validation"])
         }
         
-        return segmentElement
+        return .ChoiceSegments(segmentElement)
     }
     
-    public func switchViewForQuestion(questionDefinition:JSON) -> CreatedStack? {
+    public func switchViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .ChoiceDropdown),
-            let choices = questionDefinition["choices"].array?.flatMap({ $0.string })
-            where choices.count > 0
+        guard checkQuestionDefinition(questionDefinition, isType: .Boolean)
             else { return nil }
         
-        let switchElement = SwitchStack(switchControl: UISwitch())
+        let switchElement = newSwitchView()
         
         switchElement.titleLabel.text = questionDefinition["title"].string
         switchElement.titleLabel.hidden = switchElement.titleLabel.text?.isEmpty ?? true
@@ -288,10 +308,24 @@ public class FormQuestion {
         if let defaultValue = questionDefinition["default"].bool {
             switchElement.switchControl.on = defaultValue
         }
-
         
-        return switchElement
+        
+        return .Boolean(switchElement)
     }
+    
+    public func buttonViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+        
+        guard checkQuestionDefinition(questionDefinition, isType: .Button),
+            let title = questionDefinition["title"].string
+            else { return nil }
+        
+        let button = newButtonView()
+        button.setTitle(title, forState: .Normal)
+        
+        return .Button(button)
+    }
+    
+    // MARK: Validation Creation
     
     public func stringValidationForDefinition(definition:JSON?) -> Validation<String>? {
         
@@ -299,7 +333,7 @@ public class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = ValidationValueType(rawValue: valueTypeString),
-            let message = definition?["type"].string
+            let message = definition?["message"].string
             where valueType == .String
             else { return nil }
         
@@ -321,7 +355,7 @@ public class FormQuestion {
             }
         }
     }
-
+    
     public func numberValidationForDefinition(definition:JSON?) -> Validation<Int>? {
         
         guard let typeString = definition?["type"].string,
@@ -342,152 +376,103 @@ public class FormQuestion {
             return nil
         }
     }
-
-}
-
-public class Form {
-    
-    let title:String?
     
     
-    private (set) var formView:StackView
+    // MARK: View Creation
     
-    init(definition:JSON) {
+    /**
+     
+     Creates a view to display single line text configured with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in the following `FormQuestionType`s:
+     
+     - `.TextSingle`
+     - `.Date`, `.DateTime`, `.Time`
+     - `.ChoiceDropdown`
+     
+      - seealso: `textSingleViewForQuestion(_:)`
+      - seealso: `dateTimeViewForQuestion(_:)`
+      - seealso: `dropdownViewForQuestion(_:)`
+     
+     - returns: A newly initialised `TextFieldStack`.
+     */
+    public func newTextSingleView() -> TextFieldStack {
         
-        title = definition["title"].string
+        let textStack = TextFieldStack()
         
-        guard let questionDefinitions = definition.array else {
-            formView = CreateStackView([])
-            return
-        }
+        textStack.placeholderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        textStack.errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        textStack.textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         
-        // initialise as empty so can call other methods from this initialiser
-        formView = CreateStackView([])
-        
-        let views = questionDefinitions.flatMap { FormQuestion(json: $0) }
-        
-        
-        formView = CreateStackView(views.map { $0.questionView.stackView })
-        formView.axis = .Vertical
-        formView.spacing = 8.0
+        return textStack
     }
     
-}
+    /**
+     
+     Creates a view to display multiple lines of text configured with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in `.TextMultiline FormQuestionType`s.
+     
+     - seealso: `textMultiViewForQuestion(_:)`
+     
+     - returns: A newly initialised `TextViewStack`.
 
-public enum FormType:String {
-    
-    case TextSingle
-    case TextMultiline
-    case Date
-    case Time
-    case DateTime
-    case ChoiceDropdown // choose from a Picker View
-    case ChoiceSegments
-    case ChoiceSelection // like a radio selection
-    case Switch
-    case Button
-}
-
-public enum ValidationType:String {
-    
-    case NotEmpty
-    case Email
-    case Number
-    case Postcode
-    case Regex
-    
-}
-
-public enum ValidationValueType:String {
-    
-    case String
-    case Date
-    case Bool
-    case Number
-    
-}
-
-public enum KeyboardType:String {
-    
-    case Default // Default type for the current input method.
-    case ASCIICapable // Displays a keyboard which can enter ASCII characters, non-ASCII keyboards remain active
-    case NumbersAndPunctuation // Numbers and assorted punctuation.
-    case URL // A type optimized for URL entry (shows . / .com prominently).
-    case NumberPad // A number pad (0-9). Suitable for PIN entry.
-    case PhonePad // A phone pad (1-9, *, 0, #, with letters under the numbers).
-    case NamePhonePad // A type optimized for entering a person's name or phone number.
-    case EmailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
-    case DecimalPad // A number pad with a decimal point.
-    case Twitter // A type optimized for twitter text entry (easy access to @ #)
-    case WebSearch // A default keyboard type with URL-oriented addition (shows space . prominently).
-    
-    /// The `UIKeyboardType` equivalent for this enum.
-    var uiKeyboardType:UIKeyboardType {
-        switch self {
-        case .Default:
-            return .Default
-        case .ASCIICapable:
-            return .ASCIICapable
-        case .NumbersAndPunctuation:
-            return .NumbersAndPunctuation
-        case .URL:
-            return .URL
-        case .NumberPad:
-            return .NumberPad
-        case .PhonePad:
-            return .PhonePad
-        case .NamePhonePad:
-            return .NamePhonePad
-        case .EmailAddress:
-            return .EmailAddress
-        case .DecimalPad:
-            return .DecimalPad
-        case .Twitter:
-            return .Twitter
-        case .WebSearch:
-            return .WebSearch
-        }
+     */
+    public func newTextMultilineView() -> TextViewStack {
+        
+        let textStack = TextViewStack()
+        
+        textStack.placeholderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        textStack.errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        textStack.textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        
+        return textStack
     }
-}
-
-public enum CapitalizationType : String {
     
-    case None
-    case Words
-    case Sentences
-    case AllCharacters
-    
-    var uiAutoCapitalizationType: UITextAutocapitalizationType {
-        switch self {
-        case .None:
-            return .None
-        case .Words:
-            return .Words
-        case .Sentences:
-            return .Sentences
-        case .AllCharacters:
-            return .AllCharacters
-        }
+    /**
+     
+     Creates a view to display segmented choices with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in `.ChoiceSegments FormQuestionType`s.
+     
+     - seealso: `segmentViewForQuestion(_:)`
+     
+     - returns: A newly initialised `SegmentedTextFieldStack`.
+     
+    */
+    public func newSegmentChoiceViewWithChoices(choices:[String]) -> SegmentedTextFieldStack {
+        
+        let segments = UISegmentedControl(items: choices)
+        let input = newTextSingleView()
+        let segmentElement = SegmentedTextFieldStack(control: segments, inputStack: input)
+        segmentElement.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        segmentElement.subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
+        return segmentElement
     }
-}
-
-public enum DateTimeFormatStyle: String {
     
-    case Short
-    case Medium
-    case Long
-    case Full
-    
-    var dateFormatStyle: NSDateFormatterStyle {
-        switch self {
-        case .Short:
-            return .ShortStyle
-        case .Medium:
-            return .MediumStyle
-        case .Long:
-            return .LongStyle
-        case .Full:
-            return .FullStyle
-        }
+    /**
+     
+     Creates a view to display segmented choices with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in `.ChoiceSegments FormQuestionType`s.
+     
+     - returns: A newly initialised `SegmentedTextFieldStack`.
+     
+     */
+    public func newSwitchView() -> SwitchStack {
+        
+        let switchStack = SwitchStack(switchControl: UISwitch())
+        switchStack.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        switchStack.subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
+        return switchStack
     }
+    
+    /**
+     
+     Creates a view to display buttons with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in `.Button FormQuestionType`s.
+     
+     - returns: A newly initialised `UIButton` with `.System` type.
+     
+     */
+    public func newButtonView() -> UIButton {
+        
+        let button = UIButton(type: .System)
+        button.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        return button
+    }
+    
 }
