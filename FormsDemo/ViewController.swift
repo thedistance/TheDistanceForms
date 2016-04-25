@@ -14,7 +14,7 @@ import TheDistanceCore
 import KeyboardResponder
 
 class ViewController: UIViewController, FormContainer {
-
+    
     var form:Form?
     var buttonTargets: [ObjectTarget<UIButton>] = []
     
@@ -36,9 +36,42 @@ class ViewController: UIViewController, FormContainer {
         self.form = form
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
     }
-
+    
     func buttonTappedForQuestion(question: FormQuestion) {
         print("Tapped button: \(question.key)")
+        
+        if question.key == "Submit" {
+            submitTapped()
+        }
+    }
+    
+    func submitTapped() {
+        
+        guard let form = self.form else { return }
+        
+        let validation = form.validateForm()
+        
+        if validation.0 == .Valid {
+            
+            let results = form.answersJSON()
+            
+            print(results)
+        } else {
+            
+            let errors = validation.1.flatMap({ (question, result) -> String? in
+                switch result {
+                case .Valid:
+                    return nil
+                case .Invalid(let reason):
+                    return "\(question.key): \(reason)"
+                }
+            })
+            
+            let errorString = errors.joinWithSeparator("\n")
+            
+            print("errors still in form:\n\(errorString)")
+            
+        }
     }
 }
 

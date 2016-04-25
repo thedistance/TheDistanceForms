@@ -18,7 +18,7 @@ public class FormQuestion {
     private(set) var questionView:FormQuestionView!
     
     public let key:String
-    
+    public let type:FormQuestionType
     public let definition:JSON
     
     // MARK: Initialisers
@@ -32,6 +32,7 @@ public class FormQuestion {
             let type = FormQuestionType(rawValue: typeString) {
             
             self.key = key
+            self.type = type
             
             // create a blank one so the view can be created in a method not this initialiser
             questionView = .None
@@ -201,6 +202,8 @@ public class FormQuestion {
             let dateFormat = DateTimeFormatStyle(rawValue: dateFormatString) {
             
             dateController.dateFormatter.dateStyle = dateFormat.dateFormatStyle
+        } else {
+            dateController.dateFormatter.dateStyle = .NoStyle
         }
         
         if type == .Time || type == .DateTime,
@@ -208,6 +211,8 @@ public class FormQuestion {
             let timeFormat = DateTimeFormatStyle(rawValue: timeFormatString) {
             
             dateController.dateFormatter.timeStyle = timeFormat.dateFormatStyle
+        } else {
+            dateController.dateFormatter.timeStyle = .NoStyle
         }
         
         if let interval = questionDefinition["miniute_interval"].int {
@@ -329,7 +334,7 @@ public class FormQuestion {
     
     public func stringValidationForDefinition(definition:JSON?) -> Validation<String>? {
         
-        guard let typeString = definition?["question_type"].string,
+        guard let typeString = definition?["type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),

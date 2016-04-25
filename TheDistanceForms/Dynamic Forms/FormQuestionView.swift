@@ -76,7 +76,7 @@ public enum FormQuestionView: ValueElement {
         case .Date(let tf, let controller):
             
             if tf.getValue() != nil {
-                return controller.datePicker.date
+                return controller.datePicker.date.description
             } else {
                 return nil
             }
@@ -84,7 +84,7 @@ public enum FormQuestionView: ValueElement {
         case .Time(let tf, let controller):
             
             if tf.getValue() != nil {
-                return controller.datePicker.date
+                return controller.datePicker.date.description
             } else {
                 return nil
             }
@@ -92,7 +92,7 @@ public enum FormQuestionView: ValueElement {
         case .DateTime(let tf, let controller):
             
             if tf.getValue() != nil {
-                return controller.datePicker.date
+                return controller.datePicker.date.description
             } else {
                 return nil
             }

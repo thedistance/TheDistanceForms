@@ -61,5 +61,43 @@ public class Form: KeyedValueElementContainer {
         return questions.filter({ $0.key == key }).first?.questionView
     }
     
+    public func validateForm() -> (ValidationResult, [(FormQuestion, ValidationResult)]) {
+        
+        let answerableQuestions = questions.filter { $0.type != .Button }
+        let results = answerableQuestions.map { ($0, $0.questionView.validateValue()) }
+        
+        let totalResult = answerableQuestions
+            .map { $0.questionView.validateValue() }
+            .reduce(.Valid, combine: { $0 && $1 })
+        
+        return (totalResult, results)
+    }
     
+    /**
+     - returns: A JSON dictionary of all the answers in the form. Questions not answered have a `.Null` JSON type.
+    */
+    public func answersJSON() -> JSON {
+        
+        let answerableQuestions = questions.filter { $0.type != .Button }
+        
+        let answers = answerableQuestions
+            .map { (question) -> (String, JSON) in
+            
+            let key = question.key
+            let value = question.questionView.getValue()
+            
+            let json:JSON
+            if let valueObject = value as? AnyObject {
+                json = JSON(valueObject)
+            } else {
+                json = JSON(NSNull())
+            }
+            
+            return (key, json)
+        }
+        
+        let answersDict = Dictionary(answers)
+        
+        return JSON(answersDict)
+    }
 }

@@ -30,8 +30,8 @@
             "key": "event_start",
             "question_type": "Time",
             "prompt": "Event Start Time",
-            "time_format_style": "Medium",
-            "miniute_interval": 1,
+            "time_format_style": "Short",
+            "miniute_interval": 5,
             "validation": {
                 "type": "NotEmpty",
                 "value_type": "Date",
