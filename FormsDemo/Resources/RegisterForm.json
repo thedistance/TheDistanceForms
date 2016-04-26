@@ -1,0 +1,87 @@
+{
+    "title": "Register",
+    "questions": [
+        {
+            "key": "title",
+            "question_type": "ChoiceDropdown",
+            "prompt": "Title",
+            "choices": [
+                "Miss",
+                "Ms",
+                "Mrs",
+                "Dame",
+                "Master",
+                "Mr",
+                "Dr",
+                "Sir"
+            ],
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "Please select your title."
+            }
+        },
+        {
+            "key": "first_name",
+            "question_type": "TextSingle",
+            "prompt": "First Name",
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "Please enter your first name."
+            }
+        },
+        {
+            "key": "last_name",
+            "question_type": "TextSingle",
+            "prompt": "Last Name",
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "Please enter your last name."
+            }
+        },
+        {
+            "key": "email",
+            "question_type": "TextSingle",
+            "prompt": "Email Address",
+            "keyboard_type": "EmailAddress",
+            "capitalization": ".None",
+            "auto_correction": false,
+            "validation": {
+                "type": "Email",
+                "value_type": "String",
+                "message": "Please enter a valid email address."
+            }
+        },
+        {
+            "key": "password",
+            "question_type": "TextSingle",
+            "prompt": "Password",
+            "capitalization": ".None",
+            "auto_correction": false,
+            "secure_text_entry": true,
+            "validation": {
+                "type": "Regex",
+                "value_type": "String",
+                "regex": "^[a-zA-Z0-9]{6,}$",
+                "message": "Please enter a password at least 6 characters long containing only letters and numbers."
+            }
+        },
+        {
+            "key": "confirm_password",
+            "question_type": "TextSingle",
+            "prompt": "Password",
+            "capitalization": ".None",
+            "auto_correction": false,
+            "secure_text_entry": true
+        },
+        {
+            "key": "sign_up",
+            "question_type": "Button",
+            "title": "Sign Up"
+        }
+    ]
+}
+
+        

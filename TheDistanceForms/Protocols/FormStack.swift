@@ -75,7 +75,7 @@ public protocol KeyedView {
     
     associatedtype KeyType:HashableRaw
     
-    var viewKeys:[KeyType:UIView] { get set }
+    var viewKeys:[KeyType:UIView] { get }
 }
 
 public typealias KeyedValueElementContainerView = protocol<KeyedView, KeyedValueElementContainer>

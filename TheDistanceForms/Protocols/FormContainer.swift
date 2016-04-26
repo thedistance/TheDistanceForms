@@ -17,7 +17,7 @@ public protocol FormContainer: class {
     var form:Form? { get }
     var buttonTargets:[ObjectTarget<UIButton>] { get set }
     
-    func addFormFromURL(jsonURL:NSURL, toContainerView:UIView, withInsets:UIEdgeInsets) -> Form?
+    func addFormFromURL(jsonURL:NSURL, ofType formType:Form.Type, questionType:FormQuestion.Type, toContainerView:UIView, withInsets:UIEdgeInsets) -> Form?
     
     func setUpKeyboardResponder(responder:KeyboardResponder, withInputAccessoryView:KeyboardResponderInputAccessoryView?, onForm:Form, withScrollView:UIScrollView) -> KeyboardResponder
     
@@ -70,10 +70,10 @@ public extension FormContainer {
 
 public extension FormContainer where Self:UIViewController {
     
-    public func addFormFromURL(jsonURL:NSURL, toContainerView container:UIView, withInsets:UIEdgeInsets = UIEdgeInsetsZero) -> Form? {
+    public func addFormFromURL(jsonURL:NSURL, ofType formType:Form.Type = Form.self, questionType:FormQuestion.Type = FormQuestion.self, toContainerView container:UIView, withInsets:UIEdgeInsets = UIEdgeInsetsZero) -> Form? {
         
         guard let data = NSData(contentsOfURL: jsonURL),
-            let form = Form(definition: JSON(data:data))
+            let form = formType.init(definition: JSON(data:data), questionType: questionType)
             else {
                 return nil
         }

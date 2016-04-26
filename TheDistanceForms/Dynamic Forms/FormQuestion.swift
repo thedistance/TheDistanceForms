@@ -15,7 +15,7 @@ public class FormQuestion {
     
     // MARK: Properties
     
-    private(set) var questionView:FormQuestionView!
+    private(set) public var questionView:FormQuestionView!
     
     public let key:String
     public let type:FormQuestionType
@@ -23,7 +23,7 @@ public class FormQuestion {
     
     // MARK: Initialisers
     
-    public init?(json:JSON) {
+    required public init?(json:JSON) {
         
         definition = json
         
@@ -130,7 +130,7 @@ public class FormQuestion {
     
     public func textMultiViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .TextSingle),
+        guard checkQuestionDefinition(questionDefinition, isType: .TextMultiline),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // create the view
@@ -215,7 +215,7 @@ public class FormQuestion {
             dateController.dateFormatter.timeStyle = .NoStyle
         }
         
-        if let interval = questionDefinition["miniute_interval"].int {
+        if let interval = questionDefinition["minute_interval"].int {
             dateController.datePicker.minuteInterval = interval
         }
         
@@ -363,7 +363,7 @@ public class FormQuestion {
     
     public func numberValidationForDefinition(definition:JSON?) -> Validation<Int>? {
         
-        guard let typeString = definition?["question_type"].string,
+        guard let typeString = definition?["type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),

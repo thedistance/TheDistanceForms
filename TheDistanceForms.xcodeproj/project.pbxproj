@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A592A02E1CCF5D2300128D4D /* EventFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */; };
+		A592A0301CCF5E0400128D4D /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02F1CCF5E0400128D4D /* EventForm.swift */; };
+		A592A0341CCF628E00128D4D /* EventForm.json in Resources */ = {isa = PBXBuildFile; fileRef = A592A0331CCF628E00128D4D /* EventForm.json */; };
+		A592A0361CCFB68800128D4D /* RegisterForm.json in Resources */ = {isa = PBXBuildFile; fileRef = A592A0351CCFB68800128D4D /* RegisterForm.json */; };
+		A592A0381CCFB6B500128D4D /* RegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0371CCFB6B500128D4D /* RegisterForm.swift */; };
 		A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5F0DE361CC8C5F80032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
 		A5F0DE3B1CC8C5F80032534D /* TheDistanceFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */; };
@@ -124,6 +129,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFormViewController.swift; sourceTree = "<group>"; };
+		A592A02F1CCF5E0400128D4D /* EventForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventForm.swift; sourceTree = "<group>"; };
+		A592A0331CCF628E00128D4D /* EventForm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EventForm.json; path = Resources/EventForm.json; sourceTree = "<group>"; };
+		A592A0351CCFB68800128D4D /* RegisterForm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RegisterForm.json; path = Resources/RegisterForm.json; sourceTree = "<group>"; };
+		A592A0371CCFB6B500128D4D /* RegisterForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterForm.swift; sourceTree = "<group>"; };
 		A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TheDistanceForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheDistanceForms.h; sourceTree = "<group>"; };
 		A5F0DE301CC8C5F80032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -423,6 +433,9 @@
 			children = (
 				A5F0DED21CC9004C0032534D /* AppDelegate.swift */,
 				A5F0DED41CC9004C0032534D /* ViewController.swift */,
+				A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */,
+				A592A02F1CCF5E0400128D4D /* EventForm.swift */,
+				A592A0371CCFB6B500128D4D /* RegisterForm.swift */,
 				A5F0DEF01CC9005D0032534D /* Resources */,
 				A5F0DED61CC9004C0032534D /* Main.storyboard */,
 				A5F0DED91CC9004C0032534D /* Assets.xcassets */,
@@ -445,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DEF11CC900710032534D /* Form.json */,
+				A592A0331CCF628E00128D4D /* EventForm.json */,
+				A592A0351CCFB68800128D4D /* RegisterForm.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -681,7 +696,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A592A0361CCFB68800128D4D /* RegisterForm.json in Resources */,
 				A5F0DEDD1CC9004C0032534D /* LaunchScreen.storyboard in Resources */,
+				A592A0341CCF628E00128D4D /* EventForm.json in Resources */,
 				A5F0DEF21CC900710032534D /* Form.json in Resources */,
 				A5F0DEDA1CC9004C0032534D /* Assets.xcassets in Resources */,
 				A5F0DED81CC9004C0032534D /* Main.storyboard in Resources */,
@@ -750,7 +767,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A592A02E1CCF5D2300128D4D /* EventFormViewController.swift in Sources */,
+				A592A0301CCF5E0400128D4D /* EventForm.swift in Sources */,
 				A5F0DED51CC9004C0032534D /* ViewController.swift in Sources */,
+				A592A0381CCFB6B500128D4D /* RegisterForm.swift in Sources */,
 				A5F0DED31CC9004C0032534D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1139,6 +1159,7 @@
 				A5F0DEEC1CC9004C0032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5F0DEED1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -1147,6 +1168,7 @@
 				A5F0DEEF1CC9004C0032534D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

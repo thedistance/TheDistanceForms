@@ -23,7 +23,7 @@ extension String: RawRepresentable {
     }
 }
 
-public class Form: KeyedValueElementContainer {
+public class Form: KeyedValueElementContainer, KeyedView {
     
     public typealias KeyType = String
     
@@ -35,9 +35,13 @@ public class Form: KeyedValueElementContainer {
         return questions.map { $0.questionView }
     }
     
-    public let formView:StackView
+    public var viewKeys: [String : UIView] {
+        return Dictionary(questions.map { ($0.key, $0.questionView.view ) })
+    }
     
-    public init?(definition:JSON) {
+    public private(set) var formView:StackView
+    
+    required public init?(definition:JSON, questionType:FormQuestion.Type = FormQuestion.self) {
         
         guard let title = definition["title"].string,
             let questionsJSON = definition["questions"].array
@@ -48,13 +52,26 @@ public class Form: KeyedValueElementContainer {
         self.title = title
         
         // initialise as empty so can call other methods from this initialiser
-        questions = questionsJSON.flatMap { FormQuestion(json: $0) }
+        questions = questionsJSON.flatMap { questionType.init(json: $0) }
+     
+        formView = CreateStackView([])
+        formView = createFormView()
+    }
+    
+    public func questionForKey(key:String) -> FormQuestion? {
+        return questions.filter { $0.key == key }
+            .first
+    }
+    
+    public func createFormView() -> StackView {
         
-        formView = CreateStackView(questions.map { $0.questionView.view })
-        formView.axis = .Vertical
-        formView.stackDistribution = .Fill
-        formView.stackAlignment = .Fill
-        formView.spacing = 26.0
+        var stack = CreateStackView(questions.map { $0.questionView.view })
+        stack.axis = .Vertical
+        stack.stackDistribution = .Fill
+        stack.stackAlignment = .Fill
+        stack.spacing = 26.0
+
+        return stack
     }
     
     public func elementForKey(key: String) -> ValueElement? {

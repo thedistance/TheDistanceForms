@@ -170,6 +170,10 @@
                             "message": {
                                 "description": "The error message the user will see if this validation fails.",
                                 "type": "string"
+                            },
+                            "regex": {
+                              "description": "The regular expression to test for validation.",
+                              "type": "string"  
                             }
                         }
                     }

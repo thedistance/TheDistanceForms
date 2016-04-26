@@ -169,7 +169,7 @@ public func NumberValidationWithMessage(message:String, allowingNull:Bool = fals
             return false
         }
         
-        if !allowingNull && nullValidation.validate(value: stringValue) == .Valid {
+        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
             return false
         }
         
@@ -239,7 +239,7 @@ public func UKPostcodeValidationWithMessage(message:String, allowingNull:Bool = 
             return false
         }
         
-        if !allowingNull && nullValidation.validate(value: stringValue) == .Valid {
+        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
             return false
         }
         
@@ -275,7 +275,7 @@ public func RegexValidationWithMessage(message:String, regex:String, allowingNul
                 return false
             }
             
-            if !allowingNull && nullValidation.validate(value: stringValue) == .Valid {
+            if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
                 return false
             }
             

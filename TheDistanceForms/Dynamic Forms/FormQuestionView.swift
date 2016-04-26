@@ -100,7 +100,7 @@ public enum FormQuestionView: ValueElement {
         case .ChoiceDropdown(let tf, _):
             return tf.getValue()
         case .ChoiceSegments(let segments):
-            return segments.stringValue()
+            return segments.getValue()
         case .Boolean(let switchControl):
             return switchControl.getValue()
         case .Button(_):

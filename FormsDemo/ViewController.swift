@@ -17,7 +17,6 @@ class ViewController: UIViewController, FormContainer {
     
     var form:Form?
     var buttonTargets: [ObjectTarget<UIButton>] = []
-    
     var keyboardResponder:KeyboardResponder?
     
     override func viewDidLoad() {
@@ -73,5 +72,32 @@ class ViewController: UIViewController, FormContainer {
             
         }
     }
+}
+
+class RegisterViewController: UIViewController, FormContainer {
+    
+    var form:Form?
+    var buttonTargets: [ObjectTarget<UIButton>] = []
+    var keyboardResponder:KeyboardResponder?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scroll)
+        view.addConstraints(NSLayoutConstraint.constraintsToAlign(view: scroll, to: view))
+        
+        guard let jsonURL = NSBundle.mainBundle().URLForResource("RegisterForm", withExtension: "json"),
+            let form = addFormFromURL(jsonURL, ofType: RegisterForm.self, toContainerView: scroll, withInsets: UIEdgeInsetsMake(16.0, 16.0, 16.0, 8.0))
+            else { return }
+        
+        self.form = form
+        keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
+    }
+    
+    func buttonTappedForQuestion(question: FormQuestion) { }
+    
 }
 
