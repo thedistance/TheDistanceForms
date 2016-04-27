@@ -31,7 +31,7 @@
             "question_type": "Time",
             "prompt": "Event Start Time",
             "time_format_style": "Short",
-            "miniute_interval": 5,
+            "minute_interval": 5,
             "validation": {
                 "type": "NotEmpty",
                 "value_type": "Date",

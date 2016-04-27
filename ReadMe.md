@@ -24,6 +24,7 @@ TheDistanceForms is an iOS framework for creating flexible forms as generic coll
 
 ![Default form UI](Documentation/Images/TestForm.png)
 ![Custom Layout Form](Documentation/Images/CustomLayoutForm.png)
+![Themed Form](Documentation/Images/ThemeForm.png)
 
 ## Component Libraries
 
@@ -275,7 +276,13 @@ When creating your form
 
 #### ThemeKit for Styling
 
-*As well as subclassing `FormQuestion` and configuring views in `new...View()` methods,  TheDistanceForms contains a [ThemeKit](https://github.com/joshc89/ThemeKit) compatible framework (TheDistanceFormsThemes) that adds `TKTextField`, `TKTextView` and other ThemeKit subclasses for UIKit components. It also adds a `TKFormQuestion` type that overrides `new...View()` to return ThemeKit stacks. You can further subclass this to change the styles of the components if desired.*
+As well as subclassing `FormQuestion` and configuring views in `new...View()` methods,  TheDistanceForms contains a [ThemeKit](https://github.com/joshc89/ThemeKit) compatible framework (TheDistanceFormsThemed) that adds `TKTextField`, `TKTextView` and other ThemeKit subclasses for UIKit components. It also adds a `TKFormQuestion` type that overrides `new...View()` to return ThemeKit stacks. You can further subclass this to change the styles of the components if desired.
+
+The test form created with a simple Theme of red Accent colour and Avenir Next font styles is shown below.
+
+	let form = addFormFromURL(jsonURL, questionType: TKFormQuestion.self, toContainerView: scroll, withInsets: UIEdgeInsetsMake(16.0, 16.0, 16.0, 8.0))
+	
+![Themed Form](Documentation/Images/ThemeForm.png)
 
 ### Custom Layout
 
