@@ -87,7 +87,7 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     }
     
     public func getValue() -> Any? {
-        return mediaManager.mediaDataSource[0]
+        return mediaManager.mediaDataSource
     }
     
     public func setValue<T>(value: T?) -> Bool {
