@@ -1,8 +1,9 @@
 git "git@bitbucket.org:joshcampion89/StackView.git"
-git "git@bitbucket.org:thedistance/TheDistanceCore.git"
 git "git@bitbucket.org:thedistance/KeyboardResponder.git"
 
 git "git@bitbucket.org:joshcampion89/AdvancedOperationKit"
+
+github "TheDistance/TheDistanceCore"
 
 github "SwiftyJSON/SwiftyJSON"
 github "joshc89/ThemeKit"

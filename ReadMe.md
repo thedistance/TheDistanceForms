@@ -1,6 +1,7 @@
 # TheDistanceForms
 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![MIT license](https://img.shields.io/badge/license-MIT-lightgrey.svg)
 
 TheDistanceForms is an iOS framework for creating flexible forms as generic collections of user input elements.
 
@@ -418,7 +419,12 @@ A stack of UI components that can display placeholders, titles and error message
 A controller `NSObject` subclass containing boilerplate code to be a delegate for a `UIPickerView` or `UIDatePickerView`. This simplifies the set up of a `UITextField` to be used for date and choice selection.
 
 
+## Communication
 
+- If you have **found a bug**, open an issue.
+- If you have **a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+- If you'd like to **ask a general question**, email us on <hello+thedistanceforms@thedistance.co.uk>.
 
 
 
