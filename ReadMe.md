@@ -128,7 +128,7 @@ The simplest way to get answers from a form is to add a submit button. The defau
 
 ### JSON Form Set Up
 
-The simplest way to get started is to define a JSON form. The full schema is defined in the repo and can be used for validation on sites such as [JSON Schema Lint](http://jsonschemalint.com/draft4/#). A Form has a `title` and `questions` array, and should be the root object of the JSON.
+The simplest way to get started is to define a JSON form. The full schema is defined in the repo (/Documentation/Schema.json) and can be used for validation on sites such as [JSON Schema Lint](http://jsonschemalint.com/draft4/#). A Form has a `title` and `questions` array, and should be the root object of the JSON.
 
 	{
 		"title": "New Booking",
@@ -151,7 +151,7 @@ A simple notes text field could be represented by:
 
     {
         "key": "notes",
-        "question_type        ": "TextMultiline",
+        "question_type": "TextMultiline",
         "prompt": "Notes"
     }
 

@@ -46,7 +46,7 @@
             "question_type": "TextSingle",
             "prompt": "Email Address",
             "keyboard_type": "EmailAddress",
-            "capitalization": ".None",
+            "capitalization": "None",
             "auto_correction": false,
             "validation": {
                 "type": "Email",
@@ -58,7 +58,7 @@
             "key": "password",
             "question_type": "TextSingle",
             "prompt": "Password",
-            "capitalization": ".None",
+            "capitalization": "None",
             "auto_correction": false,
             "secure_text_entry": true,
             "validation": {
@@ -72,7 +72,7 @@
             "key": "confirm_password",
             "question_type": "TextSingle",
             "prompt": "Password",
-            "capitalization": ".None",
+            "capitalization": "None",
             "auto_correction": false,
             "secure_text_entry": true
         },
@@ -83,5 +83,3 @@
         }
     ]
 }
-
-        
