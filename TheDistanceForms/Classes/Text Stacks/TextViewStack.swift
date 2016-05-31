@@ -10,10 +10,11 @@ import Foundation
 
 import TheDistanceCore
 import StackView
+import KeyboardResponder
 
 /// Convenience view for creating a `UITextField` which can optionally show an error below it, through the `errorText` property.
 @IBDesignable
-public class TextViewStack: TextStack {
+public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     
     // MARK: - Properties
     
@@ -83,6 +84,11 @@ public class TextViewStack: TextStack {
     private var boundsObserver:ObjectObserver?
     private var textObserver:ObjectObserver?
     private var textViewObservers:[NotificationObserver]?
+    
+    /// The component to use with a `KeyboardResponder`.
+    public var inputComponent: KeyboardResponderInputType {
+        return .TextView(textView)
+    }
     
     public init(textView:UITextView = UITextView(),
         placeholderLabel:UILabel = UILabel(),

@@ -36,7 +36,7 @@ public protocol KeyedValueElementContainer {
     
     func elementForKey(key:KeyType) -> ValueElement?
     
-    var elements:[ValueElement] { get set }
+    var elements:[ValueElement] { get }
     
     /// Should return the value for the element with the given key. Default implementation calls `elementForKey(_:)?.getValue()`.
     func getValueForKey(key:KeyType) -> Any?
@@ -75,7 +75,7 @@ public protocol KeyedView {
     
     associatedtype KeyType:HashableRaw
     
-    var viewKeys:[KeyType:UIView] { get set }
+    var viewKeys:[KeyType:UIView] { get }
 }
 
 public typealias KeyedValueElementContainerView = protocol<KeyedView, KeyedValueElementContainer>

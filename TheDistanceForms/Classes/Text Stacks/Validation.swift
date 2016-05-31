@@ -114,7 +114,7 @@ public func NonEmptyStringValidation(message:String) -> Validation<String> {
 
  Convenience creator for a validation that checks whether a given string is a valid email. The check is based on the regex:
 
-     [a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}\\@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+
+     [a-zA-Z0-9\+\.\_\%\-\+]{1,256}\@[a-zA-Z0-9][a-zA-Z0-9\-]{0,64}\.[a-zA-Z0-9][a-zA-Z0-9\-]{0,25})+
  
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional email address.
@@ -152,10 +152,45 @@ public func EmailValidationWithMessage(message:String, allowingNull:Bool = false
 }
 
 /**
+ 
+ Convenience creator for a validation that checks whether a given string, trimmed from whitespace is a valid phone number. The check is based on the regex:
+ 
+ [0-9\s]
+ 
+ - parameter message: The `message` property of the returned `Validation`.
+ - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional number.
+ */
+public func NumberValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+    
+    return Validation<String>(message: message, validation: { (value) -> Bool in
+        let nullValidation = NonEmptyStringValidation("")
+        
+        guard let stringValue = value else {
+            return false
+        }
+        
+        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
+            return false
+        }
+        
+        if allowingNull && stringValue.isEmpty {
+            return true
+        }
+        
+        
+        let regexString = "[0-9\\s]"
+        
+        // this is a programmer error so ensure it is correct by force
+        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
+        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
+    })
+}
+
+/**
 
  Convenience creator for a validation that checks whether a given string, trimmed from whitespace is a valid phone number. The check is based on the regex:
 
-    [\\+]?[0-9.-]+
+    [\+]?[0-9.-]+
 
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
@@ -184,4 +219,74 @@ public func PhoneValidationWithMessage(message:String, allowingNull:Bool = false
         let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
         return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
     })
+}
+
+/**
+ 
+ Convenience creator for a validation that checks whether a given string, trimmed from whitespace is a valid UK postcode number. The check is based on the regex:
+ 
+ (GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})
+ 
+ - parameter message: The `message` property of the returned `Validation`.
+ - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
+ */
+public func UKPostcodeValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+    
+    return Validation<String>(message: message, validation: { (value) -> Bool in
+        let nullValidation = NonEmptyStringValidation("")
+        
+        guard let stringValue = value else {
+            return false
+        }
+        
+        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
+            return false
+        }
+        
+        if allowingNull && stringValue.isEmpty {
+            return true
+        }
+        
+        
+        let regexString = "(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
+        
+        // this is a programmer error so ensure it is correct by force
+        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
+        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
+    })
+}
+
+/**
+ 
+ Convenience creator for a validation that checks whether a given string, trimmed from whitespace is valid against given regex.
+ 
+ 
+ - parameter message: The `message` property of the returned `Validation`.
+ - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
+ - returns: A validation if a, `NSRegularExpression` is created with the given `regex`, `nil` otherwise.
+ */
+public func RegexValidationWithMessage(message:String, regex:String, allowingNull:Bool = false) -> Validation<String>? {
+    
+    if let regex = try? NSRegularExpression(pattern: regex, options: .CaseInsensitive) {
+        return Validation<String>(message: message, validation: { (value) -> Bool in
+            let nullValidation = NonEmptyStringValidation("")
+            
+            guard let stringValue = value else {
+                return false
+            }
+            
+            if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
+                return false
+            }
+            
+            if allowingNull && stringValue.isEmpty {
+                return true
+            }
+        
+            return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
+            
+        })
+    } else {
+        return nil
+    }
 }

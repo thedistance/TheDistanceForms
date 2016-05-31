@@ -45,42 +45,65 @@ public class ErrorStack:CreatedStack {
     public let errorStack:StackView
     
     public init(centerComponent:UIView,
-        errorLabel:UILabel = UILabel(),
-        errorImageView:UIImageView = UIImageView(),
-        iconImageView:UIImageView = UIImageView()) {
+                errorLabel:UILabel = UILabel(),
+                errorImageView:UIImageView = UIImageView(),
+                iconImageView:UIImageView = UIImageView()) {
+        
+        self.errorLabel = errorLabel
+        self.errorImageView = errorImageView
+        self.iconImageView = iconImageView
+        
+        if errorImageView.image == nil {
+           errorImageView.image = UIImage(named: "ic_warning", inBundle: NSBundle(forClass: ErrorStack.self), compatibleWithTraitCollection: nil)
+        }
+        
+        errorLabel.numberOfLines = 0
+        errorLabel.hidden = true
+        errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        
+        for iv in [errorImageView, iconImageView] {
             
-            self.errorLabel = errorLabel
-            self.errorImageView = errorImageView
-            self.iconImageView = iconImageView
+            iv.contentMode = .ScaleAspectFit
+            iv.backgroundColor = UIColor.clearColor()
+            iv.hidden = true
             
-            errorLabel.numberOfLines = 0
-            errorLabel.hidden = true
-            errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+            iv.setContentHuggingPriority(255, forAxis: .Horizontal)
             
-            for iv in [errorImageView, iconImageView] {
-                
-                iv.contentMode = .ScaleAspectFit
-                iv.backgroundColor = UIColor.clearColor()
-                iv.hidden = true
-                
-                iv.setContentHuggingPriority(255, forAxis: .Horizontal)
-                
-                iv.setContentCompressionResistancePriority(760, forAxis: .Horizontal)
-                iv.setContentCompressionResistancePriority(760, forAxis: .Vertical)
-            }
-            
-            centerStack = CreateStackView([centerComponent, errorImageView])
-            centerStack.axis = .Horizontal
-            centerStack.spacing = 8.0
-            
-            errorStack = CreateStackView([centerStack.view, errorLabel])
-            errorStack.axis = UILayoutConstraintAxis.Vertical
-            errorStack.stackAlignment = .Fill
-            errorStack.stackDistribution = .Fill
-            errorStack.spacing = 8.0
-            
-            super.init(arrangedSubviews: [iconImageView, errorStack.view])
-            stack.axis = .Horizontal
-            stack.spacing = 8.0
+            iv.setContentCompressionResistancePriority(760, forAxis: .Horizontal)
+            iv.setContentCompressionResistancePriority(760, forAxis: .Vertical)
+        }
+        
+        centerStack = CreateStackView([centerComponent, errorImageView])
+        centerStack.axis = .Horizontal
+        centerStack.spacing = 8.0
+        
+        errorStack = CreateStackView([centerStack.view, errorLabel])
+        errorStack.axis = UILayoutConstraintAxis.Vertical
+        errorStack.stackAlignment = .Fill
+        errorStack.stackDistribution = .Fill
+        errorStack.spacing = 8.0
+        
+        super.init(arrangedSubviews: [iconImageView, errorStack.view])
+        
+        /*
+         
+         // this layout should work but doesn't due to a bug in UIStackView
+         
+         errorStack = CreateStackView([errorImageView, errorLabel])
+         errorStack.axis = .Horizontal
+         errorStack.spacing = 8.0
+         
+         centerStack = CreateStackView([centerComponent, errorStack.view])
+         centerStack.axis = UILayoutConstraintAxis.Vertical
+         centerStack.stackAlignment = .Fill
+         centerStack.stackDistribution = .Fill
+         centerStack.spacing = 8.0
+         
+         super.init(arrangedSubviews: [iconImageView, centerStack.view])
+        */
+        
+        
+        stack.axis = .Horizontal
+        stack.spacing = 8.0
     }
 }

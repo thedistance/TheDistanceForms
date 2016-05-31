@@ -1,0 +1,94 @@
+{
+    "title": "Test Form",
+    "questions": [
+        {
+            "key": "first_name",
+            "question_type": "TextSingle",
+            "prompt": "First Name",
+            "keyboard_type": "Default",
+            "capitalization": "Sentences",
+            "auto_correct": true,
+            "secure_text_entry": false,
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "Please enter your name"
+            }
+        },
+        {
+            "key": "birthday",
+            "question_type": "Date",
+            "prompt": "Birthday",
+            "date_format_style": "Medium",
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "Date",
+                "message": "Please enter your name"
+            }
+        },
+        {
+            "key": "event_start",
+            "question_type": "Time",
+            "prompt": "Event Start Time",
+            "time_format_style": "Short",
+            "minute_interval": 5,
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "Date",
+                "message": "Please enter the start time"
+            }
+        },
+         {
+            "key": "station",
+            "question_type": "ChoiceDropdown",
+            "prompt": "Select a station",
+            "choices":[
+                "London King's Cross",
+                "Peterborough",
+                "York",
+                "Darlington",
+                "Durham",
+                "Newcastle",
+                "Edinburgh Weverley"
+            ],
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "String",
+                "message": "You must select a station"
+            }
+        },
+        {
+            "key": "contact",
+            "question_type": "ChoiceSegments",
+                  "title": "Contact Preferences",
+            "subtitle": "How would you like us to keep in touch with you?",
+            "choices":[
+                "Email",
+                "Phone",
+                "SMS"
+            ],
+            "validation": {
+                "type": "NotEmpty",
+                "value_type": "Number",
+                "message": "You must select a preference"
+            }
+        },
+        {
+            "key": "newsletter",
+            "question_type": "Boolean",
+            "title": "Newsletter",
+            "subtitle": "Would you like to keep up to date with all our latest news and offers?",
+            "default": false
+        },
+        {
+            "key": "view_terms",
+            "question_type": "Button",
+            "title": "View Terms & Conditions"
+        },
+        {
+            "key": "Submit",
+            "question_type": "Button",
+            "title": "Submit"
+        }
+    ]
+}
