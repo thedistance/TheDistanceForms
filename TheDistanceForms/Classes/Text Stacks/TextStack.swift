@@ -11,12 +11,10 @@ import StackView
 
 /**
 
-Abstract parent class to contain the common elements and logic shared between `ErrorTextField` and `TextStack`. These show an editable text component with a placeholder, icon, optional error label and error image.
+`ErrorStack` subclass to contain the common elements and logic shared between `TextFieldStack` and `TextViewStack`. These show an editable text component with a placeholder, icon, optional error label and error image.
 
-- seealso:
-`TextFieldStack`
-
-`TextViewStack`
+ - seealso: `TextFieldStack`
+ - seealso: `TextViewStack`
 
 */
 public class TextStack: ErrorStack {
@@ -28,7 +26,12 @@ public class TextStack: ErrorStack {
     
     // MARK: Form Stack
 
-    /// Should return the whitespace trimmed value of the text component.
+    /**
+     
+     Should return the whitespace trimmed value of the text component.
+     
+     - note: This is an empty computed property as we cannot override a stored property with a computed property based on the text component of the subclass
+    */
     public var text:String? {
         // this is an empty computed property as we cannot override a stored property with a computed property based on the text component of the subclass
         get {
@@ -43,11 +46,19 @@ public class TextStack: ErrorStack {
     /// Validation object to allow this to be a `ValueElement`. The value is the `text` property.
     public var validation:Validation<String>? // Stored properties cannot currently go in an extension
     
+    /// Flag to determine whether user interaction is enabled for the text component. Resetting this should configure the placeholder and underline for their enabled state, and causes a layout pass to be called.
+    public var enabled:Bool = true
+    
     // MARK: Placeholder Variables
     
     private var _placeholderText:String?
     
-    /// This should be the placeholder text when the text is empty and when the user begins editing or the text is set to something other than this string, this becomes the text in the `placeholderLabel`.
+    /**
+     
+     This should be the placeholder text when the text is empty and when the user begins editing or the text is set to something other than this string, the `placeholderLabel` set to this text becomes visible.
+     
+     - seealso `configurePlaceholder()`
+    */
     public var placeholderText:String? {
         get {
             return _placeholderText
@@ -56,6 +67,7 @@ public class TextStack: ErrorStack {
             
             if let newPlaceholder = newValue {
                 
+                // append an invisible character that the user cannot input themselves to prevent the user's entered text being blanked out if they enter the same text as this variable.
                 if _placeholderText != newPlaceholder + "\u{00A0}" {
                     _placeholderText = newPlaceholder + "\u{00A0}"
                     configurePlaceholder()
@@ -69,7 +81,7 @@ public class TextStack: ErrorStack {
         }
     }
     
-    /// The label that shows the placeholder content once the user is editting or text is showing. This is force unwrapped to allow subclasses to provide a different `UILabel` subclass in `init()` before calling through to super, where the default implementation can assigns a `UILabel`.
+    /// The label that shows the placeholder content once the user is editting or text is showing.
     public let placeholderLabel:UILabel
     
     /// Flag to determine whether the placeholder label should appear when text has been entered into the text element.
@@ -82,7 +94,6 @@ public class TextStack: ErrorStack {
     }
     
     
-    
     // MARK: - Metods
 
     /**
@@ -90,7 +101,12 @@ public class TextStack: ErrorStack {
      Creates and configures the shared views `placeholderLabel`, `errorLabel`, `iconImageView` and `errorImageView` with the types provided in the optional arguments. Calls through to `init(arrangedSubviews:)` with the `textComponent` in the `centerStack`.
     
     
-     - parameter textComponent: The view the user will interact with. See `TextFieldStack` and `TextViewStack`.
+     - parameter textComponent: The view the user will interact with.
+     - parameter placeholderLabel: The `UILabel` or subclass to show the `placeholderText` when the user has already entered text. Default value is a new `UILabel`.
+     - parameter underline: The `UIView` or subclass to use as an underline for `textComponent`.
+     - parameter errorLabel: The `UILabel` or subclass to use to show the error text. Default value is a new `UILabel`. The font for this labels is set to `UIFontTextStyleCaption2`.
+     - parameter iconImageView: The `UIImageView` or subclass to use to show the icon. Default value is a new `UIImageView`.
+     - parameter errorImageView: The `UIImageView` or subclass to use to show the error icon. Default value is a new `UIImageView`.
     */
     public init(textComponent:UIView,
         placeholderLabel:UILabel = UILabel(),
@@ -119,10 +135,10 @@ public class TextStack: ErrorStack {
      
     /**
     
-    Adds `underline` to `stackView` bottom aligned to a given view with given insets.
+    Adds `underline` to `stackView`, bottom aligned to a given view with given insets.
     
-    - parameter view: The view to align the newly created `underline` to.
-    - parameter withInsets: The insets to align the newly created `underline` to `view` with.
+    - parameter view: The view to align `underline` to.
+    - parameter withInsets: The insets to align the newly created `underline` to `view` with. Default value is `UIEdgeInsetsZero`.
     
     */
     public func addUnderlineForView(view:UIView, withInsets:UIEdgeInsets = UIEdgeInsetsZero) {

@@ -12,33 +12,46 @@ import TheDistanceCore
 import StackView
 import KeyboardResponder
 
-/// Convenience view for creating a `UITextField` which can optionally show an error below it, through the `errorText` property.
+/**
+ 
+ `TextStack` subclass using a `UITextView`.
+ 
+ `placeholderLabel` is configured in response to `UITextViewTextDidBeginEditingNotification`, UITextViewTextDidChangeNotification and `UITextViewTextDidEndEditingNotification`, which configure the placeholder and underline.
+ 
+ */
 @IBDesignable
 public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     
     // MARK: - Properties
     
-    /// Flag to determine whether user interaction is enabled for the `textView`. This adjusts the `textView` `textContainerInsets` according to `activeTextContainerInset` and `inactiveTextContainerInset`, and causes a layout pass to be called.
-    public var enabled:Bool = true {
+    /// The whitespace trimmed text entered into `textView`.
+    public override var text:String? {
+        get {
+            return textView.text == placeholderText ? "" : textView.text.whitespaceTrimmedString()
+        }
+        set {
+            textView.text = newValue?.whitespaceTrimmedString()
+        }
+    }
+    
+    
+    /// Adjusts `textView.textContainerInsets` according to `activeTextContainerInset` and `inactiveTextContainerInset`, and causes a layout pass to be called.
+    public override var enabled:Bool {
         didSet {
             textView.editable = enabled
             textView.selectable = true
             textView.textContainerInset = enabled ? activeTextContainerInset : inactiveTextContainerInset
+            
+            configurePlaceholder()
             configureUnderline()
             
-            stackView.setNeedsUpdateConstraints()
+            stackView.invalidateIntrinsicContentSize()
+            stackView.setNeedsLayout()
         }
     }
     
-    /// The text field the user interacts with.
+    /// The `UITextView` the user interacts with.
     public let textView:UITextView
-    
-    /// The `delegate` for the text field.
-    @IBInspectable public weak var textViewDelegate:UITextViewDelegate? {
-        didSet {
-            textView.delegate = textViewDelegate
-        }
-    }
     
     /// The `textContainerInset` applied to `textView` when `enabled == true`. Default is `(4,-5,4,-5)`.
     public var activeTextContainerInset = UIEdgeInsetsMake(4,-5,4,-5) {
@@ -70,16 +83,6 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         }
     }
     
-    /// Returns and sets whitespace trimmed text from the `textView`.
-    public override var text:String? {
-        get {
-            return textView.text == placeholderText ? "" : textView.text.whitespaceTrimmedString()
-        }
-        set {
-            textView.text = newValue?.whitespaceTrimmedString()
-        }
-    }
-    
     // References to the observers. These are optional as they reference self within the handlers and so must be set after super.init(textComponent:)
     private var boundsObserver:ObjectObserver?
     private var textObserver:ObjectObserver?
@@ -90,107 +93,129 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         return .TextView(textView)
     }
     
+    /**
+     
+     Default initialiser.
+     
+     Subclasses can call through to super with arguments for each variable but configuration to override the defaults should be done after `super.init()`.
+     
+     - parameter textView: The `UITextView` to use as the center component of this `ErrorStack`.
+     - parameter placeholderLabel: The `UILabel` or subclass to show the `placeholderText` when the user has already entered text. Default value is a new `UILabel`.
+     - parameter underline: The `UIView` or subclass to use as an underline for `textComponent`.
+     - parameter errorLabel: The `UILabel` or subclass to use to show the error text. Default value is a new `UILabel`. The font for this labels is set to `UIFontTextStyleCaption2`.
+     - parameter iconImageView: The `UIImageView` or subclass to use to show the icon. Default value is a new `UIImageView`.
+     - parameter errorImageView: The `UIImageView` or subclass to use to show the error icon. Default value is a new `UIImageView`.
+     
+     */
     public init(textView:UITextView = UITextView(),
-        placeholderLabel:UILabel = UILabel(),
-        errorLabel:UILabel = UILabel(),
-        errorImageView:UIImageView = UIImageView(),
-        iconImageView:UIImageView = UIImageView(),
-        underline:UIView = UIView()) {
+                placeholderLabel:UILabel = UILabel(),
+                errorLabel:UILabel = UILabel(),
+                errorImageView:UIImageView = UIImageView(),
+                iconImageView:UIImageView = UIImageView(),
+                underline:UIView = UIView()) {
+        
+        self.textView = textView
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.dataDetectorTypes = [.All]
+        textView.scrollEnabled = false
+        textView.contentInset = UIEdgeInsetsZero
+        textView.textContainerInset = activeTextContainerInset
+        textView.selectable = true
+        
+        textView.textContainer.heightTracksTextView = true
+        
+        // --
+        // embed the text view in a wrapper scroll view to ensure UITextView's auto scroll is disabled.
+        let wrapperScroll = UIScrollView()
+        wrapperScroll.addSubview(textView)
+        
+        wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: textView,
+            attribute: .Height,
+            multiplier: 1.0,
+            constant: 0.0))
+        
+        wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
+            attribute: .Width,
+            relatedBy: .Equal,
+            toItem: textView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 0.0))
+        
+        wrapperScroll.addConstraints(NSLayoutConstraint.constraintsToAlign(view: wrapperScroll, to: textView))
+        
+        // -- //
+        
+        super.init(textComponent: wrapperScroll,
+                   placeholderLabel: placeholderLabel,
+                   errorLabel: errorLabel,
+                   errorImageView: errorImageView,
+                   iconImageView: iconImageView,
+                   underline: underline)
+        
+        
+        addUnderlineForView(textView)
+        
+        // configure the stack
+        stack.axis = UILayoutConstraintAxis.Vertical
+        stack.stackAlignment = .Fill
+        //        stack.spacing = 0.0
+        
+        
+        // add observers to the textview to update layout and configure the placeholders
+        boundsObserver = ObjectObserver(keypath: "bounds", object: textView) { (keypath, object, change) -> () in
             
-            self.textView = textView
-            textView.translatesAutoresizingMaskIntoConstraints = false
-            textView.dataDetectorTypes = [.All]
-            textView.scrollEnabled = false
-            textView.contentInset = UIEdgeInsetsZero
-            textView.textContainerInset = activeTextContainerInset
-            textView.selectable = true
-            
-            textView.textContainer.heightTracksTextView = true
-            
-            // --
-            // embed the text view in a wrapper scroll view to ensure UITextView's auto scroll is disabled.
-            let wrapperScroll = UIScrollView()
-            wrapperScroll.addSubview(textView)
-            
-            wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
-                attribute: .Height,
-                relatedBy: .Equal,
-                toItem: textView,
-                attribute: .Height,
-                multiplier: 1.0,
-                constant: 0.0))
-            
-            wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
-                attribute: .Width,
-                relatedBy: .Equal,
-                toItem: textView,
-                attribute: .Width,
-                multiplier: 1.0,
-                constant: 0.0))
-            
-            wrapperScroll.addConstraints(NSLayoutConstraint.constraintsToAlign(view: wrapperScroll, to: textView))
-            
-            // -- //
-            
-            super.init(textComponent: wrapperScroll,
-                placeholderLabel: placeholderLabel,
-                errorLabel: errorLabel,
-                errorImageView: errorImageView,
-                iconImageView: iconImageView,
-                underline: underline)
-            
-            
-            addUnderlineForView(textView)
-            
-            // configure the stack
-            stack.axis = UILayoutConstraintAxis.Vertical
-            stack.stackAlignment = .Fill
-            //        stack.spacing = 0.0
-            
-            boundsObserver = ObjectObserver(keypath: "bounds", object: textView) { (keypath, object, change) -> () in
-                
-                if let obj = object as? UITextView,
-                    let changeDict = change
-                    where obj == self.textView && obj.isFirstResponder() {
-                        if let oldFrame = changeDict[NSKeyValueChangeOldKey]?.CGRectValue,
-                            let newFrame = changeDict[NSKeyValueChangeNewKey]?.CGRectValue
-                            where oldFrame.size.height != newFrame.size.height {
-                                // TODO: Weak link to TextResponder Cocoapod
-                                // NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textView)
-                                self.stackView.invalidateIntrinsicContentSize()
-                        }
+            if let obj = object as? UITextView,
+                let changeDict = change
+                where obj == self.textView && obj.isFirstResponder() {
+                if let oldFrame = changeDict[NSKeyValueChangeOldKey]?.CGRectValue,
+                    let newFrame = changeDict[NSKeyValueChangeNewKey]?.CGRectValue
+                    where oldFrame.size.height != newFrame.size.height {
+                    NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textView)
+                    self.stackView.invalidateIntrinsicContentSize()
                 }
             }
+        }
+        
+        textObserver = ObjectObserver(keypath: "text", object: textView) { (_, _, _) -> () in
+            self.configurePlaceholder()
+        }
+        
+        let beginObserver = NotificationObserver(name: UITextViewTextDidBeginEditingNotification, object: textView) { (note) -> () in
+            self.configureUnderline()
+            self.configurePlaceholder()
+        }
+        
+        let changeObserver = NotificationObserver(name: UITextViewTextDidChangeNotification, object: textView) { (note) -> () in
+            self.configurePlaceholder()
+        }
+        
+        let endObserver = NotificationObserver(name: UITextViewTextDidEndEditingNotification, object: textView) { (note) -> () in
+            self.configureUnderline()
+            self.configurePlaceholder()
             
-            textObserver = ObjectObserver(keypath: "text", object: textView) { (_, _, _) -> () in
-                self.configurePlaceholder()
+            if self.liveValidation {
+                self.validateValue()
             }
-            
-            let beginObserver = NotificationObserver(name: UITextViewTextDidBeginEditingNotification, object: textView) { (note) -> () in
-                self.configureUnderline()
-                self.configurePlaceholder()
-            }
-            
-            let changeObserver = NotificationObserver(name: UITextViewTextDidChangeNotification, object: textView) { (note) -> () in
-                self.configurePlaceholder()
-            }
-            
-            let endObserver = NotificationObserver(name: UITextViewTextDidEndEditingNotification, object: textView) { (note) -> () in
-                self.configureUnderline()
-                self.configurePlaceholder()
-                
-                if self.liveValidation {
-                    self.validateValue()
-                }
-            }
-            
-            textViewObservers = [beginObserver, changeObserver, endObserver]
+        }
+        
+        textViewObservers = [beginObserver, changeObserver, endObserver]
     }
     
+    /**
+     
+     Helper function.
+     
+     - returns: Whether the text of the text view equals the placeholder
+    */
     func textIsPlaceholder() -> Bool {
         return textView.text == placeholderText
     }
     
+    /// Shows / hides the `placeholderLabel` and sets the text of `textView` based on the currently entered text.
     override public func configurePlaceholder() {
         
         if let placeholderText = self.placeholderText {
@@ -199,19 +224,20 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
             
             if textView.text.isEmpty && !textView.isFirstResponder() {
                 textView.text = placeholderText
-            } else if textView.text == placeholderText && textView.isFirstResponder() {
+            } else if textIsPlaceholder() && textView.isFirstResponder() {
                 textView.text = ""
             }
             
-            textView.textColor = textView.text == placeholderText ? placeholderTextColour : textColour
+            textView.textColor = textIsPlaceholder() ? placeholderTextColour : textColour
             
             // show hide the placeholder label as appropriate
-            let placeholderHidden = textView.text == placeholderText || (hidesPlaceholderLabel && !textView.isFirstResponder())
+            let placeholderHidden = textIsPlaceholder() || (hidesPlaceholderLabel && !textView.isFirstResponder())
             if placeholderLabel.hidden != placeholderHidden {
                 placeholderLabel.hidden = placeholderHidden
                 
                 if NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_8_3 {
-                    
+                
+                    // perform layout. Due to the nested nature of text views this extra layout pass is sometimes necessary...
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
                         self.stackView.invalidateIntrinsicContentSize()
@@ -220,15 +246,15 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
                     })
                 }
                 
-                // TODO: Weak link to TextResponder Cocoapod
-                //                dispatch_main_queue({ () -> () in
-                //                    // post notification as showing / hiding the label changes the position of the text view. This is done in a new block to ensure the layout pass has occured and the frames have been updated.
-                //                    NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: self.textView)
-                //                })
+                dispatch_async(dispatch_get_main_queue(), { () -> () in
+                    // post notification as showing / hiding the label changes the position of the text view. This is done in a new block to ensure the layout pass has occured and the frames have been updated.
+                    NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: self.textView)
+                })
             }
         }
     }
     
+    /// Sets the alpha of `underline` based on whether `textField` is first responder, and `enabled`.
     public func configureUnderline() {
         underline.alpha = textView.isFirstResponder() ? 1.0 : (enabled ? 0.5 : 0.0)
     }

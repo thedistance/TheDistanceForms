@@ -8,54 +8,17 @@
 import Foundation
 import TheDistanceCore
 
-public enum ValidationResult: Equatable {
-    case Valid
-    case Invalid(reason:String)
-}
-
-public func ==(v1:ValidationResult, v2:ValidationResult) -> Bool {
-    switch (v1, v2) {
-    case (.Valid, .Valid):
-        return true
-    case (.Valid, .Invalid(_)), (.Invalid(_), .Valid):
-        return false
-    case (.Invalid(let m1), .Invalid(let m2)):
-        return m1 == m2
-    }
-}
-
-/// Combines two `ValidationResult`s as if combining two `Bool`s using `&&`. The invalidation messages are combined with "\n".
-@warn_unused_result
-public func &&(v1:ValidationResult, v2:ValidationResult) -> ValidationResult {
-    switch (v1, v2) {
-    case (.Valid, .Valid):
-        return .Valid
-    case (.Valid, .Invalid(_)):
-        return v2
-    case (.Invalid(_), .Valid):
-        return v1
-    case (.Invalid(let m1), .Invalid(let m2)):
-        return .Invalid(reason: m1 + "\n" + m2)
-    }
-}
-
-/// Combines two `ValidationResult`s as if combining two `Bool`s using `||`. If both parameters are `Invalid`, invalidation messages are combined with "\n".
-@warn_unused_result
-public func ||(v1:ValidationResult, v2:ValidationResult) -> ValidationResult {
-    switch (v1, v2) {
-    case (.Valid, .Valid), (.Valid, .Invalid(_)), (.Invalid(_), .Valid):
-        return .Valid
-    case (.Invalid(let m1), .Invalid(let m2)):
-        return .Invalid(reason: m1 + "\n" + m2)
-    }
-}
-
 /**
 
-Structure that performs validation on a value of a given type, returning `true` or `false` if that validation passes.
+Structure that performs validation on a value of a given type, returning `true` or `false` if that validation passes. The generic `Type` parameter is used to strongly type the value validation.
 
-- seealso: NullStringValidation, EmailValidation
-
+ - seealso: `NonEmptyStringValidation(_:)`
+ - seealso: `RegexValidationWithMessage(_:regex:allowingNull:)`
+ - seealso: `EmailValidationWithMessage(_:allowingNull:)`
+ - seealso: `NumberValidationWithMessage(_:allowingNull:)`
+ - seealso: `PhoneValidationWithMessage(_:allowingNull:)`
+ - seealso: `UKPostcodeValidationWithMessage(_:allowingNull:)`
+ 
 */
 public struct Validation<Type> {
     
@@ -70,6 +33,7 @@ public struct Validation<Type> {
         }
     }
     
+    /// Convenience initialiser for a group of validations that should be applied using `&&` logic, i.e. all child validations must be valid for this validation to be valid.
     public init(andValidations:[Validation<Type>], message:String? = nil) {
         self.validate = { (v:Type?) -> ValidationResult in
             
@@ -83,6 +47,7 @@ public struct Validation<Type> {
         }
     }
     
+    /// Convenience initialiser for a group of validations that should be applied using `||` logic, i.e. at least one child validation must be valid for this validation to be valid.
     public init(orValidations:[Validation<Type>], message:String? = nil) {
         
         self.validate = { (v:Type?) -> ValidationResult in
@@ -97,7 +62,14 @@ public struct Validation<Type> {
     }
 }
 
-/// Convenience creator for a validation that checks whether a given string, trimmed from whitespace, is has content.
+/**
+ 
+ Convenience creator for a validation that checks whether a given string, trimmed from whitespace, has content.
+ 
+ - parameter message: The `message` property of the returned `Validation`. validation fails.
+ 
+ - returns: A configured `Validation<String>` object.
+ */
 public func NonEmptyStringValidation(message:String) -> Validation<String> {
     
     return Validation<String>(message: message, validation: { (value) -> Bool in
@@ -116,39 +88,25 @@ public func NonEmptyStringValidation(message:String) -> Validation<String> {
 
      [a-zA-Z0-9\+\.\_\%\-\+]{1,256}\@[a-zA-Z0-9][a-zA-Z0-9\-]{0,64}\.[a-zA-Z0-9][a-zA-Z0-9\-]{0,25})+
  
+ - seealso: `RegexValidationWithMessage(_:regex:allowingNull:)`
+ 
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional email address.
+ 
+ - returns: A configured `Validation<String>` object.
 */
 public func EmailValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
     
-    return Validation<String>(message: message, validation: { (value) -> Bool in
-        
-        let nullValidation = NonEmptyStringValidation("")
-        
-        guard let stringValue = value else {
-            return false
-        }
-        
-        if !allowingNull && nullValidation.validate(value: stringValue) != ValidationResult.Valid {
-            return false
-        }
-        
-        if allowingNull && stringValue.isEmpty {
-            return true
-        }
-        
-        var regexString = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}"
-        regexString += "\\@"
-        regexString += "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
-        regexString += "("
-        regexString += "\\."
-        regexString += "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
-        regexString += ")+"
-        
-        // this is a programmer error so ensure it is correct by force
-        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
-        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
-    })
+    var regexString = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}"
+    regexString += "\\@"
+    regexString += "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
+    regexString += "("
+    regexString += "\\."
+    regexString += "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
+    regexString += ")+"
+    
+    // this is a programmer error in creating the regex so ensure it is correct by force
+    return RegexValidationWithMessage(message, regex: regexString, allowingNull: allowingNull)!
 }
 
 /**
@@ -157,33 +115,19 @@ public func EmailValidationWithMessage(message:String, allowingNull:Bool = false
  
  [0-9\s]
  
+ - seealso: `RegexValidationWithMessage(_:regex:allowingNull:)`
+ 
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional number.
+ 
+ - returns: A configured `Validation<String>` object.
  */
 public func NumberValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
     
-    return Validation<String>(message: message, validation: { (value) -> Bool in
-        let nullValidation = NonEmptyStringValidation("")
-        
-        guard let stringValue = value else {
-            return false
-        }
-        
-        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
-            return false
-        }
-        
-        if allowingNull && stringValue.isEmpty {
-            return true
-        }
-        
-        
-        let regexString = "[0-9\\s]"
-        
-        // this is a programmer error so ensure it is correct by force
-        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
-        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
-    })
+    let regexString = "[0-9\\s]"
+    
+    // this is a programmer error in creating the regex so ensure it is correct by force
+    return RegexValidationWithMessage(message, regex: regexString, allowingNull: allowingNull)!
 }
 
 /**
@@ -192,33 +136,19 @@ public func NumberValidationWithMessage(message:String, allowingNull:Bool = fals
 
     [\+]?[0-9.-]+
 
+ - seealso: `RegexValidationWithMessage(_:regex:allowingNull:)`
+ 
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
+ 
+ - returns: A configured `Validation<String>` object.
 */
 public func PhoneValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
     
-    return Validation<String>(message: message, validation: { (value) -> Bool in
-        let nullValidation = NonEmptyStringValidation("")
-        
-        guard let stringValue = value else {
-            return false
-        }
-        
-        if !allowingNull && nullValidation.validate(value: stringValue) == .Valid {
-            return false
-        }
-        
-        if allowingNull && stringValue.isEmpty {
-            return true
-        }
-        
-        
-        let regexString = "[\\+]?[0-9.-]+"
-        
-        // this is a programmer error so ensure it is correct by force
-        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
-        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
-    })
+    let regexString = "[\\+]?[0-9.-]+"
+    
+    // this is a programmer error in creating the regex so ensure it is correct by force
+    return RegexValidationWithMessage(message, regex: regexString, allowingNull: allowingNull)!
 }
 
 /**
@@ -227,43 +157,36 @@ public func PhoneValidationWithMessage(message:String, allowingNull:Bool = false
  
  (GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})
  
+ - seealso: `RegexValidationWithMessage(_:regex:allowingNull:)`
+ 
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
+ 
+ - returns: A configured `Validation<String>` object.
  */
 public func UKPostcodeValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
     
-    return Validation<String>(message: message, validation: { (value) -> Bool in
-        let nullValidation = NonEmptyStringValidation("")
-        
-        guard let stringValue = value else {
-            return false
-        }
-        
-        if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
-            return false
-        }
-        
-        if allowingNull && stringValue.isEmpty {
-            return true
-        }
-        
-        
-        let regexString = "(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
-        
-        // this is a programmer error so ensure it is correct by force
-        let regex = try! NSRegularExpression(pattern: regexString, options: .CaseInsensitive)
-        return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
-    })
+    let regexString = "(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
+    
+    
+    // this is a programmer error in creating the regex so ensure it is correct by force
+    return RegexValidationWithMessage(message, regex: regexString, allowingNull: allowingNull)!
 }
 
 /**
  
  Convenience creator for a validation that checks whether a given string, trimmed from whitespace is valid against given regex.
  
+ - seealso: `EmailValidationWithMessage(_:allowingNull:)`
+ - seealso: `NumberValidationWithMessage(_:allowingNull:)`
+ - seealso: `PhoneValidationWithMessage(_:allowingNull:)`
+ - seealso: `UKPostcodeValidationWithMessage(_:allowingNull:)`
  
  - parameter message: The `message` property of the returned `Validation`.
  - parameter allowingNull: Whether or not an empty string will be allowed. Default is `false`. `true` allows validation of an optional phone number.
+ 
  - returns: A validation if a, `NSRegularExpression` is created with the given `regex`, `nil` otherwise.
+ 
  */
 public func RegexValidationWithMessage(message:String, regex:String, allowingNull:Bool = false) -> Validation<String>? {
     

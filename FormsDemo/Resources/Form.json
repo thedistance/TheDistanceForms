@@ -58,6 +58,21 @@
             }
         },
         {
+            "key": "interests",
+            "question_type": "ChoiceSelect",
+            "prompt": "Select up to 3 interests",
+            "choices": [
+                ["art", "Art & Design"],
+                ["drama", "Musicals, Theatre and Production"],
+                ["pure_math", "Pure Mathematics"],
+                ["applied_math", "Applied Mathematics"],
+                ["physics", "Physics"]
+            ],
+            "selection_type": "All",
+            "selection_min": 0,
+            "selection_max": 3,
+        },
+        {
             "key": "contact",
             "question_type": "ChoiceSegments",
                   "title": "Contact Preferences",
