@@ -48,10 +48,6 @@ In order to keep this library focussed, additional functionality is available in
 
 Carthage is the recommended way of integrating this into your project.
 
-### Cocoapods
-
-Cocoapods support is in the roadmap.
-
 ## Usage
 
 ### Quick Start

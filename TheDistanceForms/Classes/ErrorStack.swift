@@ -10,6 +10,17 @@ import Foundation
 
 import StackView
 
+/**
+ 
+ Abstract class that shows an icon, error label and error image around a given center component view. This class has convenience properties for the `errorText` which will then set `hidden` of the error label and image view. This is the core view of all form components that can show errors.
+ 
+ - seealso: `TextStack`
+ - seealso: `TextFieldStack`
+ - seealso: `TextViewStack`
+ - seealso: `SwitchStack`
+ - seealso: `SegmentedTextFieldStack`
+ 
+ */
 public class ErrorStack:CreatedStack {
     
     // MARK: Errors
@@ -44,6 +55,18 @@ public class ErrorStack:CreatedStack {
     /// A vertical `StackView` containing the `centerStack` and `errorLabel`.
     public let errorStack:StackView
     
+    /**
+     
+     Default initialiser. Creates the necessary views as sub-stacks. It has many optional parameters to allow for customisation using custom subclasses, perhaps a class which configures the components to match your apps branding.
+     
+     - seealso: TheDistanceFormsThemed
+     
+     - parameter centerComponent: The view to use that is supplemented with an icon, error label and error image.
+     - parameter errorLabel: The `UILabel` or subclass to use to show the error text. Default value is a new `UILabel`.
+     - parameter iconImageView: The `UIImageView` or subclass to use to show the icon. Default value is a new `UIImageView`.
+     - parameter errorImageView: The `UIImageView` or subclass to use to show the error icon. Default value is a new `UIImageView`.
+     
+    */
     public init(centerComponent:UIView,
                 errorLabel:UILabel = UILabel(),
                 errorImageView:UIImageView = UIImageView(),

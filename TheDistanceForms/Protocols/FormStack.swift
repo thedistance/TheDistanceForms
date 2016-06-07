@@ -10,7 +10,13 @@ import Foundation
 
 public typealias HashableRaw = protocol<Hashable, RawRepresentable>
 
-/// Defines the requirement of an object that can contain valid values.
+/**
+ 
+ Defines the requirement of an object that can contain values, which may or may not be consider valid.
+ 
+ This protocol could define a typealias to specify the type of values it allows. This would mean that `ValueElement`s could only be used as generic constraints, restricting their use.
+ 
+ */
 public protocol ValueElement {
     
     /// Should return the value if there is one, nil otherwise.
@@ -29,7 +35,7 @@ public protocol ValueElement {
     func validateValue() -> ValidationResult
 }
 
-///
+
 public protocol KeyedValueElementContainer {
     
     associatedtype KeyType:HashableRaw

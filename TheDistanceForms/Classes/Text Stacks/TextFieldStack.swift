@@ -16,7 +16,7 @@ import KeyboardResponder
 
  `TextStack` subclass using a `UITextField`.
 
- `placeholderLabel` and `errorLabel` are configured in response to `UITextFieldTextDidBeginEditingNotification` and `UITextFieldTextDidEndEditingNotification`, which call `textFieldBeganEditing()` and `textFieldFinishedEditing()` respectively.
+ `placeholderLabel` is configured in response to `UITextFieldTextDidBeginEditingNotification` and `UITextFieldTextDidEndEditingNotification`, which call `textFieldBeganEditing()` and `textFieldFinishedEditing()` respectively.
  
 */
 @IBDesignable
@@ -24,7 +24,8 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     
     
     // MARK: - Properties
-    /// The whitespace trimmed text entered into the `textField`.
+ 
+    /// The whitespace trimmed text entered into `textField`.
     override public var text:String? {
         get {
             return textField.text?.whitespaceTrimmedString()
@@ -34,8 +35,8 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
         }
     }
     
-    /// Flag to determine whether user interaction is enabled for the `textView`. This causes a layout pass to be called.
-    public var enabled:Bool = true {
+    /// Sets the `enabled` property of `textField`.
+    public override var enabled:Bool {
         didSet {
             textField.enabled = enabled
             
@@ -47,13 +48,13 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
         }
     }
     
-    /// The text field the user interacts with. Text should be set using the `text` property rather than directly setting it on this variable.
+    /// The `UITextField` the user interacts with. Text should be set using the `text` property rather than directly setting it on this variable.
     public let textField:UITextField
     
     private var textBeginObserver:NotificationObserver?
     private var textEndObserver:NotificationObserver?
     
-    /// The component to use with a `KeyboardResponder`.
+    /// The component to use with a [`KeyboardResponder`](https://github.com/thedistance/KeyboardResponder).
     public var inputComponent: KeyboardResponderInputType {
         return .TextField(textField)
     }
@@ -65,7 +66,7 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     var dateController:UIDatePickerDataController?
     
     
-    // MARK: - CreatedStack Methods
+    // MARK: Initialiser
     
     /**
     
@@ -73,7 +74,13 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     
     Subclasses can call through to super with arguments for each variable but configuration to override the defaults should be done after `super.init()`.
     
-    Subclasses can set this before calling `super.init()` to use a custom subclass. Configures the default values for the stack and text field. Calls `configureErrorImageAlignedToView(_:)` and `addUnderlineForView(_:)` to set up the remaining view hierarchy. Adds observers to NSNotificationCenter to respond to the `textField` becoming and resigning first responder status.
+     - parameter textField: The `UITextField` to use as the center component of this `ErrorStack`.
+     - parameter placeholderLabel: The `UILabel` or subclass to show the `placeholderText` when the user has already entered text. Default value is a new `UILabel`.
+     - parameter underline: The `UIView` or subclass to use as an underline for `textComponent`.
+     - parameter errorLabel: The `UILabel` or subclass to use to show the error text. Default value is a new `UILabel`. The font for this labels is set to `UIFontTextStyleCaption2`.
+     - parameter iconImageView: The `UIImageView` or subclass to use to show the icon. Default value is a new `UIImageView`.
+     - parameter errorImageView: The `UIImageView` or subclass to use to show the error icon. Default value is a new `UIImageView`.
+     
     */
     public init(textField:UITextField = UITextField(),
         placeholderLabel:UILabel = UILabel(),
@@ -120,6 +127,8 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    // MARK: - UI Configuration
+    
     /// Shows / hides the `placeholderLabel` and `placeholder` text of the `textField` based on the currently entered text.
     public override func configurePlaceholder() {
         
@@ -136,15 +145,15 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
             let placeholderHidden = (textField.text?.isEmpty ?? true) || (hidesPlaceholderLabel && !textField.isFirstResponder())
             if placeholderLabel.hidden != placeholderHidden {
                 placeholderLabel.hidden = placeholderHidden
-                // TODO: Weak link to TextResponder Cocoapod
-                // post notification as showing / hiding the label changes the position of the text view
-                // NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textField)
+                
+                NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textField)
             }
         } else {
             textField.placeholder = nil
         }
     }
     
+    /// Sets the alpha of `underline` based on whether `textField` is first responder, and `enabled`.
     public func configureUnderline() {
         underline.alpha = textField.isFirstResponder() ? 1.0 : (enabled ? 0.5 : 0.0)
     }
