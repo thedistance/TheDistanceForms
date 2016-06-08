@@ -14,6 +14,8 @@
 		A54511C11D071E8B0067714A /* FormEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511BD1D071E8B0067714A /* FormEnums.swift */; };
 		A54511C21D071E8B0067714A /* FormQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511BE1D071E8B0067714A /* FormQuestion.swift */; };
 		A54511C31D071E8B0067714A /* FormQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511BF1D071E8B0067714A /* FormQuestionView.swift */; };
+		A54511C51D0807D70067714A /* FormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511C41D0807D70067714A /* FormContainer.swift */; };
+		A54511C71D0808160067714A /* ValueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511C61D0808160067714A /* ValueElement.swift */; };
 		A592A02E1CCF5D2300128D4D /* EventFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */; };
 		A592A0301CCF5E0400128D4D /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02F1CCF5E0400128D4D /* EventForm.swift */; };
 		A592A0341CCF628E00128D4D /* EventForm.json in Resources */ = {isa = PBXBuildFile; fileRef = A592A0331CCF628E00128D4D /* EventForm.json */; };
@@ -55,8 +57,6 @@
 		A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */; };
 		A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE781CC8C7EF0032534D /* TextStack.swift */; };
 		A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */; };
-		A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */; };
-		A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */; };
 		A5F0DE931CC8C80A0032534D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */; };
 		A5F0DE941CC8C80A0032534D /* PhotosStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */; };
 		A5F0DE951CC8C80A0032534D /* PhotoStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */; };
@@ -87,7 +87,6 @@
 		A5F0DF0E1CCA343E0032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
 		A5F0DF0F1CCA35E00032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
 		A5F0DF101CCA35E00032534D /* KeyboardResponder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF121CCA3C080032534D /* FormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DF111CCA3C080032534D /* FormContainer.swift */; };
 		A5F0DF161CCA55A30032534D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DF151CCA55A30032534D /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +170,8 @@
 		A54511BD1D071E8B0067714A /* FormEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormEnums.swift; sourceTree = "<group>"; };
 		A54511BE1D071E8B0067714A /* FormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormQuestion.swift; sourceTree = "<group>"; };
 		A54511BF1D071E8B0067714A /* FormQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormQuestionView.swift; sourceTree = "<group>"; };
+		A54511C41D0807D70067714A /* FormContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormContainer.swift; sourceTree = "<group>"; };
+		A54511C61D0808160067714A /* ValueElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueElement.swift; sourceTree = "<group>"; };
 		A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFormViewController.swift; sourceTree = "<group>"; };
 		A592A02F1CCF5E0400128D4D /* EventForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventForm.swift; sourceTree = "<group>"; };
 		A592A0331CCF628E00128D4D /* EventForm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EventForm.json; path = Resources/EventForm.json; sourceTree = "<group>"; };
@@ -211,8 +212,6 @@
 		A5F0DE771CC8C7EF0032534D /* TextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStack.swift; sourceTree = "<group>"; };
 		A5F0DE781CC8C7EF0032534D /* TextStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStack.swift; sourceTree = "<group>"; };
 		A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewStack.swift; sourceTree = "<group>"; };
-		A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ErrorTextStack+Form.swift"; sourceTree = "<group>"; };
-		A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStack.swift; sourceTree = "<group>"; };
 		A5F0DE8E1CC8C80A0032534D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5F0DE8F1CC8C80A0032534D /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
 		A5F0DE901CC8C80A0032534D /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
@@ -230,7 +229,6 @@
 		A5F0DEF11CC900710032534D /* Form.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Form.json; path = Resources/Form.json; sourceTree = "<group>"; };
 		A5F0DEF61CC902320032534D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardResponder.framework; path = Carthage/Build/iOS/KeyboardResponder.framework; sourceTree = "<group>"; };
-		A5F0DF111CCA3C080032534D /* FormContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormContainer.swift; sourceTree = "<group>"; };
 		A5F0DF151CCA55A30032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +317,7 @@
 		A54511B61D071B030067714A /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				A54511C61D0808160067714A /* ValueElement.swift */,
 				A54511B71D071B030067714A /* Validation.swift */,
 				A54511B91D071B0E0067714A /* ValidationResult.swift */,
 			);
@@ -329,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				A54511BC1D071E8B0067714A /* Form.swift */,
+				A54511C41D0807D70067714A /* FormContainer.swift */,
 				A54511BD1D071E8B0067714A /* FormEnums.swift */,
 				A54511BE1D071E8B0067714A /* FormQuestion.swift */,
 				A54511BF1D071E8B0067714A /* FormQuestionView.swift */,
@@ -401,8 +401,6 @@
 				A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */,
 				A5F0DF151CCA55A30032534D /* Media.xcassets */,
 				A5F0DE6E1CC8C7EF0032534D /* Classes */,
-				A5F0DE7B1CC8C7EF0032534D /* Extensions */,
-				A5F0DE7D1CC8C7EF0032534D /* Protocols */,
 				A5F0DE301CC8C5F80032534D /* Info.plist */,
 			);
 			path = TheDistanceForms;
@@ -500,23 +498,6 @@
 				A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */,
 			);
 			path = "Text Stacks";
-			sourceTree = "<group>";
-		};
-		A5F0DE7B1CC8C7EF0032534D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A5F0DE7C1CC8C7EF0032534D /* ErrorTextStack+Form.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A5F0DE7D1CC8C7EF0032534D /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				A5F0DE7E1CC8C7EF0032534D /* FormStack.swift */,
-				A5F0DF111CCA3C080032534D /* FormContainer.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A5F0DE8D1CC8C80A0032534D /* Classes */ = {
@@ -901,17 +882,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F0DE8B1CC8C7EF0032534D /* FormStack.swift in Sources */,
 				A54511C31D071E8B0067714A /* FormQuestionView.swift in Sources */,
 				A54511C11D071E8B0067714A /* FormEnums.swift in Sources */,
-				A5F0DF121CCA3C080032534D /* FormContainer.swift in Sources */,
-				A5F0DE8A1CC8C7EF0032534D /* ErrorTextStack+Form.swift in Sources */,
+				A54511C51D0807D70067714A /* FormContainer.swift in Sources */,
 				A5F0DE851CC8C7EF0032534D /* SegmentedTextFieldStack.swift in Sources */,
 				A54511C01D071E8B0067714A /* Form.swift in Sources */,
 				A5F0DE861CC8C7EF0032534D /* TextFieldStack.swift in Sources */,
 				A54511B51D070BE40067714A /* UIDatePickerDataController.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
 				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
+				A54511C71D0808160067714A /* ValueElement.swift in Sources */,
 				A54511B81D071B030067714A /* Validation.swift in Sources */,
 				A5F0DE871CC8C7EF0032534D /* TextStack.swift in Sources */,
 				A54511BA1D071B0E0067714A /* ValidationResult.swift in Sources */,

@@ -158,4 +158,56 @@ public class TextStack: ErrorStack {
     /// To be overridden by sub classes to show / hide the placeholder correctly.
     public func configurePlaceholder() { }
     
+    // MARK: - ValueElement
+    
+    /**
+     
+     Sets `text` to the given value if and only if it is a String that passes the `validation`.
+     
+     - parameter value: The object to set as `text`. This should be a String.
+     
+     - returns: `true` if the the given value is set as `text`, `false` otherwise.
+     
+    */
+    public func setValue<T>(value: T?) -> Bool {
+        if let str = (value as? String)?.whitespaceTrimmedString() {
+            
+            if let result = validation?.validate(value: str), case .Valid = result  {
+                text = str
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        return false
+    }
+    
+    public func getValue() -> Any? {
+        return text
+    }
+    
+    /**
+     
+     Calls `validation.validate(_:)` on `text` setting the `errorText` as appropriate.
+     
+     - returns: `.Valid` if `text` passes validation, `.Invalid(let message)` otherwise, where message is that returned by `self.validation`.
+     */
+    public func validateValue() -> ValidationResult {
+        
+        let newText = text
+        let result = validation?.validate(value: newText) ?? .Valid
+        
+        text = newText
+        
+        if case .Invalid(let message) = result {
+            errorText = message
+        } else {
+            errorText = nil
+        }
+        
+        return result
+    }
 }
+
+
