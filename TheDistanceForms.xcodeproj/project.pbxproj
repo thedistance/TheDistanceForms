@@ -16,6 +16,7 @@
 		A54511C31D071E8B0067714A /* FormQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511BF1D071E8B0067714A /* FormQuestionView.swift */; };
 		A54511C51D0807D70067714A /* FormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511C41D0807D70067714A /* FormContainer.swift */; };
 		A54511C71D0808160067714A /* ValueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511C61D0808160067714A /* ValueElement.swift */; };
+		A561FFA21D4F7E9C00EB3C2B /* TheDistanceFormsPhotosVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE4C1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A592A02E1CCF5D2300128D4D /* EventFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02D1CCF5D2300128D4D /* EventFormViewController.swift */; };
 		A592A0301CCF5E0400128D4D /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A02F1CCF5E0400128D4D /* EventForm.swift */; };
 		A592A0341CCF628E00128D4D /* EventForm.json in Resources */ = {isa = PBXBuildFile; fileRef = A592A0331CCF628E00128D4D /* EventForm.json */; };
@@ -42,7 +43,6 @@
 		A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5F0DE361CC8C5F80032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
 		A5F0DE3B1CC8C5F80032534D /* TheDistanceFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */; };
-		A5F0DE4D1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE4C1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5F0DE541CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */; };
 		A5F0DE591CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE581CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift */; };
 		A5F0DE671CC8C6A90032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
@@ -580,7 +580,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F0DE4D1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.h in Headers */,
 				A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +588,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A561FFA21D4F7E9C00EB3C2B /* TheDistanceFormsPhotosVideos.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
