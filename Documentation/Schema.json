@@ -52,7 +52,7 @@
                         "description": "",
                         "type": "string"
                     },
-                    "keyboard_type": {
+                    "keyboardType": {
                         "description": "",
                         "type": "string",
                         "enum": [

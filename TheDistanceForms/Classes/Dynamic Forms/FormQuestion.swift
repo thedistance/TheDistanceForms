@@ -94,7 +94,7 @@ public class FormQuestion {
         textElement.placeholderText = prompt
         
         // UITextInputTraits
-        if let kbTypeString = questionDefinition["keyboardType"].string,
+        if let kbTypeString = questionDefinition["keyboard_type"].string,
             let kbType = KeyboardType(rawValue: kbTypeString) {
             textElement.textField.keyboardType = kbType.uiKeyboardType
         }
