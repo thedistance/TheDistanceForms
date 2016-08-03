@@ -9,12 +9,8 @@
 import UIKit
 
 import SwiftyJSON
-import TheDistanceForms
 import TheDistanceCore
 import KeyboardResponder
-import TheDistanceForms
-import TheDistanceFormsThemed
-
 
 public class FormViewController: UIViewController, FormContainer {
     
