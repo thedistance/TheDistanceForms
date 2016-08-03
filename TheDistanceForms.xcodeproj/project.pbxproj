@@ -40,6 +40,7 @@
 		A592A0631CD0C5E900128D4D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
 		A592A0641CD0C5E900128D4D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
 		A592A0651CD0C5E900128D4D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
+		A5961F351D51FAB4004D9636 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5961F341D51FAB4004D9636 /* FormViewController.swift */; };
 		A5F0DE2F1CC8C5F80032534D /* TheDistanceForms.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5F0DE361CC8C5F80032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
 		A5F0DE3B1CC8C5F80032534D /* TheDistanceFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE3A1CC8C5F80032534D /* TheDistanceFormsTests.swift */; };
@@ -188,6 +189,7 @@
 		A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKFormQuestion.swift; sourceTree = "<group>"; };
 		A592A05D1CD0C49200128D4D /* MyTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTheme.swift; sourceTree = "<group>"; };
 		A592A05F1CD0C4D000128D4D /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		A5961F341D51FAB4004D9636 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TheDistanceForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F0DE2E1CC8C5F80032534D /* TheDistanceForms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheDistanceForms.h; sourceTree = "<group>"; };
 		A5F0DE301CC8C5F80032534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				A54511BD1D071E8B0067714A /* FormEnums.swift */,
 				A54511BE1D071E8B0067714A /* FormQuestion.swift */,
 				A54511BF1D071E8B0067714A /* FormQuestionView.swift */,
+				A5961F341D51FAB4004D9636 /* FormViewController.swift */,
 			);
 			path = "Dynamic Forms";
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				A54511BA1D071B0E0067714A /* ValidationResult.swift in Sources */,
 				A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */,
 				A54511C21D071E8B0067714A /* FormQuestion.swift in Sources */,
+				A5961F351D51FAB4004D9636 /* FormViewController.swift in Sources */,
 				A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

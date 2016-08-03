@@ -41,6 +41,16 @@ public class Form: KeyedValueElementContainer, KeyedView {
     
     public private(set) var formView:StackView
     
+    convenience public init?(filename: String, inBundle: NSBundle = NSBundle.mainBundle(), questionType: FormQuestion.Type = FormQuestion.self) {
+        
+        guard let url = inBundle.URLForResource(filename, withExtension: "json"),
+            let data = NSData(contentsOfURL: url) else {
+                return nil
+        }
+        
+        self.init(definition: JSON(data: data), questionType: questionType)
+    }
+    
     required public init?(definition:JSON, questionType:FormQuestion.Type = FormQuestion.self) {
         
         guard let title = definition["title"].string,

@@ -23,7 +23,7 @@ public enum FormQuestionView: ValueElement {
     case Boolean(SwitchStack)
     case Button(UIButton)
     
-    var inputComponent:KeyboardResponderInputContainer? {
+    public var inputComponent:KeyboardResponderInputContainer? {
         switch self {
         case .TextSingle(let tf):
             return tf
@@ -42,7 +42,7 @@ public enum FormQuestionView: ValueElement {
         }
     }
     
-    var view:UIView {
+    public var view:UIView {
         switch self {
         case .TextSingle(let tf):
             return tf.stackView
