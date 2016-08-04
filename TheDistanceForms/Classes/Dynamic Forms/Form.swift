@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import StackView
+import KeyboardResponder
 
 extension String: RawRepresentable {
     
@@ -66,6 +67,15 @@ public class Form: KeyedValueElementContainer, KeyedView {
      
         formView = CreateStackView([])
         formView = createFormView()
+    }
+    
+    /**
+     
+     Convenience method for getting all of the inputs for this form to be used with a `KeyboardResponder`. Subclasses can override this if inputs are not part of the `questions` array. Such inputs will not be validated and will not be included in the answers JSON.
+     
+    */
+    public func inputComponents() -> [KeyboardResponderInputType] {
+        return questions.flatMap { $0.questionView.inputComponent?.inputComponent }
     }
     
     public func questionForKey(key:String) -> FormQuestion? {
