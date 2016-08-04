@@ -37,7 +37,9 @@ public class TextStack: ErrorStack {
         get {
             return nil
         }
-        set { }
+        set {
+            configurePlaceholder()
+        }
     }
     
     /// If `true`, the validation is checked after the text elements resigns first responder status. Default is `true`.
