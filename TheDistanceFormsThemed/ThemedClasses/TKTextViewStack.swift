@@ -37,8 +37,8 @@ public class TKTextViewStack: TextViewStack {
         placeholder.textColourStyle = .SecondaryText
         
         let errorLabel = TKLabel()
-        placeholder.textStyle = .Caption
-        placeholder.textColourStyle = .Accent
+        errorLabel.textStyle = .Caption
+        errorLabel.textColourStyle = .Accent
         
         let errorImageView = TKImageView()
         errorImageView.tintColourStyle = .Accent
