@@ -11,6 +11,25 @@ import SwiftyJSON
 import StackView
 import KeyboardResponder
 
+let ServerDateFormatter: NSDateFormatter = {
+    return NSDateFormatter.newServerFormatter()
+}()
+
+extension NSDateFormatter {
+    
+    
+    /// - returns: An `NSDateFormatter` with a format string `"yyyy-MM-dd'T'hh:mm:ss"`, with the correct time zone and locale to read and print dates in UTC.
+    public class func newServerFormatter() -> NSDateFormatter {
+        
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_GB_POSIX")
+        formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
+        return formatter
+    }
+    
+}
+
 extension String: RawRepresentable {
     
     public typealias RawValue = String
@@ -64,7 +83,7 @@ public class Form: KeyedValueElementContainer, KeyedView {
         
         // initialise as empty so can call other methods from this initialiser
         questions = questionsJSON.flatMap { questionType.init(json: $0) }
-     
+        
         formView = CreateStackView([])
         formView = createFormView()
     }
@@ -73,7 +92,7 @@ public class Form: KeyedValueElementContainer, KeyedView {
      
      Convenience method for getting all of the inputs for this form to be used with a `KeyboardResponder`. Subclasses can override this if inputs are not part of the `questions` array. Such inputs will not be validated and will not be included in the answers JSON.
      
-    */
+     */
     public func inputComponents() -> [KeyboardResponderInputType] {
         return questions.flatMap { $0.questionView.inputComponent?.inputComponent }
     }
@@ -90,7 +109,7 @@ public class Form: KeyedValueElementContainer, KeyedView {
         stack.stackDistribution = .Fill
         stack.stackAlignment = .Fill
         stack.spacing = 26.0
-
+        
         return stack
     }
     
@@ -98,6 +117,7 @@ public class Form: KeyedValueElementContainer, KeyedView {
         return questions.filter({ $0.key == key }).first?.questionView
     }
     
+    /// Convenience method for getting the overall validation result alongside each individual result for each question
     public func validateForm() -> (ValidationResult, [(FormQuestion, ValidationResult)]) {
         
         let answerableQuestions = questions.filter { $0.type != .Button }
@@ -112,25 +132,27 @@ public class Form: KeyedValueElementContainer, KeyedView {
     
     /**
      - returns: A JSON dictionary of all the answers in the form. Questions not answered have a `.Null` JSON type.
-    */
+     */
     public func answersJSON() -> JSON {
         
         let answerableQuestions = questions.filter { $0.type != .Button }
         
         let answers = answerableQuestions
             .map { (question) -> (String, JSON) in
-            
-            let key = question.key
-            let value = question.questionView.getValue()
-            
-            let json:JSON
-            if let valueObject = value as? AnyObject {
-                json = JSON(valueObject)
-            } else {
-                json = JSON(NSNull())
-            }
-            
-            return (key, json)
+                
+                let key = question.key
+                let value = question.questionView.getValue()
+                
+                let json:JSON
+                if let date = value as? NSDate {
+                    json = JSON(ServerDateFormatter.stringFromDate(date))
+                } else if let valueObject = value as? AnyObject {
+                    json = JSON(valueObject)
+                } else {
+                    json = JSON(NSNull())
+                }
+                
+                return (key, json)
         }
         
         let answersDict = Dictionary(answers)
