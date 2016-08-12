@@ -73,7 +73,7 @@ public class PhotosStackManager: NSObject, UICollectionViewDataSource, UICollect
     
     public var mediaDataSource = [PhotosStackAsset]()
     
-    public let context:UIViewController
+    public var context:UIViewController
     public let collectionView:UICollectionView
     public let operationQueue:OperationQueue
     
