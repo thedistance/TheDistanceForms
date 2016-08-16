@@ -1,0 +1,3 @@
+[submodule "docs"]
+	path = docs
+	url = https://JoshAtTheDistance@github.com/thedistance/TheDistanceForms.git
