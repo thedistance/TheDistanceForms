@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TKTextViewStack Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TKTextViewStack" class="dashAnchor"></a>
+    <a title="TKTextViewStack Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">TheDistanceFormsThemed Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/thedistance/TheDistanceForms"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">TheDistanceFormsThemed Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TKTextViewStack Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/TKFormQuestion.html">TKFormQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C22TheDistanceFormsThemed25TKSegmentedTextFieldStack">TKSegmentedTextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C22TheDistanceFormsThemed13TKSwitchStack">TKSwitchStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TKTextFieldStack.html">TKTextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TKTextViewStack.html">TKTextViewStack</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TKTextViewStack</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TKTextViewStack</span><span class="p">:</span> <span class="kt">TextViewStack</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>TextViewStack</code> whose views are ThemeKit equivalents.</p>
+
+<ul>
+<li><code>textView</code> is a <code>TKTextView</code> configured as <code>.Body1</code>, <code>.Text</code> text colour, and <code>.SecondaryText</code> placeholder text colour.</li>
+<li><code>placeholderLabel</code> is a <code>TKLabel</code> with <code>.Caption</code> font and <code>.SecondaryText</code> colour.</li>
+<li><code>errorLabel</code> is a <code>TKLabel</code> with <code>.Caption</code> font and <code>.Accent</code> colour.</li>
+<li><code>errorImageView</code> is a <code>TKImageView</code> with <code>.Accent</code> tint colour and <code>.ScaleAspectFit</code> contentMode.</li>
+<li><code>iconImageView</code> is a <code>TKImageView</code> with no tint colour and <code>.ScaleAspectFit</code> contentMode.</li>
+<li><code>underline</code> is a <code>TKView</code> which is <code>.Accent</code> alpha 1.0 when <code>textView.isFirstResponder</code> is <code>true</code>, <code>.SecondaryText</code> when <code>textView.isFirstResponder</code> is <code>false</code> but <code>textView.enabled</code>, and invisible when <code>textView.enabled</code> is <code>false</code>.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC22TheDistanceFormsThemed15TKTextViewStack18configureUnderlineFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/configureUnderline()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC22TheDistanceFormsThemed15TKTextViewStack18configureUnderlineFT_T_">configureUnderline()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configures the <code>underline</code> to be <code>.Accent</code> when the view is active and <code>hidden</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">configureUnderline</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://thedistance.co.uk" target="_blank" rel="external">Josh Campion @ The Distance</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

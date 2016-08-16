@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TextFieldStack Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TextFieldStack" class="dashAnchor"></a>
+    <a title="TextFieldStack Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">TheDistanceForms Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/thedistance/TheDistanceForms"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">TheDistanceForms Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TextFieldStack Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ErrorStack.html">ErrorStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Form.html">Form</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormQuestion.html">FormQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormViewController.html">FormViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SegmentedTextFieldStack.html">SegmentedTextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwitchStack.html">SwitchStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextFieldStack.html">TextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextStack.html">TextStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextViewStack.html">TextViewStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIDatePickerDataController.html">UIDatePickerDataController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIPickerViewDataController.html">UIPickerViewDataController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CapitalizationType.html">CapitalizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateTimeFormatStyle.html">DateTimeFormatStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionType.html">FormQuestionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionValue.html">FormQuestionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionView.html">FormQuestionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormValueType.html">FormValueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/KeyboardType.html">KeyboardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationResult.html">ValidationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationType.html">ValidationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSDateFormatter.html">NSDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2aaFTOS_16ValidationResultS0__S0_">&amp;&amp;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2eeFTOS_16ValidationResultS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26EmailValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">EmailValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms24NonEmptyStringValidationFSSGVS_10ValidationSS_">NonEmptyStringValidation(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms27NumberValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">NumberValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26PhoneValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">PhoneValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26RegexValidationWithMessageFTSS5regexSS12allowingNullSb_GSqGVS_10ValidationSS__">RegexValidationWithMessage(_:regex:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms31UKPostcodeValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">UKPostcodeValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2ooFTOS_16ValidationResultS0__S0_">||(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FormContainer.html">FormContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedValueElementContainer.html">KeyedValueElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedView.html">KeyedView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ValueElement.html">ValueElement</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Validation.html">Validation</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TextFieldStack</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TextFieldStack</span><span class="p">:</span> <span class="kt">TextStack</span><span class="p">,</span> <span class="kt">KeyboardResponderInputContainer</span></code></pre>
+
+                </div>
+              </div>
+            <p><code><a href="../Classes/TextStack.html">TextStack</a></code> subclass using a <code>UITextField</code>.</p>
+
+<p><code>placeholderLabel</code> is configured in response to <code>UITextFieldTextDidBeginEditingNotification</code> and <code>UITextFieldTextDidEndEditingNotification</code>, which call <code>textFieldBeganEditing()</code> and <code>textFieldFinishedEditing()</code> respectively.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms14TextFieldStack4textGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/text" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms14TextFieldStack4textGSqSS_">text</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The whitespace trimmed text entered into <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField">textField</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">text</span><span class="p">:</span><span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms14TextFieldStack7enabledSb"></a>
+                    <a name="//apple_ref/swift/Property/enabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms14TextFieldStack7enabledSb">enabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the <code>enabled</code> property of <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField">textField</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">enabled</span><span class="p">:</span><span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField"></a>
+                    <a name="//apple_ref/swift/Property/textField" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField">textField</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>UITextField</code> the user interacts with. Text should be set using the <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack4textGSqSS_">text</a></code> property rather than directly setting it on this variable.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">textField</span><span class="p">:</span><span class="kt">UITextField</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms14TextFieldStack14inputComponentO17KeyboardResponder26KeyboardResponderInputType"></a>
+                    <a name="//apple_ref/swift/Property/inputComponent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms14TextFieldStack14inputComponentO17KeyboardResponder26KeyboardResponderInputType">inputComponent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The component to use with a <a href="https://github.com/thedistance/KeyboardResponder"><code>KeyboardResponder</code></a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">inputComponent</span><span class="p">:</span> <span class="kt">KeyboardResponderInputType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialiser"></a>
+                <a name="//apple_ref/swift/Section/Initialiser" class="dashAnchor"></a>
+                <a href="#/Initialiser">
+                  <h3 class="section-name">Initialiser</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms14TextFieldStackcFT9textFieldCSo11UITextField16placeholderLabelCSo7UILabel10errorLabelS2_14errorImageViewCSo11UIImageView13iconImageViewS3_9underlineCSo6UIView_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(textField:placeholderLabel:errorLabel:errorImageView:iconImageView:underline:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms14TextFieldStackcFT9textFieldCSo11UITextField16placeholderLabelCSo7UILabel10errorLabelS2_14errorImageViewCSo11UIImageView13iconImageViewS3_9underlineCSo6UIView_S0_">init(textField:placeholderLabel:errorLabel:errorImageView:iconImageView:underline:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default initialiser.</p>
+
+<p>Subclasses can call through to super with arguments for each variable but configuration to override the defaults should be done after <code>super.init()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span><span class="kt">UITextField</span> <span class="o">=</span> <span class="kt">UITextField</span><span class="p">(),</span>
+        <span class="nv">placeholderLabel</span><span class="p">:</span><span class="kt">UILabel</span> <span class="o">=</span> <span class="kt">UILabel</span><span class="p">(),</span>
+        <span class="nv">errorLabel</span><span class="p">:</span><span class="kt">UILabel</span> <span class="o">=</span> <span class="kt">UILabel</span><span class="p">(),</span>
+        <span class="nv">errorImageView</span><span class="p">:</span><span class="kt">UIImageView</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(),</span>
+        <span class="nv">iconImageView</span><span class="p">:</span><span class="kt">UIImageView</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(),</span>
+        <span class="nv">underline</span><span class="p">:</span><span class="kt">UIView</span> <span class="o">=</span> <span class="kt">UIView</span><span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>textField</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UITextField</code> to use as the center component of this <code>ErrorStack</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>placeholderLabel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UILabel</code> or subclass to show the <code>placeholderText</code> when the user has already entered text. Default value is a new <code>UILabel</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>underline</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIView</code> or subclass to use as an underline for <code>textComponent</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorLabel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UILabel</code> or subclass to use to show the error text. Default value is a new <code>UILabel</code>. The font for this labels is set to <code>UIFontTextStyleCaption2</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>iconImageView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIImageView</code> or subclass to use to show the icon. Default value is a new <code>UIImageView</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorImageView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIImageView</code> or subclass to use to show the error icon. Default value is a new <code>UIImageView</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20Configuration"></a>
+                <a name="//apple_ref/swift/Section/UI Configuration" class="dashAnchor"></a>
+                <a href="#/UI%20Configuration">
+                  <h3 class="section-name">UI Configuration</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms14TextFieldStack20configurePlaceholderFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/configurePlaceholder()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms14TextFieldStack20configurePlaceholderFT_T_">configurePlaceholder()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows / hides the <code>placeholderLabel</code> and <code>placeholder</code> text of the <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField">textField</a></code> based on the currently entered text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">configurePlaceholder</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms14TextFieldStack18configureUnderlineFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/configureUnderline()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms14TextFieldStack18configureUnderlineFT_T_">configureUnderline()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the alpha of <code>underline</code> based on whether <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack9textFieldCSo11UITextField">textField</a></code> is first responder, and <code><a href="../Classes/TextFieldStack.html#/s:vC16TheDistanceForms14TextFieldStack7enabledSb">enabled</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureUnderline</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://thedistance.co.uk" target="_blank" rel="external">Josh Campion @ The Distance</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FormQuestion Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FormQuestion" class="dashAnchor"></a>
+    <a title="FormQuestion Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">TheDistanceForms Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/thedistance/TheDistanceForms"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">TheDistanceForms Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FormQuestion Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ErrorStack.html">ErrorStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Form.html">Form</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormQuestion.html">FormQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormViewController.html">FormViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SegmentedTextFieldStack.html">SegmentedTextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwitchStack.html">SwitchStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextFieldStack.html">TextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextStack.html">TextStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextViewStack.html">TextViewStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIDatePickerDataController.html">UIDatePickerDataController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIPickerViewDataController.html">UIPickerViewDataController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CapitalizationType.html">CapitalizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateTimeFormatStyle.html">DateTimeFormatStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionType.html">FormQuestionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionValue.html">FormQuestionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionView.html">FormQuestionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormValueType.html">FormValueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/KeyboardType.html">KeyboardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationResult.html">ValidationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationType.html">ValidationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSDateFormatter.html">NSDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2aaFTOS_16ValidationResultS0__S0_">&amp;&amp;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2eeFTOS_16ValidationResultS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26EmailValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">EmailValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms24NonEmptyStringValidationFSSGVS_10ValidationSS_">NonEmptyStringValidation(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms27NumberValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">NumberValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26PhoneValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">PhoneValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26RegexValidationWithMessageFTSS5regexSS12allowingNullSb_GSqGVS_10ValidationSS__">RegexValidationWithMessage(_:regex:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms31UKPostcodeValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">UKPostcodeValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2ooFTOS_16ValidationResultS0__S0_">||(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FormContainer.html">FormContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedValueElementContainer.html">KeyedValueElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedView.html">KeyedView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ValueElement.html">ValueElement</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Validation.html">Validation</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FormQuestion</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms12FormQuestion12questionViewGSQOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Property/questionView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms12FormQuestion12questionViewGSQOS_16FormQuestionView_">questionView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms12FormQuestion3keySS"></a>
+                    <a name="//apple_ref/swift/Property/key" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms12FormQuestion3keySS">key</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms12FormQuestion4typeOS_16FormQuestionType"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms12FormQuestion4typeOS_16FormQuestionType">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC16TheDistanceForms12FormQuestion10definitionV10SwiftyJSON4JSON"></a>
+                    <a name="//apple_ref/swift/Property/definition" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC16TheDistanceForms12FormQuestion10definitionV10SwiftyJSON4JSON">definition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialisers"></a>
+                <a name="//apple_ref/swift/Section/Initialisers" class="dashAnchor"></a>
+                <a href="#/Initialisers">
+                  <h3 class="section-name">Initialisers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestioncFT4jsonV10SwiftyJSON4JSON_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestioncFT4jsonV10SwiftyJSON4JSON_GSqS0__">init(json:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Convenience%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Convenience Methods" class="dashAnchor"></a>
+                <a href="#/Convenience%20Methods">
+                  <h3 class="section-name">Convenience Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion23checkQuestionDefinitionFTV10SwiftyJSON4JSON6isTypeOS_16FormQuestionType_Sb"></a>
+                    <a name="//apple_ref/swift/Method/checkQuestionDefinition(_:isType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion23checkQuestionDefinitionFTV10SwiftyJSON4JSON6isTypeOS_16FormQuestionType_Sb">checkQuestionDefinition(_:isType:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion23checkQuestionDefinitionFTV10SwiftyJSON4JSON11isOneOfTypeGSaOS_16FormQuestionType__Sb"></a>
+                    <a name="//apple_ref/swift/Method/checkQuestionDefinition(_:isOneOfType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion23checkQuestionDefinitionFTV10SwiftyJSON4JSON11isOneOfTypeGSaOS_16FormQuestionType__Sb">checkQuestionDefinition(_:isOneOfType:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configured%20View%20Creation"></a>
+                <a name="//apple_ref/swift/Section/Configured View Creation" class="dashAnchor"></a>
+                <a href="#/Configured%20View%20Creation">
+                  <h3 class="section-name">Configured View Creation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion25textSingleViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/textSingleViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion25textSingleViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">textSingleViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion24textMultiViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/textMultiViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion24textMultiViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">textMultiViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion23dateTimeViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/dateTimeViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion23dateTimeViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">dateTimeViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion23dropdownViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/dropdownViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion23dropdownViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">dropdownViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion22segmentViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/segmentViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion22segmentViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">segmentViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion21switchViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/switchViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion21switchViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">switchViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion21buttonViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_"></a>
+                    <a name="//apple_ref/swift/Method/buttonViewForQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion21buttonViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">buttonViewForQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Validation%20Creation"></a>
+                <a name="//apple_ref/swift/Section/Validation Creation" class="dashAnchor"></a>
+                <a href="#/Validation%20Creation">
+                  <h3 class="section-name">Validation Creation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion29stringValidationForDefinitionFGSqV10SwiftyJSON4JSON_GSqGVS_10ValidationSS__"></a>
+                    <a name="//apple_ref/swift/Method/stringValidationForDefinition(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion29stringValidationForDefinitionFGSqV10SwiftyJSON4JSON_GSqGVS_10ValidationSS__">stringValidationForDefinition(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion29numberValidationForDefinitionFGSqV10SwiftyJSON4JSON_GSqGVS_10ValidationSi__"></a>
+                    <a name="//apple_ref/swift/Method/numberValidationForDefinition(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion29numberValidationForDefinitionFGSqV10SwiftyJSON4JSON_GSqGVS_10ValidationSi__">numberValidationForDefinition(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/View%20Creation"></a>
+                <a name="//apple_ref/swift/Section/View Creation" class="dashAnchor"></a>
+                <a href="#/View%20Creation">
+                  <h3 class="section-name">View Creation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion17newTextSingleViewFT_CS_14TextFieldStack"></a>
+                    <a name="//apple_ref/swift/Method/newTextSingleView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion17newTextSingleViewFT_CS_14TextFieldStack">newTextSingleView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view to display single line text configured with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in the following <code><a href="../Enums/FormQuestionType.html">FormQuestionType</a></code>s:</p>
+
+<p><li><code>.TextSingle</code></li>
+<li><code>.Date</code>, <code>.DateTime</code>, <code>.Time</code></li>
+<li><p><code>.ChoiceDropdown</code></p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <code><a href="../Classes/FormQuestion.html#/s:FC16TheDistanceForms12FormQuestion25textSingleViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">textSingleViewForQuestion(_:)</a></code></p>
+
+<p></div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <code><a href="../Classes/FormQuestion.html#/s:FC16TheDistanceForms12FormQuestion23dateTimeViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">dateTimeViewForQuestion(_:)</a></code></p>
+
+<p></div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <code><a href="../Classes/FormQuestion.html#/s:FC16TheDistanceForms12FormQuestion23dropdownViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">dropdownViewForQuestion(_:)</a></code></p>
+
+<p></div></li></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newTextSingleView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">TextFieldStack</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly initialised <code><a href="../Classes/TextFieldStack.html">TextFieldStack</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion20newTextMultilineViewFT_CS_13TextViewStack"></a>
+                    <a name="//apple_ref/swift/Method/newTextMultilineView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion20newTextMultilineViewFT_CS_13TextViewStack">newTextMultilineView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view to display multiple lines of text configured with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in <code>.TextMultiline FormQuestionType</code>s.</p>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/FormQuestion.html#/s:FC16TheDistanceForms12FormQuestion24textMultiViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">textMultiViewForQuestion(_:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newTextMultilineView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">TextViewStack</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly initialised <code><a href="../Classes/TextViewStack.html">TextViewStack</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion31newSegmentChoiceViewWithChoicesFGSaSS_CS_23SegmentedTextFieldStack"></a>
+                    <a name="//apple_ref/swift/Method/newSegmentChoiceViewWithChoices(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion31newSegmentChoiceViewWithChoicesFGSaSS_CS_23SegmentedTextFieldStack">newSegmentChoiceViewWithChoices(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view to display segmented choices with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in <code>.ChoiceSegments FormQuestionType</code>s.</p>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/FormQuestion.html#/s:FC16TheDistanceForms12FormQuestion22segmentViewForQuestionFV10SwiftyJSON4JSONGSqOS_16FormQuestionView_">segmentViewForQuestion(_:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newSegmentChoiceViewWithChoices</span><span class="p">(</span><span class="nv">choices</span><span class="p">:[</span><span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">SegmentedTextFieldStack</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly initialised <code><a href="../Classes/SegmentedTextFieldStack.html">SegmentedTextFieldStack</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion13newSwitchViewFT_CS_11SwitchStack"></a>
+                    <a name="//apple_ref/swift/Method/newSwitchView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion13newSwitchViewFT_CS_11SwitchStack">newSwitchView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view to display segmented choices with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in <code>.ChoiceSegments FormQuestionType</code>s.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newSwitchView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">SwitchStack</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly initialised <code><a href="../Classes/SegmentedTextFieldStack.html">SegmentedTextFieldStack</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC16TheDistanceForms12FormQuestion13newButtonViewFT_CSo8UIButton"></a>
+                    <a name="//apple_ref/swift/Method/newButtonView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC16TheDistanceForms12FormQuestion13newButtonViewFT_CSo8UIButton">newButtonView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view to display buttons with default font styles. Subclasses can override this method to return their desired views or customise ths default view. This is used in <code>.Button FormQuestionType</code>s.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newButtonView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIButton</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly initialised <code>UIButton</code> with <code>.System</code> type.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://thedistance.co.uk" target="_blank" rel="external">Josh Campion @ The Distance</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ValueElement Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/ValueElement" class="dashAnchor"></a>
+    <a title="ValueElement Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">TheDistanceForms Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/thedistance/TheDistanceForms"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">TheDistanceForms Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ValueElement Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ErrorStack.html">ErrorStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Form.html">Form</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormQuestion.html">FormQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FormViewController.html">FormViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SegmentedTextFieldStack.html">SegmentedTextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwitchStack.html">SwitchStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextFieldStack.html">TextFieldStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextStack.html">TextStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextViewStack.html">TextViewStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIDatePickerDataController.html">UIDatePickerDataController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIPickerViewDataController.html">UIPickerViewDataController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CapitalizationType.html">CapitalizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateTimeFormatStyle.html">DateTimeFormatStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionType.html">FormQuestionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionValue.html">FormQuestionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormQuestionView.html">FormQuestionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FormValueType.html">FormValueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/KeyboardType.html">KeyboardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationResult.html">ValidationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValidationType.html">ValidationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSDateFormatter.html">NSDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2aaFTOS_16ValidationResultS0__S0_">&amp;&amp;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2eeFTOS_16ValidationResultS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26EmailValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">EmailValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms24NonEmptyStringValidationFSSGVS_10ValidationSS_">NonEmptyStringValidation(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms27NumberValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">NumberValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26PhoneValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">PhoneValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms26RegexValidationWithMessageFTSS5regexSS12allowingNullSb_GSqGVS_10ValidationSS__">RegexValidationWithMessage(_:regex:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F16TheDistanceForms31UKPostcodeValidationWithMessageFTSS12allowingNullSb_GVS_10ValidationSS_">UKPostcodeValidationWithMessage(_:allowingNull:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF16TheDistanceFormsoi2ooFTOS_16ValidationResultS0__S0_">||(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FormContainer.html">FormContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedValueElementContainer.html">KeyedValueElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyedView.html">KeyedView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ValueElement.html">ValueElement</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Validation.html">Validation</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ValueElement</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ValueElement</span></code></pre>
+
+                </div>
+              </div>
+            <p>Defines the requirement of an object that can contain values, which may or may not be consider valid.</p>
+
+<p>This protocol could define a typealias to specify the type of values it allows. This would mean that <code>ValueElement</code>s could only be used as generic constraints, restricting their use.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP16TheDistanceForms12ValueElement8getValueFT_GSqP__"></a>
+                    <a name="//apple_ref/swift/Method/getValue()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP16TheDistanceForms12ValueElement8getValueFT_GSqP__">getValue()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should return the value if there is one, nil otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getValue</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP16TheDistanceForms12ValueElement8setValueurFGSqqd___Sb"></a>
+                    <a name="//apple_ref/swift/Method/setValue(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP16TheDistanceForms12ValueElement8setValueurFGSqqd___Sb">setValue(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to assign a given value and returns whether it was successfully assigned.</p>
+
+<ul>
+<li>return <code>true</code> if successfully assigned, <code>false</code> otherwise.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">setValue</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span><span class="kt">T</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new value to assign to this elemnt.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP16TheDistanceForms12ValueElement13validateValueFT_OS_16ValidationResult"></a>
+                    <a name="//apple_ref/swift/Method/validateValue()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP16TheDistanceForms12ValueElement13validateValueFT_OS_16ValidationResult">validateValue()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should performs some check on the value returning <code>true</code> if the value is appropriate, <code>false</code> otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">validateValue</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">ValidationResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://thedistance.co.uk" target="_blank" rel="external">Josh Campion @ The Distance</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
