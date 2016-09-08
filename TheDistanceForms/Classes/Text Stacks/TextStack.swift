@@ -17,7 +17,7 @@ import StackView
  - seealso: `TextViewStack`
 
 */
-public class TextStack: ErrorStack {
+public class TextStack: ErrorStack, ValueElement {
     
     // MARK: - Properties
     
