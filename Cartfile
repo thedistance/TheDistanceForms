@@ -1,4 +1,4 @@
-git "git@bitbucket.org:joshcampion89/StackView.git"
+git "git@bitbucket.org:thedistance/stackview.git"
 git "git@bitbucket.org:joshcampion89/AdvancedOperationKit"
 
 github "TheDistance/TheDistanceCore"
