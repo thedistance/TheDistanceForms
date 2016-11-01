@@ -5,5 +5,5 @@ github "TheDistance/TheDistanceCore"
 git "git@bitbucket.org:thedistance/KeyboardResponder.git"
 github "TheDistance/SelectionViewController"
 
-github "SwiftyJSON/SwiftyJSON"
+github "SwiftyJSON/SwiftyJSON" == 2.3.3
 github "joshc89/ThemeKit"
