@@ -12,24 +12,24 @@ import SwiftyJSON
 import TheDistanceCore
 import KeyboardResponder
 
-public class FormViewController: UIViewController, FormContainer {
+open class FormViewController: UIViewController, FormContainer {
     
-    public var form:Form?
-    public var buttonTargets: [ObjectTarget<UIButton>] = []
-    public var keyboardResponder:KeyboardResponder?
+    open var form:Form?
+    open var buttonTargets: [ObjectTarget<UIButton>] = []
+    open var keyboardResponder:KeyboardResponder?
     
-    public convenience init?(filename: String, inBundle: NSBundle = NSBundle.mainBundle(), questionType: FormQuestion.Type = FormQuestion.self) {
+    public convenience init?(filename: String, inBundle: Bundle = Bundle.main, questionType: FormQuestion.Type = FormQuestion.self) {
         
-        guard let url = inBundle.URLForResource(filename, withExtension: "json") else {
+        guard let url = inBundle.url(forResource: filename, withExtension: "json") else {
             return nil
         }
         
         self.init(url: url, questionType: questionType)
     }
     
-    public init?(url: NSURL, questionType: FormQuestion.Type) {
+    public init?(url: URL, questionType: FormQuestion.Type) {
         
-        guard let data = NSData(contentsOfURL: url),
+        guard let data = try? Data(contentsOf: url),
             let form = Form(definition: JSON(data: data), questionType: questionType) else {
                 return nil
         }
@@ -43,10 +43,10 @@ public class FormViewController: UIViewController, FormContainer {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         // Do any additional setup after loading the view, typically from a nib.
         let scroll = UIScrollView()
@@ -60,17 +60,17 @@ public class FormViewController: UIViewController, FormContainer {
             let insets = UIEdgeInsetsMake(16, 8, 16, 8)
             let constrs = NSLayoutConstraint.constraintsToAlign(view: formView, to: scroll, withInsets: insets)
             let width = NSLayoutConstraint(item: formView,
-                                           attribute: .Width,
-                                           relatedBy: .Equal,
+                                           attribute: .width,
+                                           relatedBy: .equal,
                                            toItem: view,
-                                           attribute: .Width,
+                                           attribute: .width,
                                            multiplier: 1.0,
                                            constant: -insets.totalXInset)
-            NSLayoutConstraint.activateConstraints(constrs + [width])
+            NSLayoutConstraint.activate(constrs + [width])
         }
         
         keyboardResponder = setUpKeyboardResponder(onForm: form!, withScrollView: scroll)
     }
     
-    public func buttonTappedForQuestion(question: FormQuestion) { }
+    open func buttonTappedForQuestion(_ question: FormQuestion) { }
 }

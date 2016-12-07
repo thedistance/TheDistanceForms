@@ -8,7 +8,7 @@
 
 import UIKit
 import TheDistanceCore
-import StackView
+import TDStackView
 
 /**
  
@@ -17,22 +17,22 @@ import StackView
  This is a `ValueElement` with a validation property for the segemented control. Validation tests both the `validation` property and the `inputStack.validtion`.
  
  */
-public class SegmentedTextFieldStack: ErrorStack, ValueElement {
+open class SegmentedTextFieldStack: ErrorStack, ValueElement {
     
     /// `UILabel` to show the title. Defaults to `UIFontTextStyleHeadline`.
-    public let titleLabel:UILabel
+    open let titleLabel:UILabel
     
     /// `UILabel` to show subtitle title. Defaults to `UIFontTextStyleSubheadline`.
-    public let subtitleLabel:UILabel
+    open let subtitleLabel:UILabel
     
     /// The control the user will interact with.
-    public let choiceControl:UISegmentedControl
+    open let choiceControl:UISegmentedControl
     
     /// `Validation` that validates the user's selection.
-    public var validation:Validation<Int>?
+    open var validation:Validation<Int>?
     
     /// The `TextStack` aligned below the segmented control that allows for scope text entry.
-    public let inputStack:TextStack
+    open let inputStack:TextStack
     
     // internal varaible returning either the `UITextField` or `UITextView` of the `inputStack`.
     var inputView:UIView? {
@@ -42,7 +42,7 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     }
     
     /// Internal variable for managing changes in `choiceControl`
-    private var target:ObjectTarget<UISegmentedControl>?
+    fileprivate var target:ObjectTarget<UISegmentedControl>?
     
     /**
      
@@ -69,7 +69,7 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
         
         choiceControl = control
         self.inputStack = inputStack
-        inputStack.stackView.hidden = true
+        inputStack.stackView.isHidden = true
         
         self.titleLabel = titleLabel
         self.titleLabel.numberOfLines = 0
@@ -78,11 +78,11 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
         self.subtitleLabel.numberOfLines = 0
         
         var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
-        textStack.axis = .Vertical
+        textStack.axis = .vertical
         textStack.spacing = 4.0
         
         var contentStack = CreateStackView([textStack.view, choiceControl, inputStack.stackView])
-        contentStack.axis = .Vertical
+        contentStack.axis = .vertical
         contentStack.spacing = 12.0
         
         super.init(centerComponent: contentStack.view,
@@ -90,10 +90,10 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
                    errorImageView: errorImageView,
                    iconImageView: iconImageView)
         
-        stack.axis = .Vertical
+        stack.axis = .vertical
         stack.spacing = 12.0
         
-        target = ObjectTarget(control:choiceControl, forControlEvents: .ValueChanged, completion: typeChange)
+        target = ObjectTarget(control:choiceControl, forControlEvents: .valueChanged, completion: typeChange)
     }
     
     /**
@@ -102,14 +102,14 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
      
      - parameter idx: The `selectedSegmentIndex` set on `choiceControl`.
     */
-    public func selectSegment(idx:Int) {
+    open func selectSegment(_ idx:Int) {
         choiceControl.selectedSegmentIndex = idx
         typeChange(choiceControl)
     }
     
     /// Called when the selected value of `choiceControl` changes. This makes the `inputStack` become the first responder if it is not hidden.
-    public func typeChange(sender:UISegmentedControl) {
-        if !(inputView?.isFirstResponder() ?? false) && !inputStack.stackView.hidden {
+    open func typeChange(_ sender:UISegmentedControl) {
+        if !(inputView?.isFirstResponder ?? false) && !inputStack.stackView.isHidden {
             inputView?.becomeFirstResponder()
         }
     }
@@ -117,9 +117,9 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     // MARK: Form Element
     
     /// - returns: The text value of the selected segement of `choiceControl`.
-    public func stringValue() -> String? {
+    open func stringValue() -> String? {
         if choiceControl.selectedSegmentIndex >= 0 {
-            return choiceControl.titleForSegmentAtIndex(choiceControl.selectedSegmentIndex)
+            return choiceControl.titleForSegment(at: choiceControl.selectedSegmentIndex)
         }
         
         return nil
@@ -132,13 +132,12 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
      - returns: The `selectedSegmentIndex` of `choiceControl`.
      
     */
-    public func getValue() -> Any? {
+    open func getValue() -> Any? {
         return choiceControl.selectedSegmentIndex
     }
     
-    public func setValue<T>(value: T?) -> Bool {
-        if let idx = value as? Int
-            where idx >= 0 && idx < choiceControl.numberOfSegments {
+    open func setValue<T>(_ value: T?) -> Bool {
+        if let idx = value as? Int, idx >= 0 && idx < choiceControl.numberOfSegments {
             choiceControl.selectedSegmentIndex = idx
             return true
         } else {
@@ -147,17 +146,17 @@ public class SegmentedTextFieldStack: ErrorStack, ValueElement {
     }
     
     /// `ValueElement` conformance. Applies `&&` to the results of `validation` on self and `validation` on `inputStack`.
-    public func validateValue() -> ValidationResult {
+    open func validateValue() -> ValidationResult {
         
         let segmentResult:ValidationResult
         
         if let value = getValue() as? Int {
-            segmentResult = validation?.validate(value: value) ?? .Valid
+            segmentResult = validation?.validate(value) ?? .valid
         } else {
-            segmentResult = validation?.validate(value: nil) ?? .Valid
+            segmentResult = validation?.validate(nil) ?? .valid
         }
         
-        if case .Invalid(let message) = segmentResult {
+        if case .invalid(let message) = segmentResult {
             errorText = message
         } else {
             errorText = nil

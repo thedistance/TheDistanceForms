@@ -1,0 +1,32 @@
+# Master Pods Repo
+source 'https://github.com/CocoaPods/Specs.git'
+
+# pod configuration
+platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
+
+# define
+workspace 'TheDistanceForms'
+project 'TheDistanceForms'
+
+# define groups of pods
+
+def core_pods
+	pod 'SwiftyJSON', '~> 3.1.3'
+    pod 'TheDistanceCore'
+    pod 'ThemeKit'
+	pod 'AdvancedOperationKit'
+	pod 'KeyboardResponder'
+	pod 'TDStackView'
+end
+
+
+# set pods for each target
+
+target 'TheDistanceForms' do
+
+    core_pods
+    
+end
+

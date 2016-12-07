@@ -9,7 +9,7 @@
 import UIKit
 
 import TheDistanceCore
-import StackView
+import TDStackView
 
 public let PhotoCollectionViewCellIdentifier = "PhotoCell"
 public let MovieCollectionViewCellIdentifier = "MovieCell"

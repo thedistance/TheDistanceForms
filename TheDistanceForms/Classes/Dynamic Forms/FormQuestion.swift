@@ -8,18 +8,18 @@
 
 import Foundation
 
-import StackView
+import TDStackView
 import SwiftyJSON
 
-public class FormQuestion {
+open class FormQuestion {
     
     // MARK: Properties
     
-    private(set) public var questionView:FormQuestionView!
+    fileprivate(set) open var questionView:FormQuestionView!
     
-    public let key:String
-    public let type:FormQuestionType
-    public let definition:JSON
+    open let key:String
+    open let type:FormQuestionType
+    open let definition:JSON
     
     // MARK: Initialisers
     
@@ -35,23 +35,23 @@ public class FormQuestion {
             self.type = type
             
             // create a blank one so the view can be created in a method not this initialiser
-            questionView = .None
+            questionView = .none
             
             let view:FormQuestionView?
             switch type {
-            case .TextSingle:
+            case .textSingle:
                 view = textSingleViewForQuestion(json)
-            case .TextMultiline:
+            case .textMultiline:
                 view = textMultiViewForQuestion(json)
-            case .Date, .DateTime, .Time:
+            case .date, .dateTime, .time:
                 view = dateTimeViewForQuestion(json)
-            case .ChoiceDropdown:
+            case .choiceDropdown:
                 view = dropdownViewForQuestion(json)
-            case .ChoiceSegments:
+            case .choiceSegments:
                 view = segmentViewForQuestion(json)
-            case .Boolean:
+            case .boolean:
                 view = switchViewForQuestion(json)
-            case .Button:
+            case .button:
                 view = buttonViewForQuestion(json)
             }
             
@@ -68,11 +68,11 @@ public class FormQuestion {
     
     // MARK: Convenience Methods
     
-    public func checkQuestionDefinition(questionDefinition:JSON, isType:FormQuestionType) -> Bool {
+    open func checkQuestionDefinition(_ questionDefinition:JSON, isType:FormQuestionType) -> Bool {
         return checkQuestionDefinition(questionDefinition, isOneOfType: [isType])
     }
     
-    public func checkQuestionDefinition(questionDefinition:JSON, isOneOfType:[FormQuestionType]) -> Bool {
+    open func checkQuestionDefinition(_ questionDefinition:JSON, isOneOfType:[FormQuestionType]) -> Bool {
         
         if let typeString = questionDefinition["question_type"].string,
             let type = FormQuestionType(rawValue: typeString) {
@@ -84,9 +84,9 @@ public class FormQuestion {
     
     // MARK: Configured View Creation
     
-    public func textSingleViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func textSingleViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .TextSingle),
+        guard checkQuestionDefinition(questionDefinition, isType: .textSingle),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // Create the view
@@ -105,11 +105,12 @@ public class FormQuestion {
         }
         
         if let autoCorrect = questionDefinition["auto_correct"].bool {
-            textElement.textField.autocorrectionType = autoCorrect ? .Yes : .No
+            textElement.textField.autocorrectionType = autoCorrect ? .yes : .no
         }
         
         if let secure = questionDefinition["secure_text_entry"].bool {
-            textElement.textField.secureTextEntry = secure
+            
+            textElement.textField.isSecureTextEntry = secure
         }
         
         // Validation
@@ -125,12 +126,12 @@ public class FormQuestion {
             }
         }
         
-        return .TextSingle(textElement)
+        return .textSingle(textElement)
     }
     
-    public func textMultiViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func textMultiViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .TextMultiline),
+        guard checkQuestionDefinition(questionDefinition, isType: .textMultiline),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // create the view
@@ -149,30 +150,28 @@ public class FormQuestion {
         }
         
         if let autoCorrect = questionDefinition["auto_correct"].bool {
-            textElement.textView.autocorrectionType = autoCorrect ? .Yes : .No
+            textElement.textView.autocorrectionType = autoCorrect ? .yes : .no
         }
         
         if let secure = questionDefinition["secure_text_entry"].bool {
-            textElement.textView.secureTextEntry = secure
+            textElement.textView.isSecureTextEntry = secure
         }
         
         // Validation
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString)
-            where validationValue == .String {
+            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .String {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
         
-        return .TextMultiline(textElement)
+        return .textMultiline(textElement)
     }
     
-    public func dateTimeViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func dateTimeViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
         guard let typeString = questionDefinition["question_type"].string,
-            let type = FormQuestionType(rawValue: typeString)
-            where [.Date, .Time, .DateTime].contains(type),
+            let type = FormQuestionType(rawValue: typeString), [.date, .time, .dateTime].contains(type),
             let prompt = questionDefinition["prompt"].string else { return nil }
         
         // Create the view
@@ -186,33 +185,33 @@ public class FormQuestion {
         
         // picker mode
         switch type {
-        case .Date:
-            datePicker.datePickerMode = .Date
-        case .DateTime:
-            datePicker.datePickerMode = .DateAndTime
-        case .Time:
-            datePicker.datePickerMode = .Time
+        case .date:
+            datePicker.datePickerMode = .date
+        case .dateTime:
+            datePicker.datePickerMode = .dateAndTime
+        case .time:
+            datePicker.datePickerMode = .time
         default:
             break
         }
         
         // format style
-        if type == .Date || type == .DateTime,
+        if type == .date || type == .dateTime,
             let dateFormatString = questionDefinition["date_format_style"].string,
             let dateFormat = DateTimeFormatStyle(rawValue: dateFormatString) {
             
             dateController.dateFormatter.dateStyle = dateFormat.dateFormatStyle
         } else {
-            dateController.dateFormatter.dateStyle = .NoStyle
+            dateController.dateFormatter.dateStyle = .none
         }
         
-        if type == .Time || type == .DateTime,
+        if type == .time || type == .dateTime,
             let timeFormatString = questionDefinition["time_format_style"].string,
             let timeFormat = DateTimeFormatStyle(rawValue: timeFormatString) {
             
             dateController.dateFormatter.timeStyle = timeFormat.dateFormatStyle
         } else {
-            dateController.dateFormatter.timeStyle = .NoStyle
+            dateController.dateFormatter.timeStyle = .none
         }
         
         if let interval = questionDefinition["minute_interval"].int {
@@ -225,31 +224,29 @@ public class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = questionDefinition["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = questionDefinition["question_type"].string
-            where valueType == .Date &&
+            let message = questionDefinition["question_type"].string, valueType == .Date &&
                 type == .NotEmpty {
             
             textElement.validation = NonEmptyStringValidation(message)
         }
         
         switch type {
-        case .Date:
-            return .Date(textElement, dateController)
-        case .DateTime:
-            return .DateTime(textElement, dateController)
-        case .Time:
-            return .Time(textElement, dateController)
+        case .date:
+            return .date(textElement, dateController)
+        case .dateTime:
+            return .dateTime(textElement, dateController)
+        case .time:
+            return .time(textElement, dateController)
         default:
             return nil
         }
     }
     
-    public func dropdownViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func dropdownViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .ChoiceDropdown),
+        guard checkQuestionDefinition(questionDefinition, isType: .choiceDropdown),
             let prompt = questionDefinition["prompt"].string,
-            let choices = questionDefinition["choices"].array?.flatMap({ $0.string })
-            where choices.count > 0
+            let choices = questionDefinition["choices"].array?.flatMap({ $0.string }), choices.count > 0
             else { return nil }
         
         // Create the view
@@ -262,84 +259,80 @@ public class FormQuestion {
         textElement.pickerController = controller
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString)
-            where validationValue == .String {
+            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .String {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
         
-        return .ChoiceDropdown(textElement, controller)
+        return .choiceDropdown(textElement, controller)
     }
     
-    public func segmentViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func segmentViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .ChoiceSegments),
-            let choices = questionDefinition["choices"].array?.flatMap({ $0.string })
-            where choices.count > 0
+        guard checkQuestionDefinition(questionDefinition, isType: .choiceSegments),
+            let choices = questionDefinition["choices"].array?.flatMap({ $0.string }), choices.count > 0
             else { return nil }
         
         let segmentElement = newSegmentChoiceViewWithChoices(choices)
         
         
         segmentElement.titleLabel.text = questionDefinition["title"].string
-        segmentElement.titleLabel.hidden = segmentElement.titleLabel.text?.isEmpty ?? true
+        segmentElement.titleLabel.isHidden = segmentElement.titleLabel.text?.isEmpty ?? true
         
         segmentElement.subtitleLabel.text = questionDefinition["subtitle"].string
-        segmentElement.subtitleLabel.hidden = segmentElement.subtitleLabel.text?.isEmpty ?? true
+        segmentElement.subtitleLabel.isHidden = segmentElement.subtitleLabel.text?.isEmpty ?? true
         
         if let validationValueTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationValueTypeString)
-            where validationValue == .Number {
+            let validationValue = FormValueType(rawValue: validationValueTypeString), validationValue == .Number {
             
             segmentElement.validation = numberValidationForDefinition(questionDefinition["validation"])
         }
         
-        return .ChoiceSegments(segmentElement)
+        return .choiceSegments(segmentElement)
     }
     
-    public func switchViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func switchViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .Boolean)
+        guard checkQuestionDefinition(questionDefinition, isType: .boolean)
             else { return nil }
         
         let switchElement = newSwitchView()
         
         switchElement.titleLabel.text = questionDefinition["title"].string
-        switchElement.titleLabel.hidden = switchElement.titleLabel.text?.isEmpty ?? true
+        switchElement.titleLabel.isHidden = switchElement.titleLabel.text?.isEmpty ?? true
         
         switchElement.subtitleLabel.text = questionDefinition["subtitle"].string
-        switchElement.subtitleLabel.hidden = switchElement.subtitleLabel.text?.isEmpty ?? true
+        switchElement.subtitleLabel.isHidden = switchElement.subtitleLabel.text?.isEmpty ?? true
         
         if let defaultValue = questionDefinition["default"].bool {
-            switchElement.switchControl.on = defaultValue
+            switchElement.switchControl.isOn = defaultValue
         }
         
         
-        return .Boolean(switchElement)
+        return .boolean(switchElement)
     }
     
-    public func buttonViewForQuestion(questionDefinition:JSON) -> FormQuestionView? {
+    open func buttonViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
-        guard checkQuestionDefinition(questionDefinition, isType: .Button),
+        guard checkQuestionDefinition(questionDefinition, isType: .button),
             let title = questionDefinition["title"].string
             else { return nil }
         
         let button = newButtonView()
-        button.setTitle(title, forState: .Normal)
+        button.setTitle(title, for: .normal)
         
-        return .Button(button)
+        return .button(button)
     }
     
     // MARK: Validation Creation
     
-    public func stringValidationForDefinition(definition:JSON?) -> Validation<String>? {
+    open func stringValidationForDefinition(_ definition:JSON?) -> Validation<String>? {
         
         guard let typeString = definition?["type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["message"].string
-            where valueType == .String
+            let message = definition?["message"].string, valueType == .String
             else { return nil }
         
         
@@ -361,14 +354,13 @@ public class FormQuestion {
         }
     }
     
-    public func numberValidationForDefinition(definition:JSON?) -> Validation<Int>? {
+    open func numberValidationForDefinition(_ definition:JSON?) -> Validation<Int>? {
         
         guard let typeString = definition?["type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["question_type"].string
-            where valueType == .Number
+            let message = definition?["question_type"].string, valueType == .Number
             else { return nil }
         
         
@@ -399,13 +391,13 @@ public class FormQuestion {
      
      - returns: A newly initialised `TextFieldStack`.
      */
-    public func newTextSingleView() -> TextFieldStack {
+    open func newTextSingleView() -> TextFieldStack {
         
         let textStack = TextFieldStack()
         
-        textStack.placeholderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        textStack.errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        textStack.textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        textStack.textField.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         
         return textStack
     }
@@ -419,13 +411,13 @@ public class FormQuestion {
      - returns: A newly initialised `TextViewStack`.
 
      */
-    public func newTextMultilineView() -> TextViewStack {
+    open func newTextMultilineView() -> TextViewStack {
         
         let textStack = TextViewStack()
         
-        textStack.placeholderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        textStack.errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        textStack.textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        textStack.textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         
         return textStack
     }
@@ -439,13 +431,13 @@ public class FormQuestion {
      - returns: A newly initialised `SegmentedTextFieldStack`.
      
     */
-    public func newSegmentChoiceViewWithChoices(choices:[String]) -> SegmentedTextFieldStack {
+    open func newSegmentChoiceViewWithChoices(_ choices:[String]) -> SegmentedTextFieldStack {
         
         let segments = UISegmentedControl(items: choices)
         let input = newTextSingleView()
         let segmentElement = SegmentedTextFieldStack(control: segments, inputStack: input)
-        segmentElement.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        segmentElement.subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        segmentElement.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        segmentElement.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         
         return segmentElement
     }
@@ -457,11 +449,11 @@ public class FormQuestion {
      - returns: A newly initialised `SegmentedTextFieldStack`.
      
      */
-    public func newSwitchView() -> SwitchStack {
+    open func newSwitchView() -> SwitchStack {
         
         let switchStack = SwitchStack(switchControl: UISwitch())
-        switchStack.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        switchStack.subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        switchStack.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        switchStack.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         
         return switchStack
     }
@@ -473,10 +465,10 @@ public class FormQuestion {
      - returns: A newly initialised `UIButton` with `.System` type.
      
      */
-    public func newButtonView() -> UIButton {
+    open func newButtonView() -> UIButton {
         
-        let button = UIButton(type: .System)
-        button.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         return button
     }
     

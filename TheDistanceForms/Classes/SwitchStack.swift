@@ -7,26 +7,26 @@
 //
 
 import Foundation
-import StackView
+import TDStackView
 
 /**
  
  `ErrorStack` subclass showing with extra UI for a title, subtitle and a switch. Conforms to `ValueElement` to represent boolean choices in a `Form`.
  
  */
-public class SwitchStack: ErrorStack, ValueElement {
+open class SwitchStack: ErrorStack, ValueElement {
     
     /// `UILabel` to show the title. Defaults to `UIFontTextStyleHeadline`.
-    public let titleLabel:UILabel
+    open let titleLabel:UILabel
     
     /// `UILabel` to show subtitle title. Defaults to `UIFontTextStyleSubheadline`.
-    public let subtitleLabel:UILabel
+    open let subtitleLabel:UILabel
     
     /// The switch the user will interact with.
-    public let switchControl:UISwitch
+    open let switchControl:UISwitch
     
     /// `Validation` used for `ValueElement` conformation.
-    public var validation:Validation<Bool>?
+    open var validation:Validation<Bool>?
     
     /**
      
@@ -53,20 +53,20 @@ public class SwitchStack: ErrorStack, ValueElement {
         
         self.titleLabel = titleLabel
         self.titleLabel.numberOfLines = 0
-        self.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         
         self.subtitleLabel = subtitleLabel
         self.subtitleLabel.numberOfLines = 0
-        self.subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        self.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         
         var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
-        textStack.axis = .Vertical
+        textStack.axis = .vertical
         textStack.spacing = 4.0
         
         var switchStack = CreateStackView([textStack.view, self.switchControl])
-        switchStack.axis = .Horizontal
+        switchStack.axis = .horizontal
         switchStack.spacing = 8.0
-        switchStack.stackAlignment = .Center
+        switchStack.stackAlignment = .center
         
         super.init(centerComponent: switchStack.view,
                    errorLabel: errorLabel,
@@ -82,8 +82,8 @@ public class SwitchStack: ErrorStack, ValueElement {
      
      - returns: `Bool` for whether the switch is on or off.
      */
-    public func getValue() -> Any? {
-        return switchControl.on
+    open func getValue() -> Any? {
+        return switchControl.isOn
     }
     
     /**
@@ -93,10 +93,10 @@ public class SwitchStack: ErrorStack, ValueElement {
      - parameter value: If this is a `Bool` the value of `switchControl.on` is set, otherwise this does nothing.
      - returns: `true` if value is a `Bool`, `false` otherwise.
      */
-    public func setValue<T>(value: T?) -> Bool {
+    open func setValue<T>(_ value: T?) -> Bool {
         
         if let on = value as? Bool {
-            switchControl.on = on
+            switchControl.isOn = on
             return true
         } else {
             return false
@@ -104,7 +104,7 @@ public class SwitchStack: ErrorStack, ValueElement {
     }
     
     /// `ValueElement` conformation. Uses the `validation` property to determine validity. If `validation` is `nil`, any value is `.Valid`.
-    public func validateValue() -> ValidationResult {
-        return validation?.validate(value: switchControl.on) ?? .Valid
+    open func validateValue() -> ValidationResult {
+        return validation?.validate(switchControl.isOn) ?? .valid
     }
 }

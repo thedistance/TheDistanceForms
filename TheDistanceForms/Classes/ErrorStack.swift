@@ -8,7 +8,7 @@
 
 import Foundation
 
-import StackView
+import TDStackView
 
 /**
  
@@ -21,39 +21,39 @@ import StackView
  - seealso: `SegmentedTextFieldStack`
  
  */
-public class ErrorStack:CreatedStack {
+open class ErrorStack:CreatedStack {
     
     // MARK: Errors
     
     /// Sets the text of the `errorLabel` and shows / hides `errorLabel` and `errorImageView` based on whether this string `.isEmpty`. This can be configured manually or setting `self.validation` and calling `validateValue()`.
-    public var errorText:String? {
+    open var errorText:String? {
         didSet {
             errorLabel.text = errorText
-            errorLabel.hidden = errorText?.isEmpty ?? true
-            errorImageView.hidden = errorLabel.hidden
+            errorLabel.isHidden = errorText?.isEmpty ?? true
+            errorImageView.isHidden = errorLabel.isHidden
             
             // TODO: Weak link to TextResponder Cocoapod
             // this will cause layout to occur which could affect the position of other text input items, after which the keyboard responder should be notified to update the scroll accordingly.
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            DispatchQueue.main.async { () -> Void in
                 // NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: nil)
             }
         }
     }
     
     /// The label showing the error associated with the user's input. The text for this label should be set through the `errorText` property, which configures properties such as showing and hiding the label.
-    public let errorLabel:UILabel
+    open let errorLabel:UILabel
     
     /// The `UIImageView` to show an error icon centered on the text input if there is an error.
-    public let errorImageView:UIImageView
+    open let errorImageView:UIImageView
     
     /// The `UIImageView` to show an icon aligned to the left of the text input.
-    public let iconImageView:UIImageView
+    open let iconImageView:UIImageView
     
     /// A horizontal `StackView` containing the `errorImageView` and `centerComponent` from the default initialiser
-    public let centerStack:StackView
+    open let centerStack:StackView
     
     /// A vertical `StackView` containing the `centerStack` and `errorLabel`.
-    public let errorStack:StackView
+    open let errorStack:StackView
     
     /**
      
@@ -77,33 +77,33 @@ public class ErrorStack:CreatedStack {
         self.iconImageView = iconImageView
         
         if errorImageView.image == nil {
-           errorImageView.image = UIImage(named: "ic_warning", inBundle: NSBundle(forClass: ErrorStack.self), compatibleWithTraitCollection: nil)
+           errorImageView.image = UIImage(named: "ic_warning", in: Bundle(for: ErrorStack.self), compatibleWith: nil)
         }
         
         errorLabel.numberOfLines = 0
-        errorLabel.hidden = true
-        errorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        errorLabel.isHidden = true
+        errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         
         for iv in [errorImageView, iconImageView] {
             
-            iv.contentMode = .ScaleAspectFit
-            iv.backgroundColor = UIColor.clearColor()
-            iv.hidden = true
+            iv.contentMode = .scaleAspectFit
+            iv.backgroundColor = UIColor.clear
+            iv.isHidden = true
             
-            iv.setContentHuggingPriority(255, forAxis: .Horizontal)
+            iv.setContentHuggingPriority(255, for: .horizontal)
             
-            iv.setContentCompressionResistancePriority(760, forAxis: .Horizontal)
-            iv.setContentCompressionResistancePriority(760, forAxis: .Vertical)
+            iv.setContentCompressionResistancePriority(760, for: .horizontal)
+            iv.setContentCompressionResistancePriority(760, for: .vertical)
         }
         
         centerStack = CreateStackView([centerComponent, errorImageView])
-        centerStack.axis = .Horizontal
+        centerStack.axis = .horizontal
         centerStack.spacing = 8.0
         
         errorStack = CreateStackView([centerStack.view, errorLabel])
-        errorStack.axis = UILayoutConstraintAxis.Vertical
-        errorStack.stackAlignment = .Fill
-        errorStack.stackDistribution = .Fill
+        errorStack.axis = UILayoutConstraintAxis.vertical
+        errorStack.stackAlignment = .fill
+        errorStack.stackDistribution = .fill
         errorStack.spacing = 8.0
         
         super.init(arrangedSubviews: [iconImageView, errorStack.view])
@@ -126,7 +126,7 @@ public class ErrorStack:CreatedStack {
         */
         
         
-        stack.axis = .Horizontal
+        stack.axis = .horizontal
         stack.spacing = 8.0
     }
 }

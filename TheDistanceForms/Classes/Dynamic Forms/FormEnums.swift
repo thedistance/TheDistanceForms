@@ -13,32 +13,32 @@ import Foundation
 public enum FormQuestionType:String {
     
     /// Single text field entry.
-    case TextSingle
+    case textSingle
     
     /// Multi line text entry
-    case TextMultiline
+    case textMultiline
     
     /// Date only selection
-    case Date
+    case date
     
     // Time only selection
-    case Time
+    case time
     
     /// Date and Time selection
-    case DateTime
+    case dateTime
     
     /// Choose from a number of items
-    case ChoiceDropdown // choose from a Picker View
+    case choiceDropdown // choose from a Picker View
     
     /// Choose from a limited number of items
-    case ChoiceSegments
+    case choiceSegments
     // case ChoiceSelection // like a radio selection
     
     /// Yes or No question.
-    case Boolean
+    case boolean
     
     /// A button configurable with a title. 
-    case Button
+    case button
 }
 
 public enum ValidationType:String {
@@ -54,11 +54,11 @@ public enum ValidationType:String {
 /// Enum used to define the value that a `ValueElemnt` can return.
 public enum FormQuestionValue {
     
-    case String(NSString)
-    case Date(NSDate)
-    case Boolean(Bool)
-    case Number(NSNumber)
-    case Custom(Any)
+    case string(NSString)
+    case date(Foundation.Date)
+    case boolean(Bool)
+    case number(NSNumber)
+    case custom(Any)
 }
 
 /// Enum used to interpret the value types for validation objects from form json.
@@ -89,27 +89,27 @@ public enum KeyboardType:String {
     var uiKeyboardType:UIKeyboardType {
         switch self {
         case .Default:
-            return .Default
+            return .default
         case .ASCIICapable:
-            return .ASCIICapable
+            return .asciiCapable
         case .NumbersAndPunctuation:
-            return .NumbersAndPunctuation
+            return .numbersAndPunctuation
         case .URL:
             return .URL
         case .NumberPad:
-            return .NumberPad
+            return .numberPad
         case .PhonePad:
-            return .PhonePad
+            return .phonePad
         case .NamePhonePad:
-            return .NamePhonePad
+            return .namePhonePad
         case .EmailAddress:
-            return .EmailAddress
+            return .emailAddress
         case .DecimalPad:
-            return .DecimalPad
+            return .decimalPad
         case .Twitter:
-            return .Twitter
+            return .twitter
         case .WebSearch:
-            return .WebSearch
+            return .webSearch
         }
     }
 }
@@ -124,13 +124,13 @@ public enum CapitalizationType : String {
     var uiAutoCapitalizationType: UITextAutocapitalizationType {
         switch self {
         case .None:
-            return .None
+            return .none
         case .Words:
-            return .Words
+            return .words
         case .Sentences:
-            return .Sentences
+            return .sentences
         case .AllCharacters:
-            return .AllCharacters
+            return .allCharacters
         }
     }
 }
@@ -142,16 +142,16 @@ public enum DateTimeFormatStyle: String {
     case Long
     case Full
     
-    var dateFormatStyle: NSDateFormatterStyle {
+    var dateFormatStyle: DateFormatter.Style {
         switch self {
         case .Short:
-            return .ShortStyle
+            return .short
         case .Medium:
-            return .MediumStyle
+            return .medium
         case .Long:
-            return .LongStyle
+            return .long
         case .Full:
-            return .FullStyle
+            return .full
         }
     }
 }

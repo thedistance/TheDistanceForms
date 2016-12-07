@@ -9,7 +9,7 @@
 import Foundation
 
 import TheDistanceCore
-import StackView
+import TDStackView
 import KeyboardResponder
 
 /**
@@ -20,12 +20,12 @@ import KeyboardResponder
  
  */
 @IBDesignable
-public class TextViewStack: TextStack, KeyboardResponderInputContainer {
+open class TextViewStack: TextStack, KeyboardResponderInputContainer {
     
     // MARK: - Properties
     
     /// The whitespace trimmed text entered into `textView`.
-    public override var text:String? {
+    open override var text:String? {
         get {
             return textView.text == placeholderText ? "" : textView.text.whitespaceTrimmedString()
         }
@@ -36,10 +36,10 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     
     
     /// Adjusts `textView.textContainerInsets` according to `activeTextContainerInset` and `inactiveTextContainerInset`, and causes a layout pass to be called.
-    public override var enabled:Bool {
+    open override var enabled:Bool {
         didSet {
-            textView.editable = enabled
-            textView.selectable = true
+            textView.isEditable = enabled
+            textView.isSelectable = true
             textView.textContainerInset = enabled ? activeTextContainerInset : inactiveTextContainerInset
             
             configurePlaceholder()
@@ -51,31 +51,31 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// The `UITextView` the user interacts with.
-    public let textView:UITextView
+    open let textView:UITextView
     
     /// The `textContainerInset` applied to `textView` when `enabled == true`. Default is `(4,-5,4,-5)`.
-    public var activeTextContainerInset = UIEdgeInsetsMake(4,-5,4,-5) {
+    open var activeTextContainerInset = UIEdgeInsetsMake(4,-5,4,-5) {
         didSet {
             stackView.setNeedsLayout()
         }
     }
     
     /// The `textContainerInset` applied to `textView` when `enabled == false`. Default is `(0,-5,0,-5)`.
-    public var inactiveTextContainerInset = UIEdgeInsetsMake(0,-5,0,-5) {
+    open var inactiveTextContainerInset = UIEdgeInsetsMake(0,-5,0,-5) {
         didSet {
             stackView.setNeedsLayout()
         }
     }
     
     /// The colour applied to the text in the `textView` when the user has entered text.
-    public var textColour:UIColor? {
+    open var textColour:UIColor? {
         didSet {
             configurePlaceholder()
         }
     }
     
     /// The colour applied to the text in the `textView` when `placeholderText` is the text in the `textView`.
-    public var placeholderTextColour:UIColor? {
+    open var placeholderTextColour:UIColor? {
         didSet {
             placeholderLabel.textColor = placeholderTextColour
             
@@ -84,13 +84,13 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     }
     
     // References to the observers. These are optional as they reference self within the handlers and so must be set after super.init(textComponent:)
-    private var boundsObserver:ObjectObserver?
-    private var textObserver:ObjectObserver?
-    private var textViewObservers:[NotificationObserver]?
+    fileprivate var boundsObserver:ObjectObserver?
+    fileprivate var textObserver:ObjectObserver?
+    fileprivate var textViewObservers:[NotificationObserver]?
     
     /// The component to use with a `KeyboardResponder`.
-    public var inputComponent: KeyboardResponderInputType {
-        return .TextView(textView)
+    open var inputComponent: KeyboardResponderInputType {
+        return .textView(textView)
     }
     
     /**
@@ -116,11 +116,11 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         
         self.textView = textView
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.dataDetectorTypes = [.All]
-        textView.scrollEnabled = false
-        textView.contentInset = UIEdgeInsetsZero
+        textView.dataDetectorTypes = [.all]
+        textView.isScrollEnabled = false
+        textView.contentInset = UIEdgeInsets.zero
         textView.textContainerInset = activeTextContainerInset
-        textView.selectable = true
+        textView.isSelectable = true
         
         textView.textContainer.heightTracksTextView = true
         
@@ -130,18 +130,18 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         wrapperScroll.addSubview(textView)
         
         wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: textView,
-            attribute: .Height,
+            attribute: .height,
             multiplier: 1.0,
             constant: 0.0))
         
         wrapperScroll.addConstraint(NSLayoutConstraint(item: wrapperScroll,
-            attribute: .Width,
-            relatedBy: .Equal,
+            attribute: .width,
+            relatedBy: .equal,
             toItem: textView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 0.0))
         
@@ -160,8 +160,8 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         addUnderlineForView(textView)
         
         // configure the stack
-        stack.axis = UILayoutConstraintAxis.Vertical
-        stack.stackAlignment = .Fill
+        stack.axis = UILayoutConstraintAxis.vertical
+        stack.stackAlignment = .fill
         //        stack.spacing = 0.0
         
         
@@ -169,12 +169,10 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
         boundsObserver = ObjectObserver(keypath: "bounds", object: textView) { (keypath, object, change) -> () in
             
             if let obj = object as? UITextView,
-                let changeDict = change
-                where obj == self.textView && obj.isFirstResponder() {
-                if let oldFrame = changeDict[NSKeyValueChangeOldKey]?.CGRectValue,
-                    let newFrame = changeDict[NSKeyValueChangeNewKey]?.CGRectValue
-                    where oldFrame.size.height != newFrame.size.height {
-                    NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textView)
+                let changeDict = change, obj == self.textView && obj.isFirstResponder {
+                if let oldFrame = (changeDict[NSKeyValueChangeKey.oldKey] as AnyObject).cgRectValue,
+                    let newFrame = (changeDict[NSKeyValueChangeKey.newKey] as AnyObject).cgRectValue, oldFrame.size.height != newFrame.size.height {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: KeyboardResponderRequestUpdateScrollNotification), object: textView)
                     self.stackView.invalidateIntrinsicContentSize()
                 }
             }
@@ -184,21 +182,21 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
             self.configurePlaceholder()
         }
         
-        let beginObserver = NotificationObserver(name: UITextViewTextDidBeginEditingNotification, object: textView) { (note) -> () in
+        let beginObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidBeginEditing.rawValue, object: textView) { (note) -> () in
             self.configureUnderline()
             self.configurePlaceholder()
         }
         
-        let changeObserver = NotificationObserver(name: UITextViewTextDidChangeNotification, object: textView) { (note) -> () in
+        let changeObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidChange.rawValue, object: textView) { (note) -> () in
             self.configurePlaceholder()
         }
         
-        let endObserver = NotificationObserver(name: UITextViewTextDidEndEditingNotification, object: textView) { (note) -> () in
+        let endObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidEndEditing.rawValue, object: textView) { (note) -> () in
             self.configureUnderline()
             self.configurePlaceholder()
             
             if self.liveValidation {
-                self.validateValue()
+                _ = self.validateValue()
             }
         }
         
@@ -216,29 +214,29 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// Shows / hides the `placeholderLabel` and sets the text of `textView` based on the currently entered text.
-    override public func configurePlaceholder() {
+    override open func configurePlaceholder() {
         
         if let placeholderText = self.placeholderText {
             
             placeholderLabel.text = placeholderText
             
-            if textView.text.isEmpty && !textView.isFirstResponder() {
+            if textView.text.isEmpty && !textView.isFirstResponder {
                 textView.text = placeholderText
-            } else if textIsPlaceholder() && textView.isFirstResponder() {
+            } else if textIsPlaceholder() && textView.isFirstResponder {
                 textView.text = ""
             }
             
             textView.textColor = textIsPlaceholder() ? placeholderTextColour : textColour
             
             // show hide the placeholder label as appropriate
-            let placeholderHidden = textIsPlaceholder() || (hidesPlaceholderLabel && !textView.isFirstResponder())
-            if placeholderLabel.hidden != placeholderHidden {
-                placeholderLabel.hidden = placeholderHidden
+            let placeholderHidden = textIsPlaceholder() || (hidesPlaceholderLabel && !textView.isFirstResponder)
+            if placeholderLabel.isHidden != placeholderHidden {
+                placeholderLabel.isHidden = placeholderHidden
                 
                 if NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_8_3 {
                 
                     // perform layout. Due to the nested nature of text views this extra layout pass is sometimes necessary...
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.async(execute: { () -> Void in
                         
                         self.stackView.invalidateIntrinsicContentSize()
                         self.stackView.setNeedsUpdateConstraints()
@@ -246,16 +244,16 @@ public class TextViewStack: TextStack, KeyboardResponderInputContainer {
                     })
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> () in
+                DispatchQueue.main.async(execute: { () -> () in
                     // post notification as showing / hiding the label changes the position of the text view. This is done in a new block to ensure the layout pass has occured and the frames have been updated.
-                    NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: self.textView)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: KeyboardResponderRequestUpdateScrollNotification), object: self.textView)
                 })
             }
         }
     }
     
     /// Sets the alpha of `underline` based on whether `textField` is first responder, and `enabled`.
-    public func configureUnderline() {
-        underline.alpha = textView.isFirstResponder() ? 1.0 : (enabled ? 0.5 : 0.0)
+    open func configureUnderline() {
+        underline.alpha = textView.isFirstResponder ? 1.0 : (enabled ? 0.5 : 0.0)
     }
 }

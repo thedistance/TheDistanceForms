@@ -18,28 +18,28 @@ import TheDistanceCore
  - seealso: `UIDatePickerDataController`
  
  */
-public class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
+open class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: Properties
     
     /// An array of strings forming the data source for `pickerView`.
-    public let choices:[[String]]
+    open let choices:[[String]]
     
     /// The `UIPickerView` shown as the `inputView` associated with `textField`, i.e. this is shown instead of the keyboard if this field becomes first responder.
-    public let pickerView:UIPickerView
+    open let pickerView:UIPickerView
     
     /// The `UITextField` that shows `pickerView` on becoming first responder, and whose text is set to be the selected date from `datePicker`.
-    public let textField:UITextField
+    open let textField:UITextField
     
     /// Property for whether a blank row should be added to each component in `pickerView`. Default value is `true`.
-    public var addsBlankEntry:Bool = true {
+    open var addsBlankEntry:Bool = true {
         didSet {
             pickerView.reloadAllComponents()
         }
     }
     
     /// Convenience variable for accessing strings in `choices` based on `addsBlankEntry`.
-    public var indexOffset:Int {
+    open var indexOffset:Int {
         return addsBlankEntry ? 1 : 0
     }
     
@@ -65,13 +65,13 @@ public class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPick
         
         textField.inputView = pickerView
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIPickerViewDataController.matchPickerToTextField), name: UITextFieldTextDidBeginEditingNotification, object: textField)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIPickerViewDataController.matchPickerToTextField), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: textField)
     }
     
     /// Internal function used to preselect a value in the picker view based on entered text when the `textField` becomes active.
     func matchPickerToTextField() {
         if let text = textField.text,
-            let idx = choices[0].indexOf(text) {
+            let idx = choices[0].index(of: text) {
                 pickerView.selectRow(idx + indexOffset, inComponent: 0, animated: true)
         }
     }
@@ -85,19 +85,19 @@ public class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPick
      - returns: The number of sub-arrays in `choices`.
      
     */
-    public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return choices.count
     }
     
     /// `UIPickerViewDataSource` method powered by `choices` and `addsBlankRow`.
-    public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return choices[component].count + indexOffset
     }
     
     // MARK: Picker View Delegate
     
     /// `UIPickerViewDelegate` method powered by `choices` and `addsBlankRow`.
-    public func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    open func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         if row == 0  && addsBlankEntry {
             return NSAttributedString(string: "")
@@ -107,7 +107,7 @@ public class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPick
     }
     
     /// Calls `textForPickerView(_:)` to update the new text.
-    public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         textField.text = textForPickerView(pickerView)
     }
     
@@ -118,16 +118,16 @@ public class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPick
      - returns: The text for all selected rows into a single string separated by ", ".
      
     */
-    public func textForPickerView(pickerView:UIPickerView) -> String {
+    open func textForPickerView(_ pickerView:UIPickerView) -> String {
         
         let comps = choices.count
-        let selectedChoice:[String] =  (0..<comps).map { ($0, pickerView.selectedRowInComponent($0) - indexOffset) }
+        let selectedChoice:[String] =  (0..<comps).map { ($0, pickerView.selectedRow(inComponent: $0) - indexOffset) }
             .filter { $0.1 >= 0 }
             .map { choices[$0.0][$0.1] }
             .map { ($0 as String).whitespaceTrimmedString() }
             .filter { !$0.isEmpty }
         
-        return selectedChoice.joinWithSeparator(", ")
+        return selectedChoice.joined(separator: ", ")
 
     }
 }

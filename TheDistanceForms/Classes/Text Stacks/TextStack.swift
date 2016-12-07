@@ -7,7 +7,7 @@
 
 import Foundation
 import TheDistanceCore
-import StackView
+import TDStackView
 
 /**
 
@@ -17,12 +17,12 @@ import StackView
  - seealso: `TextViewStack`
 
 */
-public class TextStack: ErrorStack, ValueElement {
+open class TextStack: ErrorStack, ValueElement {
     
     // MARK: - Properties
     
     /// Stylistic view for underlining the text component. Subclasses are responsible for adding this using `addUnderlineToView(_:withInsets:)`.
-    public let underline:UIView
+    open let underline:UIView
     
     // MARK: Form Stack
 
@@ -32,7 +32,7 @@ public class TextStack: ErrorStack, ValueElement {
      
      - note: This is an empty computed property as we cannot override a stored property with a computed property based on the text component of the subclass
     */
-    public var text:String? {
+    open var text:String? {
         // this is an empty computed property as we cannot override a stored property with a computed property based on the text component of the subclass
         get {
             return nil
@@ -43,17 +43,17 @@ public class TextStack: ErrorStack, ValueElement {
     }
     
     /// If `true`, the validation is checked after the text elements resigns first responder status. Default is `true`.
-    public var liveValidation:Bool = true
+    open var liveValidation:Bool = true
     
     /// Validation object to allow this to be a `ValueElement`. The value is the `text` property.
-    public var validation:Validation<String>? // Stored properties cannot currently go in an extension
+    open var validation:Validation<String>? // Stored properties cannot currently go in an extension
     
     /// Flag to determine whether user interaction is enabled for the text component. Resetting this should configure the placeholder and underline for their enabled state, and causes a layout pass to be called.
-    public var enabled:Bool = true
+    open var enabled:Bool = true
     
     // MARK: Placeholder Variables
     
-    private var _placeholderText:String?
+    fileprivate var _placeholderText:String?
     
     /**
      
@@ -61,7 +61,7 @@ public class TextStack: ErrorStack, ValueElement {
      
      - seealso `configurePlaceholder()`
     */
-    public var placeholderText:String? {
+    open var placeholderText:String? {
         get {
             return _placeholderText
         }
@@ -84,10 +84,10 @@ public class TextStack: ErrorStack, ValueElement {
     }
     
     /// The label that shows the placeholder content once the user is editting or text is showing.
-    public let placeholderLabel:UILabel
+    open let placeholderLabel:UILabel
     
     /// Flag to determine whether the placeholder label should appear when text has been entered into the text element.
-    public var hidesPlaceholderLabel:Bool = false {
+    open var hidesPlaceholderLabel:Bool = false {
         didSet {
             if oldValue != hidesPlaceholderLabel {
                 configurePlaceholder()
@@ -122,11 +122,11 @@ public class TextStack: ErrorStack, ValueElement {
             self.underline = underline
             
             placeholderLabel.numberOfLines = 0
-            placeholderLabel.hidden = true
-            placeholderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
+            placeholderLabel.isHidden = true
+            placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
             
             var contentStack = CreateStackView([placeholderLabel, textComponent])
-            contentStack.axis = .Vertical
+            contentStack.axis = .vertical
             contentStack.spacing = 8.0
             
             super.init(centerComponent: contentStack.view,
@@ -143,10 +143,10 @@ public class TextStack: ErrorStack, ValueElement {
     - parameter withInsets: The insets to align the newly created `underline` to `view` with. Default value is `UIEdgeInsetsZero`.
     
     */
-    public func addUnderlineForView(view:UIView, withInsets:UIEdgeInsets = UIEdgeInsetsZero) {
+    open func addUnderlineForView(_ view:UIView, withInsets:UIEdgeInsets = UIEdgeInsets.zero) {
         
         underline.translatesAutoresizingMaskIntoConstraints = false
-        underline.backgroundColor = UIColor.blackColor()
+        underline.backgroundColor = UIColor.black
         
         stackView.addSubview(underline)
         
@@ -158,7 +158,7 @@ public class TextStack: ErrorStack, ValueElement {
     }
     
     /// To be overridden by sub classes to show / hide the placeholder correctly.
-    public func configurePlaceholder() { }
+    open func configurePlaceholder() { }
     
     // MARK: - ValueElement
     
@@ -171,10 +171,10 @@ public class TextStack: ErrorStack, ValueElement {
      - returns: `true` if the the given value is set as `text`, `false` otherwise.
      
     */
-    public func setValue<T>(value: T?) -> Bool {
+    open func setValue<T>(_ value: T?) -> Bool {
         if let str = (value as? String)?.whitespaceTrimmedString() {
             
-            if let result = validation?.validate(value: str), case .Valid = result  {
+            if let result = validation?.validate(str), case .valid = result  {
                 text = str
                 return true
             } else {
@@ -185,7 +185,7 @@ public class TextStack: ErrorStack, ValueElement {
         return false
     }
     
-    public func getValue() -> Any? {
+    open func getValue() -> Any? {
         return text
     }
     
@@ -195,14 +195,14 @@ public class TextStack: ErrorStack, ValueElement {
      
      - returns: `.Valid` if `text` passes validation, `.Invalid(let message)` otherwise, where message is that returned by `self.validation`.
      */
-    public func validateValue() -> ValidationResult {
+    open func validateValue() -> ValidationResult {
         
         let newText = text
-        let result = validation?.validate(value: newText) ?? .Valid
+        let result = validation?.validate(newText) ?? .valid
         
         text = newText
         
-        if case .Invalid(let message) = result {
+        if case .invalid(let message) = result {
             errorText = message
         } else {
             errorText = nil

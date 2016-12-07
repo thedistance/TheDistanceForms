@@ -1,9 +1,0 @@
-git "git@bitbucket.org:thedistance/stackview.git"
-git "git@bitbucket.org:joshcampion89/AdvancedOperationKit"
-
-github "TheDistance/TheDistanceCore"
-git "git@bitbucket.org:thedistance/KeyboardResponder.git"
-github "TheDistance/SelectionViewController"
-
-github "SwiftyJSON/SwiftyJSON" == 2.3.3
-github "joshc89/ThemeKit"

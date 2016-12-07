@@ -12,56 +12,56 @@ import KeyboardResponder
 
 public enum FormQuestionView: ValueElement {
     
-    case TextSingle(TextFieldStack)
-    case TextMultiline(TextViewStack)
-    case Date(TextFieldStack, UIDatePickerDataController)
-    case Time(TextFieldStack, UIDatePickerDataController)
-    case DateTime(TextFieldStack, UIDatePickerDataController)
-    case ChoiceDropdown(TextFieldStack, UIPickerViewDataController)
-    case ChoiceSegments(SegmentedTextFieldStack)
+    case textSingle(TextFieldStack)
+    case textMultiline(TextViewStack)
+    case date(TextFieldStack, UIDatePickerDataController)
+    case time(TextFieldStack, UIDatePickerDataController)
+    case dateTime(TextFieldStack, UIDatePickerDataController)
+    case choiceDropdown(TextFieldStack, UIPickerViewDataController)
+    case choiceSegments(SegmentedTextFieldStack)
     // case ChoiceSelection // like a radio selection
-    case Boolean(SwitchStack)
-    case Button(UIButton)
+    case boolean(SwitchStack)
+    case button(UIButton)
     
     public var inputComponent:KeyboardResponderInputContainer? {
         switch self {
-        case .TextSingle(let tf):
+        case .textSingle(let tf):
             return tf
-        case .TextMultiline(let tv):
+        case .textMultiline(let tv):
             return tv
-        case .Date(let tf, _):
+        case .date(let tf, _):
             return tf
-        case .Time(let tf, _):
+        case .time(let tf, _):
             return tf
-        case .DateTime(let tf, _):
+        case .dateTime(let tf, _):
             return tf
-        case .ChoiceDropdown(let tf, _):
+        case .choiceDropdown(let tf, _):
             return tf
-        case .ChoiceSegments(_), .Boolean(_), .Button(_):
+        case .choiceSegments(_), .boolean(_), .button(_):
             return nil
         }
     }
     
     public var view:UIView {
         switch self {
-        case .TextSingle(let tf):
+        case .textSingle(let tf):
             return tf.stackView
-        case .TextMultiline(let tv):
+        case .textMultiline(let tv):
             return tv.stackView
-        case .Date(let tf, _):
+        case .date(let tf, _):
             return tf.stackView
-        case .Time(let tf, _):
+        case .time(let tf, _):
             return tf.stackView
-        case .DateTime(let tf, _):
+        case .dateTime(let tf, _):
             return tf.stackView
-        case .ChoiceDropdown(let tf, _):
+        case .choiceDropdown(let tf, _):
             return tf.stackView
-        case .ChoiceSegments(let segments):
+        case .choiceSegments(let segments):
             return segments.stackView
         // case ChoiceSelection // like a radio selection
-        case .Boolean(let switchControl):
+        case .boolean(let switchControl):
             return switchControl.stackView
-        case .Button(let button):
+        case .button(let button):
             return button
         }
     }
@@ -69,11 +69,11 @@ public enum FormQuestionView: ValueElement {
     public func getValue() -> Any? {
         
         switch self {
-        case .TextSingle(let tf):
+        case .textSingle(let tf):
             return tf.getValue()
-        case .TextMultiline(let tv):
+        case .textMultiline(let tv):
             return tv.getValue()
-        case .Date(let tf, let controller):
+        case .date(let tf, let controller):
             
             if tf.getValue() != nil {
                 return controller.datePicker.date
@@ -81,7 +81,7 @@ public enum FormQuestionView: ValueElement {
                 return nil
             }
             
-        case .Time(let tf, let controller):
+        case .time(let tf, let controller):
             
             if tf.getValue() != nil {
                 return controller.datePicker.date
@@ -89,7 +89,7 @@ public enum FormQuestionView: ValueElement {
                 return nil
             }
             
-        case .DateTime(let tf, let controller):
+        case .dateTime(let tf, let controller):
             
             if tf.getValue() != nil {
                 return controller.datePicker.date
@@ -97,27 +97,27 @@ public enum FormQuestionView: ValueElement {
                 return nil
             }
             
-        case .ChoiceDropdown(let tf, _):
+        case .choiceDropdown(let tf, _):
             return tf.getValue()
-        case .ChoiceSegments(let segments):
+        case .choiceSegments(let segments):
             return segments.getValue()
-        case .Boolean(let switchControl):
+        case .boolean(let switchControl):
             return switchControl.getValue()
-        case .Button(_):
+        case .button(_):
             return nil
         }
     }
 
-    public func setValue<T>(value: T?) -> Bool {
+    public func setValue<T>(_ value: T?) -> Bool {
         
         switch self {
-        case .TextSingle(let tf):
+        case .textSingle(let tf):
             return tf.setValue(value)
-        case .TextMultiline(let tv):
+        case .textMultiline(let tv):
             return tv.setValue(value)
-        case .Date(_, let controller):
+        case .date(_, let controller):
             
-            if let date = value as? NSDate {
+            if let date = value as? Foundation.Date {
                 controller.datePicker.date = date
                 controller.dateChanged(controller.datePicker)
                 return true
@@ -125,9 +125,9 @@ public enum FormQuestionView: ValueElement {
                 return false
             }
             
-        case .Time(_, let controller):
+        case .time(_, let controller):
             
-            if let date = value as? NSDate {
+            if let date = value as? Foundation.Date {
                 controller.datePicker.date = date
                 controller.dateChanged(controller.datePicker)
                 return true
@@ -135,9 +135,9 @@ public enum FormQuestionView: ValueElement {
                 return false
             }
             
-        case .DateTime(_, let controller):
+        case .dateTime(_, let controller):
             
-            if let date = value as? NSDate {
+            if let date = value as? Foundation.Date {
                 controller.datePicker.date = date
                 controller.dateChanged(controller.datePicker)
                 return true
@@ -145,7 +145,7 @@ public enum FormQuestionView: ValueElement {
                 return false
             }
             
-        case .ChoiceDropdown(let tf, let controller):
+        case .choiceDropdown(let tf, let controller):
             
             guard let string = value as? String  else { return false }
             
@@ -154,7 +154,7 @@ public enum FormQuestionView: ValueElement {
                 
                 component += 1
                 
-                if let row = array.indexOf(string) {
+                if let row = array.index(of: string) {
                     controller.pickerView.selectRow(row, inComponent: component, animated: true)
                     return tf.setValue(value)
                 }
@@ -162,23 +162,23 @@ public enum FormQuestionView: ValueElement {
             
             return false
             
-        case .ChoiceSegments(let segments):
+        case .choiceSegments(let segments):
             
             guard let string = value as? String  else { return false }
             
             let n = segments.choiceControl.numberOfSegments
             for t in 0..<n {
-                if segments.choiceControl.titleForSegmentAtIndex(t) == string {
-                    segments.setValue(t)
+                if segments.choiceControl.titleForSegment(at: t) == string {
+                    _ = segments.setValue(t)
                     return true
                 }
             }
             
             return false
             
-        case .Boolean(let switchControl):
+        case .boolean(let switchControl):
             return switchControl.setValue(value)
-        case .Button(_):
+        case .button(_):
             return false
         }
     }
@@ -186,40 +186,40 @@ public enum FormQuestionView: ValueElement {
     public func validateValue() -> ValidationResult {
         
         switch self {
-        case .TextSingle(let tf):
+        case .textSingle(let tf):
             
             return tf.validateValue()
             
-        case .TextMultiline(let tv):
+        case .textMultiline(let tv):
             
             return tv.validateValue()
             
-        case .Date(let tf, _):
+        case .date(let tf, _):
             
             return tf.validateValue()
             
-        case .Time(let tf, _):
+        case .time(let tf, _):
             
             return tf.validateValue()
             
-        case .DateTime(let tf, _):
+        case .dateTime(let tf, _):
             
             return tf.validateValue()
             
-        case .ChoiceDropdown(let tf, _):
+        case .choiceDropdown(let tf, _):
             
             return tf.validateValue()
             
-        case .ChoiceSegments(let segments):
+        case .choiceSegments(let segments):
             
             return segments.validateValue()
             
-        case .Boolean(let switchControl):
+        case .boolean(let switchControl):
             
             return switchControl.validateValue()
             
-        case .Button(_):
-            return ValidationResult.Valid
+        case .button(_):
+            return ValidationResult.valid
         }
         
     }

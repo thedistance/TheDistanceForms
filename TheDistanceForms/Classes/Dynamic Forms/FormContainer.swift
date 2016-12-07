@@ -17,18 +17,18 @@ public protocol FormContainer: class {
     var form:Form? { get }
     var buttonTargets:[ObjectTarget<UIButton>] { get set }
     
-    func addFormFromURL(jsonURL:NSURL, ofType formType:Form.Type, questionType:FormQuestion.Type, toContainerView:UIView, withInsets:UIEdgeInsets) -> Form?
+    func addFormFromURL(_ jsonURL:URL, ofType formType:Form.Type, questionType:FormQuestion.Type, toContainerView:UIView, withInsets:UIEdgeInsets) -> Form?
     
-    func setUpKeyboardResponder(responder:KeyboardResponder, withInputAccessoryView:KeyboardResponderInputAccessoryView?, onForm:Form, withScrollView:UIScrollView) -> KeyboardResponder
+    func setUpKeyboardResponder(_ responder:KeyboardResponder, withInputAccessoryView:KeyboardResponderInputAccessoryView?, onForm:Form, withScrollView:UIScrollView) -> KeyboardResponder
     
-    func buttonTapped(sender:UIButton)
+    func buttonTapped(_ sender:UIButton)
     
-    func buttonTappedForQuestion(question:FormQuestion)
+    func buttonTappedForQuestion(_ question:FormQuestion)
 }
 
 public extension FormContainer {
     
-    public func setUpKeyboardResponder(responder:KeyboardResponder = KeyboardResponder(), withInputAccessoryView accessoryView:KeyboardResponderInputAccessoryView? = nil, onForm form:Form, withScrollView:UIScrollView) -> KeyboardResponder {
+    public func setUpKeyboardResponder(_ responder:KeyboardResponder = KeyboardResponder(), withInputAccessoryView accessoryView:KeyboardResponderInputAccessoryView? = nil, onForm form:Form, withScrollView:UIScrollView) -> KeyboardResponder {
         
         responder.scrollContainer = withScrollView
         responder.inputAccessoryView = accessoryView ?? KeyboardResponderToolbar(navigationDelegate: responder)
@@ -40,9 +40,9 @@ public extension FormContainer {
         for question in form.questions {
             
             if let qv = question.questionView,
-                case FormQuestionView.Button(let b) = qv {
+                case FormQuestionView.button(let b) = qv {
                 
-                let target = ObjectTarget(control: b, forControlEvents: .TouchUpInside, completion: buttonTapped)
+                let target = ObjectTarget(control: b, forControlEvents: .touchUpInside, completion: buttonTapped)
                 buttonTargets.append(target)
             }
         }
@@ -50,12 +50,11 @@ public extension FormContainer {
         return responder
     }
     
-    public func buttonTapped(sender:UIButton) {
+    public func buttonTapped(_ sender:UIButton) {
         
         let question = form?.questions.filter({
             if let qv = $0.questionView,
-                case FormQuestionView.Button(let b) = qv
-                where b == sender {
+                case FormQuestionView.button(let b) = qv, b == sender {
                 return true
             }
             return false
@@ -70,9 +69,9 @@ public extension FormContainer {
 
 public extension FormContainer where Self:UIViewController {
     
-    public func addFormFromURL(jsonURL:NSURL, ofType formType:Form.Type = Form.self, questionType:FormQuestion.Type = FormQuestion.self, toContainerView container:UIView, withInsets:UIEdgeInsets = UIEdgeInsetsZero) -> Form? {
+    public func addFormFromURL(_ jsonURL:URL, ofType formType:Form.Type = Form.self, questionType:FormQuestion.Type = FormQuestion.self, toContainerView container:UIView, withInsets:UIEdgeInsets = UIEdgeInsets.zero) -> Form? {
         
-        guard let data = NSData(contentsOfURL: jsonURL),
+        guard let data = try? Data(contentsOf: jsonURL),
             let form = formType.init(definition: JSON(data:data), questionType: questionType)
             else {
                 return nil
@@ -83,10 +82,10 @@ public extension FormContainer where Self:UIViewController {
         container.addConstraints(NSLayoutConstraint.constraintsToAlign(view: form.formView.view, to: container, withInsets:withInsets))
         
         container.addConstraint(NSLayoutConstraint(item: form.formView.view,
-            attribute: .Width,
-            relatedBy: .Equal,
+            attribute: .width,
+            relatedBy: .equal,
             toItem: container,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: -withInsets.totalXInset))
         

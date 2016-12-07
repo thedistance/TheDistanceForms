@@ -17,24 +17,24 @@ import Foundation
  - seealso: `UIPickerViewDataController`
  
  */
-public class UIDatePickerDataController: NSObject {
+open class UIDatePickerDataController: NSObject {
     
     // MARK: Properties
     
     /// The formatter to convert the selected date in the `datePicker` to the `text` in the `textField`.
-    public var dateFormatter:NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.timeStyle = NSDateFormatterStyle.NoStyle
-        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+    open var dateFormatter:DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = DateFormatter.Style.none
+        formatter.dateStyle = DateFormatter.Style.medium
         
         return formatter
     }()
     
     /// The `UIDatePicker` shown as the `inputView` associated with `textField`, i.e. this is shown instead of the keyboard if this field becomes first responder.
-    public let datePicker:UIDatePicker
+    open let datePicker:UIDatePicker
     
     /// The `UITextField` that shows `datePicker` on becoming first responder, and whose text is set to be the selected date from `datePicker`.
-    public let textField:UITextField
+    open let textField:UITextField
     
     // MARK: Initialisers
     
@@ -53,14 +53,14 @@ public class UIDatePickerDataController: NSObject {
         super.init()
         
         if let text = textField.text,
-            let date = dateFormatter.dateFromString(text) {
+            let date = dateFormatter.date(from: text) {
             datePicker.date = date
         }
         
         self.textField.inputView = datePicker
         
-        datePicker.addObserver(self, forKeyPath: "date", options: [.Old, .New], context: nil)
-        datePicker.addTarget(self, action:#selector(UIDatePickerDataController.dateChanged(_:)), forControlEvents: .ValueChanged)
+        datePicker.addObserver(self, forKeyPath: "date", options: [.old, .new], context: nil)
+        datePicker.addTarget(self, action:#selector(UIDatePickerDataController.dateChanged(_:)), for: .valueChanged)
     }
     
     deinit {
@@ -76,9 +76,8 @@ public class UIDatePickerDataController: NSObject {
      - seealso: `dateChanged(_:)`
      
      */
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if let datePicker = object as? UIDatePicker
-            where keyPath == "date" {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let datePicker = object as? UIDatePicker, keyPath == "date" {
             dateChanged(datePicker)
         }
     }
@@ -89,8 +88,8 @@ public class UIDatePickerDataController: NSObject {
      
      - parameter sender: The `UIDatePicker` whose value has changed i.e. `datePicker`.
      */
-    public func dateChanged(sender:UIDatePicker) {
+    open func dateChanged(_ sender:UIDatePicker) {
         
-        textField.text = dateFormatter.stringFromDate(sender.date)
+        textField.text = dateFormatter.string(from: sender.date)
     }
 }

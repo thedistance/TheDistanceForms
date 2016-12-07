@@ -9,7 +9,7 @@
 import Foundation
 
 import TheDistanceForms
-import StackView
+import TDStackView
 import SwiftyJSON
 import TheDistanceCore
 

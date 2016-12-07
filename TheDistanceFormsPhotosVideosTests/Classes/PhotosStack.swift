@@ -9,7 +9,7 @@
 import UIKit
 
 import AdvancedOperationKit
-import StackView
+import TDStackView
 import TheDistanceCore
 import TheDistanceForms
 

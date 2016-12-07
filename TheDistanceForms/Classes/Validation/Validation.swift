@@ -23,13 +23,13 @@ Structure that performs validation on a value of a given type, returning `true` 
 public struct Validation<Type> {
     
     /// Should return `true` if the value passes, `false` otherwise. The value is optional as user data is likely to contain `nil` entries.
-    public let validate:(value:Type?) -> ValidationResult
+    public let validate:(_ value:Type?) -> ValidationResult
     
     /// Initialiser assigning the parameters to the properties of the same names.
-    public init(message:String, validation:(value:Type?) -> Bool) {
+    public init(message:String, validation:@escaping (_ value:Type?) -> Bool) {
         // self.message = message
         self.validate = { (v:Type?) -> ValidationResult in
-            return validation(value: v) ? .Valid : .Invalid(reason: message)
+            return validation(v) ? .valid : .invalid(reason: message)
         }
     }
     
@@ -37,10 +37,10 @@ public struct Validation<Type> {
     public init(andValidations:[Validation<Type>], message:String? = nil) {
         self.validate = { (v:Type?) -> ValidationResult in
             
-            let compound = andValidations.reduce(.Valid, combine: { $0 && $1.validate(value: v) })
+            let compound = andValidations.reduce(.valid, { $0 && $1.validate(v) })
             
-            if let m = message where compound != .Valid {
-                return .Invalid(reason: m)
+            if let m = message, compound != .valid {
+                return .invalid(reason: m)
             } else {
                 return compound
             }
@@ -51,10 +51,10 @@ public struct Validation<Type> {
     public init(orValidations:[Validation<Type>], message:String? = nil) {
         
         self.validate = { (v:Type?) -> ValidationResult in
-            let compound = orValidations.reduce(.Valid, combine: { $0 || $1.validate(value: v) })
+            let compound = orValidations.reduce(.valid, { $0 || $1.validate(v) })
             
-            if let m = message where compound != .Valid {
-                return .Invalid(reason: m)
+            if let m = message, compound != .valid {
+                return .invalid(reason: m)
             } else {
                 return compound
             }
@@ -70,7 +70,7 @@ public struct Validation<Type> {
  
  - returns: A configured `Validation<String>` object.
  */
-public func NonEmptyStringValidation(message:String) -> Validation<String> {
+public func NonEmptyStringValidation(_ message:String) -> Validation<String> {
     
     return Validation<String>(message: message, validation: { (value) -> Bool in
         
@@ -95,7 +95,7 @@ public func NonEmptyStringValidation(message:String) -> Validation<String> {
  
  - returns: A configured `Validation<String>` object.
 */
-public func EmailValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+public func EmailValidationWithMessage(_ message:String, allowingNull:Bool = false) -> Validation<String> {
     
     var regexString = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}"
     regexString += "\\@"
@@ -122,7 +122,7 @@ public func EmailValidationWithMessage(message:String, allowingNull:Bool = false
  
  - returns: A configured `Validation<String>` object.
  */
-public func NumberValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+public func NumberValidationWithMessage(_ message:String, allowingNull:Bool = false) -> Validation<String> {
     
     let regexString = "[0-9\\s]"
     
@@ -143,7 +143,7 @@ public func NumberValidationWithMessage(message:String, allowingNull:Bool = fals
  
  - returns: A configured `Validation<String>` object.
 */
-public func PhoneValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+public func PhoneValidationWithMessage(_ message:String, allowingNull:Bool = false) -> Validation<String> {
     
     let regexString = "[\\+]?[0-9.-]+"
     
@@ -164,7 +164,7 @@ public func PhoneValidationWithMessage(message:String, allowingNull:Bool = false
  
  - returns: A configured `Validation<String>` object.
  */
-public func UKPostcodeValidationWithMessage(message:String, allowingNull:Bool = false) -> Validation<String> {
+public func UKPostcodeValidationWithMessage(_ message:String, allowingNull:Bool = false) -> Validation<String> {
     
     let regexString = "(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
     
@@ -188,9 +188,9 @@ public func UKPostcodeValidationWithMessage(message:String, allowingNull:Bool = 
  - returns: A validation if a, `NSRegularExpression` is created with the given `regex`, `nil` otherwise.
  
  */
-public func RegexValidationWithMessage(message:String, regex:String, allowingNull:Bool = false) -> Validation<String>? {
+public func RegexValidationWithMessage(_ message:String, regex:String, allowingNull:Bool = false) -> Validation<String>? {
     
-    if let regex = try? NSRegularExpression(pattern: regex, options: .CaseInsensitive) {
+    if let regex = try? NSRegularExpression(pattern: regex, options: .caseInsensitive) {
         return Validation<String>(message: message, validation: { (value) -> Bool in
             let nullValidation = NonEmptyStringValidation("")
             
@@ -198,7 +198,7 @@ public func RegexValidationWithMessage(message:String, regex:String, allowingNul
                 return false
             }
             
-            if !allowingNull && nullValidation.validate(value: stringValue) != .Valid {
+            if !allowingNull && nullValidation.validate(stringValue) != .valid {
                 return false
             }
             
@@ -206,7 +206,7 @@ public func RegexValidationWithMessage(message:String, regex:String, allowingNul
                 return true
             }
         
-            return regex.matchesInString(stringValue, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
+            return regex.matches(in: stringValue, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
             
         })
     } else {

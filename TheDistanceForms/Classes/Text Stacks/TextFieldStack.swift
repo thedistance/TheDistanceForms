@@ -8,7 +8,7 @@
 
 import Foundation
 
-import StackView
+import TDStackView
 import TheDistanceCore
 import KeyboardResponder
 
@@ -20,13 +20,13 @@ import KeyboardResponder
  
 */
 @IBDesignable
-public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
+open class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     
     
     // MARK: - Properties
  
     /// The whitespace trimmed text entered into `textField`.
-    override public var text:String? {
+    override open var text:String? {
         get {
             return textField.text?.whitespaceTrimmedString()
         } set {
@@ -36,9 +36,9 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// Sets the `enabled` property of `textField`.
-    public override var enabled:Bool {
+    open override var enabled:Bool {
         didSet {
-            textField.enabled = enabled
+            textField.isEnabled = enabled
             
             configurePlaceholder()
             configureUnderline()
@@ -49,14 +49,14 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// The `UITextField` the user interacts with. Text should be set using the `text` property rather than directly setting it on this variable.
-    public let textField:UITextField
+    open let textField:UITextField
     
-    private var textBeginObserver:NotificationObserver?
-    private var textEndObserver:NotificationObserver?
+    fileprivate var textBeginObserver:NotificationObserver?
+    fileprivate var textEndObserver:NotificationObserver?
     
     /// The component to use with a [`KeyboardResponder`](https://github.com/thedistance/KeyboardResponder).
-    public var inputComponent: KeyboardResponderInputType {
-        return .TextField(textField)
+    open var inputComponent: KeyboardResponderInputType {
+        return .textField(textField)
     }
     
     /// Optional variable that retains a reference to a `UIPickerViewDataController` if one is requried.
@@ -91,7 +91,7 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
         
         // create the specific views
             self.textField = textField
-        textField.borderStyle = .None
+        textField.borderStyle = .none
         
         super.init(textComponent: textField,
             placeholderLabel: placeholderLabel,
@@ -100,23 +100,23 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
             iconImageView: iconImageView,
             underline: underline)
         
-        textBeginObserver = NotificationObserver(name: UITextFieldTextDidBeginEditingNotification, object: textField) { (note) -> () in
+        textBeginObserver = NotificationObserver(name: NSNotification.Name.UITextFieldTextDidBeginEditing.rawValue, object: textField) { (note) -> () in
             self.configureUnderline()
             
             self.placeholderLabel.text = self.textField.placeholder ?? self.textField.attributedPlaceholder?.string
-            self.placeholderLabel.hidden = (self.hidesPlaceholderLabel && !self.textField.isFirstResponder())
+            self.placeholderLabel.isHidden = (self.hidesPlaceholderLabel && !self.textField.isFirstResponder)
             
             self.textField.placeholder = nil
         }
         
-        textEndObserver = NotificationObserver(name: UITextFieldTextDidEndEditingNotification, object: textField) { (note) -> () in
+        textEndObserver = NotificationObserver(name: NSNotification.Name.UITextFieldTextDidEndEditing.rawValue, object: textField) { (note) -> () in
             self.configureUnderline()
             
             self.textField.placeholder = self.placeholderText
-            self.placeholderLabel.hidden = (self.textField.text?.isEmpty ?? true) || (self.hidesPlaceholderLabel && !self.textField.isFirstResponder())
+            self.placeholderLabel.isHidden = (self.textField.text?.isEmpty ?? true) || (self.hidesPlaceholderLabel && !self.textField.isFirstResponder)
             
             if self.liveValidation {
-                self.validateValue()
+                _ = self.validateValue()
             }
         }
         
@@ -124,29 +124,29 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - UI Configuration
     
     /// Shows / hides the `placeholderLabel` and `placeholder` text of the `textField` based on the currently entered text.
-    public override func configurePlaceholder() {
+    open override func configurePlaceholder() {
         
         if placeholderLabel.text != placeholderText {
             placeholderLabel.text = placeholderText
         }
         
-        if !textField.isFirstResponder() {    
+        if !textField.isFirstResponder {    
             
             if textField.placeholder != placeholderText {
                 textField.placeholder = placeholderText
             }
             
-            let placeholderHidden = (textField.text?.isEmpty ?? true) || (hidesPlaceholderLabel && !textField.isFirstResponder())
-            if placeholderLabel.hidden != placeholderHidden {
-                placeholderLabel.hidden = placeholderHidden
+            let placeholderHidden = (textField.text?.isEmpty ?? true) || (hidesPlaceholderLabel && !textField.isFirstResponder)
+            if placeholderLabel.isHidden != placeholderHidden {
+                placeholderLabel.isHidden = placeholderHidden
                 
-                NSNotificationCenter.defaultCenter().postNotificationName(KeyboardResponderRequestUpdateScrollNotification, object: textField)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: KeyboardResponderRequestUpdateScrollNotification), object: textField)
             }
         } else {
             textField.placeholder = nil
@@ -154,7 +154,7 @@ public class TextFieldStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// Sets the alpha of `underline` based on whether `textField` is first responder, and `enabled`.
-    public func configureUnderline() {
-        underline.alpha = textField.isFirstResponder() ? 1.0 : (enabled ? 0.5 : 0.0)
+    open func configureUnderline() {
+        underline.alpha = textField.isFirstResponder ? 1.0 : (enabled ? 0.5 : 0.0)
     }
 }
