@@ -33,7 +33,7 @@ public class PhotoCollectionViewCell: UICollectionViewCell {
     public func createViews() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
         contentView.addSubview(imageView)
@@ -52,17 +52,17 @@ public class VideoCollectionViewCell: PhotoCollectionViewCell {
     override public func createViews() {
         super.createViews()
         
-        let whiteTint = UIColor.whiteColor().colorWithAlphaComponent(0.87)
+        let whiteTint = UIColor.white.withAlphaComponent(0.87)
         
         videoIconView.image = UIImage(named: "ic_videocam_white.png")
         videoIconView.tintColor = whiteTint
         
-        timeLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         timeLabel.textColor = whiteTint
         
         // configure stack
         footerStack = CreateStackView([videoIconView, timeLabel])
-        footerStack.stackDistribution = .EqualSpacing
+        footerStack.stackDistribution = .equalSpacing
         
         // add as subview
         footerStack.view.translatesAutoresizingMaskIntoConstraints = false

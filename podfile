@@ -36,3 +36,9 @@ target 'TheDistanceFormsThemed' do
     
 end
 
+target 'TheDistanceFormsPhotosVideos' do
+
+    core_pods	
+    
+end
+

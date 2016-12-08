@@ -11,7 +11,7 @@ import UIKit
 import AdvancedOperationKit
 import TDStackView
 import TheDistanceCore
-import TheDistanceForms
+
 
 public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
@@ -31,19 +31,19 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     public init(collectionView: UICollectionView,
                 manager:PhotosStackManager,
-                addButton: UIButton = UIButton(type: .System),
+                addButton: UIButton = UIButton(type: .system),
                 textField:UITextField = UITextField(),
                 errorLabel: UILabel = UILabel(),
                 errorImageView: UIImageView = UIImageView(),
                 iconImageView: UIImageView = UIImageView()) {
     
         mediaCollectionView = collectionView
-        mediaCollectionView.backgroundColor = UIColor.clearColor()
+        mediaCollectionView.backgroundColor = UIColor.clear
         mediaCollectionViewHeightConstraint = NSLayoutConstraint(item: mediaCollectionView,
-                                                                 attribute: .Height,
-                                                                 relatedBy: .Equal,
+                                                                 attribute: .height,
+                                                                 relatedBy: .equal,
                                                                  toItem: nil,
-                                                                 attribute: .NotAnAttribute,
+                                                                 attribute: .notAnAttribute,
                                                                  multiplier: 0.0,
                                                                  constant: 75.0)
         mediaCollectionView.addConstraint(mediaCollectionViewHeightConstraint)
@@ -51,12 +51,12 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         self.addButton = addButton
         self.textField = textField
         
-        addButton.setTitle("Add Photo or Video", forState: .Normal)
-        textField.hidden = true
+        addButton.setTitle("Add Photo or Video", for: .normal)
+        textField.isHidden = true
         
         mediaManager = manager
         contentStack = CreateStackView([mediaCollectionView, addButton, textField])
-        contentStack.axis = .Vertical
+        contentStack.axis = .vertical
         contentStack.spacing = 8.0
         
         super.init(centerComponent: contentStack.view,
@@ -66,11 +66,11 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         
         mediaManager.delegate = self
         
-        addTarget = ObjectTarget<UIButton>(control: addButton, forControlEvents: .TouchUpInside, completion: addTapped)
+        addTarget = ObjectTarget<UIButton>(control: addButton, forControlEvents: .touchUpInside, completion: addTapped)
     }
     
     public func addTapped(sender:UIButton) {
-        mediaManager.newAssetFromSource(.View(sender))
+        mediaManager.newAssetFromSource(source: .view(sender))
     }
     
     public func photosStackManager(stack: PhotosStackManager, selectedAsset: PhotosStackAsset) {
@@ -80,7 +80,7 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     public func photosStackManagerCancelled(stack: PhotosStackManager) { }
     
     public func updateMediaCollectionViewHeight() {
-        let contentSize = mediaCollectionView.collectionViewLayout.collectionViewContentSize()
+        let contentSize = mediaCollectionView.collectionViewLayout.collectionViewContentSize
         if contentSize.height != mediaCollectionViewHeightConstraint.constant {
             mediaCollectionViewHeightConstraint.constant = contentSize.height
         }
@@ -90,7 +90,7 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         return mediaManager.mediaDataSource
     }
     
-    public func setValue<T>(value: T?) -> Bool {
+    public func setValue<T>(_ value: T?) -> Bool {
         
         guard let mediaObjects = value as? [PhotosStackAsset] else { return false }
         
@@ -102,9 +102,9 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     public func validateValue() -> ValidationResult {
         
         let value = getValue() as? [PhotosStackAsset]
-        let result = validation?.validate(value: value) ?? .Valid
+        let result = validation?.validate(value) ?? .valid
         
-        if case .Invalid(let message) = result {
+        if case .invalid(let message) = result {
             errorText = message
         } else {
             errorText = nil

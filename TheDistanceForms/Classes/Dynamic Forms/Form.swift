@@ -146,7 +146,7 @@ open class Form: KeyedValueElementContainer, KeyedView {
                 let json:JSON
                 if let date = value as? Date {
                     json = JSON(ServerDateFormatter.string(from: date))
-                } else if let valueObject = value as? AnyObject {
+                } else if let valueObject = value {
                     json = JSON(valueObject)
                 } else {
                     json = JSON(NSNull())
