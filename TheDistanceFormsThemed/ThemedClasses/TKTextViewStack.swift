@@ -29,23 +29,23 @@ public class TKTextViewStack: TextViewStack {
     init() {
         
         let textView = TKTextView()
-        textView.textStyle = .Body1
-        textView.textColourStyle = .Text
+        textView.textStyle = .body1
+        textView.textColourStyle = .text
         
         let placeholder = TKLabel()
-        placeholder.textStyle = .Caption
-        placeholder.textColourStyle = .SecondaryText
+        placeholder.textStyle = .caption
+        placeholder.textColourStyle = .secondaryText
         
         let errorLabel = TKLabel()
-        errorLabel.textStyle = .Caption
-        errorLabel.textColourStyle = .Accent
+        errorLabel.textStyle = .caption
+        errorLabel.textColourStyle = .accent
         
         let errorImageView = TKImageView()
-        errorImageView.tintColourStyle = .Accent
-        errorImageView.contentMode = .ScaleAspectFit
+        errorImageView.tintColourStyle = .accent
+        errorImageView.contentMode = .scaleAspectFit
         
         let iconImageView = TKImageView()
-        iconImageView.contentMode = .ScaleAspectFit
+        iconImageView.contentMode = .scaleAspectFit
         
         let underline = TKView()
         
@@ -56,7 +56,7 @@ public class TKTextViewStack: TextViewStack {
                    iconImageView: iconImageView,
                    underline: underline)
         
-        placeholderTextColour = TKThemeVendor.defaultColour(.SecondaryText)
+        placeholderTextColour = TKThemeVendor.defaultColour(.secondaryText)
     }
     
     /// Configures the `underline` to be `.Accent` when the view is active and `hidden`
@@ -64,11 +64,11 @@ public class TKTextViewStack: TextViewStack {
         
         guard let underline = self.underline as? TKView else { return }
         
-        if textView.isFirstResponder() {
-            underline.backgroundColourStyle = .Accent
+        if textView.isFirstResponder {
+            underline.backgroundColourStyle = .accent
             underline.alpha = 1.0
         } else {
-            underline.backgroundColourStyle = .SecondaryText
+            underline.backgroundColourStyle = .secondaryText
             underline.alpha = enabled ? 1.0 : 0.0
         }
     }

@@ -15,10 +15,10 @@ project 'TheDistanceForms'
 def core_pods
 	pod 'SwiftyJSON', '~> 3.1.3'
     pod 'TheDistanceCore'
-    pod 'ThemeKit'
 	pod 'AdvancedOperationKit'
 	pod 'KeyboardResponder'
 	pod 'TDStackView'
+    pod 'ThemeKit'	
 end
 
 
@@ -27,6 +27,12 @@ end
 target 'TheDistanceForms' do
 
     core_pods
+    
+end
+
+target 'TheDistanceFormsThemed' do
+
+    core_pods	
     
 end
 

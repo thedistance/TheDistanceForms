@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A30F8F14284F9D854EF0F01 /* Pods_TheDistanceFormsThemed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */; };
 		A54511B51D070BE40067714A /* UIDatePickerDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B41D070BE40067714A /* UIDatePickerDataController.swift */; };
 		A54511B81D071B030067714A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B71D071B030067714A /* Validation.swift */; };
 		A54511BA1D071B0E0067714A /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B91D071B0E0067714A /* ValidationResult.swift */; };
@@ -148,6 +149,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceFormsThemed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ECEB3CC741211318C9EEEDD /* Pods-TheDistanceFormsThemed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceFormsThemed.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed.release.xcconfig"; sourceTree = "<group>"; };
+		5A7589B51DF985DD0034F388 /* Pods_TheDistanceForms.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_TheDistanceForms.framework; path = "../../Library/Developer/Xcode/DerivedData/TheDistanceForms-eqocbolqjfvqasftouqigajpdrbb/Build/Products/Debug-iphonesimulator/Pods_TheDistanceForms.framework"; sourceTree = "<group>"; };
 		7B39020C39FCC95B33AD664B /* Pods-TheDistanceForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms.debug.xcconfig"; sourceTree = "<group>"; };
 		A54511B41D070BE40067714A /* UIDatePickerDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerDataController.swift; sourceTree = "<group>"; };
 		A54511B71D071B030067714A /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		A5F0DEF61CC902320032534D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardResponder.framework; path = Carthage/Build/iOS/KeyboardResponder.framework; sourceTree = "<group>"; };
 		A5F0DF151CCA55A30032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		C5E1E791E422A5F7A2AC398C /* Pods-TheDistanceFormsThemed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceFormsThemed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed.debug.xcconfig"; sourceTree = "<group>"; };
 		D40C5A7F93C6DA91E3C36D63 /* Pods_TheDistanceForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C87F991A5FE701BF88E0E6 /* Pods-TheDistanceForms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceForms.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A592A0591CD0C3CC00128D4D /* TheDistanceForms.framework in Frameworks */,
+				7A30F8F14284F9D854EF0F01 /* Pods_TheDistanceFormsThemed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +420,12 @@
 		A5F0DE611CC8C6520032534D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A7589B51DF985DD0034F388 /* Pods_TheDistanceForms.framework */,
 				A5F0DE621CC8C6590032534D /* Core */,
 				A5F0DE631CC8C66D0032534D /* Photos & Videos */,
 				A592A0391CCFC39B00128D4D /* Themed */,
 				D40C5A7F93C6DA91E3C36D63 /* Pods_TheDistanceForms.framework */,
+				05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -546,6 +554,8 @@
 			children = (
 				7B39020C39FCC95B33AD664B /* Pods-TheDistanceForms.debug.xcconfig */,
 				E9C87F991A5FE701BF88E0E6 /* Pods-TheDistanceForms.release.xcconfig */,
+				C5E1E791E422A5F7A2AC398C /* Pods-TheDistanceFormsThemed.debug.xcconfig */,
+				1ECEB3CC741211318C9EEEDD /* Pods-TheDistanceFormsThemed.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -584,10 +594,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A592A0491CD0A9E500128D4D /* Build configuration list for PBXNativeTarget "TheDistanceFormsThemed" */;
 			buildPhases = (
+				27BC20099B9CAEF78559C710 /* [CP] Check Pods Manifest.lock */,
 				A592A03B1CD0A9E500128D4D /* Sources */,
 				A592A03C1CD0A9E500128D4D /* Frameworks */,
 				A592A03D1CD0A9E500128D4D /* Headers */,
 				A592A03E1CD0A9E500128D4D /* Resources */,
+				884CA5F1A63132F97CD452FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -834,6 +846,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27BC20099B9CAEF78559C710 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		884CA5F1A63132F97CD452FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A4CA6E4EA1806808F30E71B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1031,6 +1073,7 @@
 /* Begin XCBuildConfiguration section */
 		A592A04A1CD0A9E500128D4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5E1E791E422A5F7A2AC398C /* Pods-TheDistanceFormsThemed.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1052,6 +1095,7 @@
 		};
 		A592A04B1CD0A9E500128D4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ECEB3CC741211318C9EEEDD /* Pods-TheDistanceFormsThemed.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

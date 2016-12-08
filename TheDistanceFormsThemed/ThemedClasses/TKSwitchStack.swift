@@ -28,26 +28,26 @@ public class TKSwitchStack: SwitchStack {
     init() {
         
         let switchControl = TKSwitch()
-        switchControl.onTintColourStyle = .Accent
+        switchControl.onTintColourStyle = .accent
         
         let titleLabel = TKLabel()
-        titleLabel.textStyle = .Body2
-        titleLabel.textColourStyle = .Text
+        titleLabel.textStyle = .body2
+        titleLabel.textColourStyle = .text
         
         let subtitleLabel = TKLabel()
-        subtitleLabel.textStyle = .Body1
-        subtitleLabel.textColourStyle = .Text
+        subtitleLabel.textStyle = .body1
+        subtitleLabel.textColourStyle = .text
         
         let errorLabel = TKLabel()
-        errorLabel.textStyle = .Caption
-        errorLabel.textColourStyle = .Accent
+        errorLabel.textStyle = .caption
+        errorLabel.textColourStyle = .accent
         
         let errorImageView = TKImageView()
-        errorImageView.tintColourStyle = .Accent
-        errorImageView.contentMode = .ScaleAspectFit
+        errorImageView.tintColourStyle = .accent
+        errorImageView.contentMode = .scaleAspectFit
         
         let iconImageView = TKImageView()
-        iconImageView.contentMode = .ScaleAspectFit
+        iconImageView.contentMode = .scaleAspectFit
         
         super.init(switchControl: switchControl,
                    titleLabel: titleLabel,

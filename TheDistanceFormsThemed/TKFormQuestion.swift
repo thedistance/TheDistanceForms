@@ -26,8 +26,8 @@ public class TKFormQuestion: FormQuestion {
     }
     
     /// - returns: A new `TKSegmentedTextFieldStack`
-    public override func newSegmentChoiceViewWithChoices(choices: [String]) -> SegmentedTextFieldStack {
-        return TKSegmentedTextFieldStack(items: choices)
+    public override func newSegmentChoiceViewWithChoices(_ choices: [String]) -> SegmentedTextFieldStack {
+        return TKSegmentedTextFieldStack(items: choices as [AnyObject]?)
     }
     
     /// - returns: A new `TKSwitchStack`
@@ -38,9 +38,9 @@ public class TKFormQuestion: FormQuestion {
     /// - returns: A new `TKButton` with `.Accent` tint colour and `.Button` text style.
     public override func newButtonView() -> UIButton {
         
-        let button = TKButton(type: .System)
-        button.tintColourStyle = .Accent
-        button.textStyle = .Button
+        let button = TKButton(type: .system)
+        button.tintColourStyle = .accent
+        button.textStyle = .button
         
         return button
     }

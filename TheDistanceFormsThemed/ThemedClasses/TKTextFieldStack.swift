@@ -29,26 +29,26 @@ public class TKTextFieldStack: TextFieldStack {
     init() {
         
         let textField = TKTextField()
-        textField.textStyle = .Body1
-        textField.placeholderTextStyle = .Body1
+        textField.textStyle = .body1
+        textField.placeholderTextStyle = .body1
         
-        textField.textColourStyle = .Text
-        textField.placeholderTextColourStyle = .SecondaryText
+        textField.textColourStyle = .text
+        textField.placeholderTextColourStyle = .secondaryText
         
         let placeholder = TKLabel()
-        placeholder.textStyle = .Caption
-        placeholder.textColourStyle = .SecondaryText
+        placeholder.textStyle = .caption
+        placeholder.textColourStyle = .secondaryText
         
         let errorLabel = TKLabel()
-        errorLabel.textStyle = .Caption
-        errorLabel.textColourStyle = .Accent
+        errorLabel.textStyle = .caption
+        errorLabel.textColourStyle = .accent
         
         let errorImageView = TKImageView()
-        errorImageView.tintColourStyle = .Accent
-        errorImageView.contentMode = .ScaleAspectFit
+        errorImageView.tintColourStyle = .accent
+        errorImageView.contentMode = .scaleAspectFit
         
         let iconImageView = TKImageView()
-        iconImageView.contentMode = .ScaleAspectFit
+        iconImageView.contentMode = .scaleAspectFit
         
         let underline = TKView()
         
@@ -65,11 +65,11 @@ public class TKTextFieldStack: TextFieldStack {
         
         guard let underline = self.underline as? TKView else { return }
         
-        if textField.isFirstResponder() {
-            underline.backgroundColourStyle = .Accent
+        if textField.isFirstResponder {
+            underline.backgroundColourStyle = .accent
             underline.alpha = 1.0
         } else {
-            underline.backgroundColourStyle = .SecondaryText
+            underline.backgroundColourStyle = .secondaryText
             underline.alpha = enabled ? 1.0 : 0.0
         }
     }
