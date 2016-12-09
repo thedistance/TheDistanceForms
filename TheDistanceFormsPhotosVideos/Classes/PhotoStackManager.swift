@@ -67,7 +67,7 @@ public protocol PhotosStackManagerDelegate: class {
     func photosStackManagerCancelled(stack:PhotosStackManager)
 }
 
-public class PhotosStackManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+open class PhotosStackManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     
     public weak var delegate:PhotosStackManagerDelegate?
     
@@ -142,7 +142,7 @@ public class PhotosStackManager: NSObject, UICollectionViewDataSource, UICollect
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // show detail to allow deleting
     }
     
@@ -153,7 +153,7 @@ public class PhotosStackManager: NSObject, UICollectionViewDataSource, UICollect
         
     }
     
-    public func imageSelectionOperation(source:AdvancedOperationKit.UIPopoverSourceType) -> ImageSelectionOperation? {
+    open func imageSelectionOperation(source:AdvancedOperationKit.UIPopoverSourceType) -> ImageSelectionOperation? {
         
         let types = [UIImagePickerTypeImage, UIImagePickerTypeMovie]
         

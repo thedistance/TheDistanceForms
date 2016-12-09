@@ -13,7 +13,7 @@ import TDStackView
 import TheDistanceCore
 
 
-public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
+open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     public let mediaManager:PhotosStackManager
     
@@ -69,15 +69,15 @@ public class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         addTarget = ObjectTarget<UIButton>(control: addButton, forControlEvents: .touchUpInside, completion: addTapped)
     }
     
-    public func addTapped(sender:UIButton) {
+    open func addTapped(sender:UIButton) {
         mediaManager.newAssetFromSource(source: .view(sender))
     }
     
-    public func photosStackManager(stack: PhotosStackManager, selectedAsset: PhotosStackAsset) {
+    open func photosStackManager(stack: PhotosStackManager, selectedAsset: PhotosStackAsset) {
         updateMediaCollectionViewHeight()
     }
     
-    public func photosStackManagerCancelled(stack: PhotosStackManager) { }
+    open func photosStackManagerCancelled(stack: PhotosStackManager) { }
     
     public func updateMediaCollectionViewHeight() {
         let contentSize = mediaCollectionView.collectionViewLayout.collectionViewContentSize

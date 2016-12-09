@@ -13,7 +13,7 @@ import ThemeKitCore
 import SwiftyJSON
 
 /// FormQuestion subclass that returns ThemeKit views.
-public class TKFormQuestion: FormQuestion {
+open class TKFormQuestion: FormQuestion {
     
     /// - returns: A new `TKTextFieldStack`
     public override func newTextSingleView() -> TextFieldStack {
@@ -36,7 +36,7 @@ public class TKFormQuestion: FormQuestion {
     }
     
     /// - returns: A new `TKButton` with `.Accent` tint colour and `.Button` text style.
-    public override func newButtonView() -> UIButton {
+    open override func newButtonView() -> UIButton {
         
         let button = TKButton(type: .system)
         button.tintColourStyle = .accent
