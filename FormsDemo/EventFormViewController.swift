@@ -25,15 +25,15 @@ class EventFormViewController: UIViewController, FormContainer {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let jsonURL = NSBundle.mainBundle().URLForResource("EventForm", withExtension: "json"),
-            let form = addFormFromURL(jsonURL, ofType: EventForm.self, toContainerView: formContainer, withInsets: UIEdgeInsetsZero)
+        guard let jsonURL = Bundle.main.url(forResource: "EventForm", withExtension: "json"),
+            let form = addFormFromURL(jsonURL, ofType: EventForm.self, toContainerView: formContainer, withInsets: UIEdgeInsets.zero)
             else { return }
         
         self.form = form
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scrollContainer)
     }
 
-    func buttonTappedForQuestion(question: FormQuestion) {
+    func buttonTappedForQuestion(_ question: FormQuestion) {
         
     }
 }

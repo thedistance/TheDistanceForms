@@ -21,18 +21,18 @@ class EventForm: Form {
         super.init(definition: definition, questionType: questionType)
         
         guard let startView = questionForKey("start_date")?.questionView,
-            case let .DateTime(startStack, startController) = startView,
+            case let .dateTime(startStack, startController) = startView,
             let endView = questionForKey("end_date")?.questionView,
-            case let .DateTime(_, endController) = endView
+            case let .dateTime(_, endController) = endView
             else {
                 return nil
         }
         
-        startController.datePicker.minimumDate = NSDate()
-        endController.datePicker.minimumDate = NSDate()
+        startController.datePicker.minimumDate = Date()
+        endController.datePicker.minimumDate = Date()
         
         startObserver = ObjectObserver(keypath: "text", object: startStack.textField, completion: { (keypath, object, change) in
-            endController.datePicker.minimumDate = startController.datePicker.date.dateByAddingTimeInterval(30 * 60)
+            endController.datePicker.minimumDate = startController.datePicker.date.addingTimeInterval(30 * 60)
         })
     }
     
@@ -46,10 +46,10 @@ class EventForm: Form {
         
         var dateStack = CreateStackView([startView, endView])
         dateStack.spacing = 8.0
-        dateStack.stackDistribution = .FillEqually
+        dateStack.stackDistribution = .fillEqually
         
         var stack = CreateStackView([titleView, dateStack.view, notesView])
-        stack.axis = .Vertical
+        stack.axis = .vertical
         stack.spacing = 16.0
         
         return stack

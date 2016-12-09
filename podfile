@@ -44,3 +44,10 @@ target 'TheDistanceFormsPhotosVideos' do
     
 end
 
+target 'FormsDemo' do
+
+    core_pods	
+    pod 'TheDistanceForms'
+	    
+end
+

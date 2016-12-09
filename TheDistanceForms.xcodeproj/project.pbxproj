@@ -29,14 +29,11 @@
 		A592A0361CCFB68800128D4D /* RegisterForm.json in Resources */ = {isa = PBXBuildFile; fileRef = A592A0351CCFB68800128D4D /* RegisterForm.json */; };
 		A592A0381CCFB6B500128D4D /* RegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0371CCFB6B500128D4D /* RegisterForm.swift */; };
 		A592A0431CD0A9E500128D4D /* TheDistanceFormsThemed.h in Headers */ = {isa = PBXBuildFile; fileRef = A592A0421CD0A9E500128D4D /* TheDistanceFormsThemed.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A592A0471CD0A9E500128D4D /* TheDistanceFormsThemed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A592A0401CD0A9E500128D4D /* TheDistanceFormsThemed.framework */; };
-		A592A0481CD0A9E500128D4D /* TheDistanceFormsThemed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A592A0401CD0A9E500128D4D /* TheDistanceFormsThemed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A592A04E1CD0AA5800128D4D /* TKTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A04D1CD0AA5800128D4D /* TKTextFieldStack.swift */; };
 		A592A0501CD0B1A400128D4D /* TKTextViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */; };
 		A592A0521CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */; };
 		A592A0541CD0C10D00128D4D /* TKSwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0531CD0C10D00128D4D /* TKSwitchStack.swift */; };
 		A592A0561CD0C1CF00128D4D /* TKFormQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */; };
-		A592A05B1CD0C3EF00128D4D /* ThemeKitCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A592A03A1CCFC9BA00128D4D /* ThemeKitCore.framework */; };
 		A592A05E1CD0C49200128D4D /* MyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A05D1CD0C49200128D4D /* MyTheme.swift */; };
 		A592A0601CD0C4D000128D4D /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A05F1CD0C4D000128D4D /* ThemeViewController.swift */; };
 		A5961F351D51FAB4004D9636 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5961F341D51FAB4004D9636 /* FormViewController.swift */; };
@@ -59,20 +56,9 @@
 		A5F0DEDD1CC9004C0032534D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEDB1CC9004C0032534D /* LaunchScreen.storyboard */; };
 		A5F0DEE81CC9004C0032534D /* FormsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DEE71CC9004C0032534D /* FormsDemoTests.swift */; };
 		A5F0DEF21CC900710032534D /* Form.json in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DEF11CC900710032534D /* Form.json */; };
-		A5F0DF011CCA2C4B0032534D /* TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; };
-		A5F0DF021CCA2C4B0032534D /* TheDistanceForms.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE2B1CC8C5F80032534D /* TheDistanceForms.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF041CCA2C510032534D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; };
-		A5F0DF051CCA2C510032534D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DEF61CC902320032534D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF061CCA2C510032534D /* StackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; };
-		A5F0DF071CCA2C510032534D /* StackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE641CC8C6A90032534D /* StackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF081CCA2C510032534D /* TheDistanceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; };
-		A5F0DF091CCA2C510032534D /* TheDistanceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE651CC8C6A90032534D /* TheDistanceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF0A1CCA2C510032534D /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; };
-		A5F0DF0B1CCA2C510032534D /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE661CC8C6A90032534D /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5F0DF0F1CCA35E00032534D /* KeyboardResponder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; };
-		A5F0DF101CCA35E00032534D /* KeyboardResponder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A5F0DF161CCA55A30032534D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F0DF151CCA55A30032534D /* Media.xcassets */; };
 		D718FD146CA2F4C59F475D20 /* Pods_TheDistanceForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40C5A7F93C6DA91E3C36D63 /* Pods_TheDistanceForms.framework */; };
+		FBAEA25C57D07DE17A2EA8E9 /* Pods_FormsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7727099716F42462827020 /* Pods_FormsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,26 +113,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A5F0DF031CCA2C4C0032534D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A5F0DF071CCA2C510032534D /* StackView.framework in Embed Frameworks */,
-				A5F0DF0B1CCA2C510032534D /* TZStackView.framework in Embed Frameworks */,
-				A5F0DF101CCA35E00032534D /* KeyboardResponder.framework in Embed Frameworks */,
-				A592A0481CD0A9E500128D4D /* TheDistanceFormsThemed.framework in Embed Frameworks */,
-				A5F0DF051CCA2C510032534D /* SwiftyJSON.framework in Embed Frameworks */,
-				A5F0DF091CCA2C510032534D /* TheDistanceCore.framework in Embed Frameworks */,
-				A5F0DF021CCA2C4B0032534D /* TheDistanceForms.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0027F9BF48DE704B5D577A2B /* Pods-TheDistanceFormsPhotosVideos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceFormsPhotosVideos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceFormsPhotosVideos/Pods-TheDistanceFormsPhotosVideos.debug.xcconfig"; sourceTree = "<group>"; };
 		05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceFormsThemed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +122,10 @@
 		5A7589C01DF9A9F50034F388 /* PhotosStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosStack.swift; sourceTree = "<group>"; };
 		5A7589C11DF9A9F50034F388 /* PhotoStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStackManager.swift; sourceTree = "<group>"; };
 		5A7589C31DF9A9F50034F388 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		6E7727099716F42462827020 /* Pods_FormsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39020C39FCC95B33AD664B /* Pods-TheDistanceForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms.debug.xcconfig"; sourceTree = "<group>"; };
 		82A9E022FC1D3D3487520B10 /* Pods_TheDistanceFormsPhotosVideos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceFormsPhotosVideos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF44920690FB21ECA738765 /* Pods-FormsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A54511B41D070BE40067714A /* UIDatePickerDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerDataController.swift; sourceTree = "<group>"; };
 		A54511B71D071B030067714A /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		A54511B91D071B0E0067714A /* ValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
@@ -222,6 +190,7 @@
 		A5F0DEF61CC902320032534D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A5F0DF0C1CCA343E0032534D /* KeyboardResponder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardResponder.framework; path = Carthage/Build/iOS/KeyboardResponder.framework; sourceTree = "<group>"; };
 		A5F0DF151CCA55A30032534D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		AA715B808791EE07B661E557 /* Pods-FormsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C574CDB924C95821BB8CE785 /* Pods-TheDistanceFormsPhotosVideos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceFormsPhotosVideos.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceFormsPhotosVideos/Pods-TheDistanceFormsPhotosVideos.release.xcconfig"; sourceTree = "<group>"; };
 		C5E1E791E422A5F7A2AC398C /* Pods-TheDistanceFormsThemed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceFormsThemed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed.debug.xcconfig"; sourceTree = "<group>"; };
 		D40C5A7F93C6DA91E3C36D63 /* Pods_TheDistanceForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,14 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F0DF061CCA2C510032534D /* StackView.framework in Frameworks */,
-				A5F0DF0F1CCA35E00032534D /* KeyboardResponder.framework in Frameworks */,
-				A5F0DF0A1CCA2C510032534D /* TZStackView.framework in Frameworks */,
-				A592A0471CD0A9E500128D4D /* TheDistanceFormsThemed.framework in Frameworks */,
-				A5F0DF041CCA2C510032534D /* SwiftyJSON.framework in Frameworks */,
-				A5F0DF081CCA2C510032534D /* TheDistanceCore.framework in Frameworks */,
-				A592A05B1CD0C3EF00128D4D /* ThemeKitCore.framework in Frameworks */,
-				A5F0DF011CCA2C4B0032534D /* TheDistanceForms.framework in Frameworks */,
+				FBAEA25C57D07DE17A2EA8E9 /* Pods_FormsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +408,7 @@
 				D40C5A7F93C6DA91E3C36D63 /* Pods_TheDistanceForms.framework */,
 				05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */,
 				82A9E022FC1D3D3487520B10 /* Pods_TheDistanceFormsPhotosVideos.framework */,
+				6E7727099716F42462827020 /* Pods_FormsDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -558,6 +521,8 @@
 				1ECEB3CC741211318C9EEEDD /* Pods-TheDistanceFormsThemed.release.xcconfig */,
 				0027F9BF48DE704B5D577A2B /* Pods-TheDistanceFormsPhotosVideos.debug.xcconfig */,
 				C574CDB924C95821BB8CE785 /* Pods-TheDistanceFormsPhotosVideos.release.xcconfig */,
+				AA715B808791EE07B661E557 /* Pods-FormsDemo.debug.xcconfig */,
+				9FF44920690FB21ECA738765 /* Pods-FormsDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -694,11 +659,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5F0DEEA1CC9004C0032534D /* Build configuration list for PBXNativeTarget "FormsDemo" */;
 			buildPhases = (
+				92CFD8423BED43014016E542 /* [CP] Check Pods Manifest.lock */,
 				A5F0DECC1CC9004C0032534D /* Sources */,
 				A5F0DECD1CC9004C0032534D /* Frameworks */,
 				A5F0DECE1CC9004C0032534D /* Resources */,
-				A5F0DF031CCA2C4C0032534D /* Embed Frameworks */,
-				A592A05C1CD0C3F800128D4D /* ShellScript */,
+				028C802435EBBCC0BBFED936 /* [CP] Embed Pods Frameworks */,
+				D2FAC7EDCA89F6A0A3FFDAEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -850,6 +816,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		028C802435EBBCC0BBFED936 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1E83B3C4C21B79C1C373F49F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -910,6 +891,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		92CFD8423BED43014016E542 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		A4CA6E4EA1806808F30E71B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -925,24 +921,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A592A05C1CD0C3F800128D4D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/StackView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KeyboardResponder.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/TZStackView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ThemeKitCore.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		CF38717C168C2EA60E1A324D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -956,6 +934,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2FAC7EDCA89F6A0A3FFDAEF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1374,8 +1367,9 @@
 		};
 		A5F0DEEB1CC9004C0032534D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA715B808791EE07B661E557 /* Pods-FormsDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FormsDemo/Info.plist;
@@ -1388,8 +1382,9 @@
 		};
 		A5F0DEEC1CC9004C0032534D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FF44920690FB21ECA738765 /* Pods-FormsDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FormsDemo/Info.plist;

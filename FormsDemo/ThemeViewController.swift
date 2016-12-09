@@ -31,7 +31,7 @@ class ThemeFormViewController: UIViewController, FormContainer {
         view.addSubview(scroll)
         view.addConstraints(NSLayoutConstraint.constraintsToAlign(view: scroll, to: view))
         
-        guard let jsonURL = NSBundle.mainBundle().URLForResource("Form", withExtension: "json"),
+        guard let jsonURL = Bundle.main.url(forResource: "Form", withExtension: "json"),
             let form = addFormFromURL(jsonURL, questionType: TKFormQuestion.self, toContainerView: scroll, withInsets: UIEdgeInsetsMake(16.0, 16.0, 16.0, 8.0))
             else { return }
         
@@ -39,5 +39,5 @@ class ThemeFormViewController: UIViewController, FormContainer {
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
     }
 
-    func buttonTappedForQuestion(question: FormQuestion) { }
+    func buttonTappedForQuestion(_ question: FormQuestion) { }
 }

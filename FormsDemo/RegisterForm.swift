@@ -19,9 +19,9 @@ class RegisterForm: Form {
         super.init(definition: definition, questionType: questionType)
         
         guard let passwordView = questionForKey("password")?.questionView,
-            case let .TextSingle(passwordStack) = passwordView,
+            case let .textSingle(passwordStack) = passwordView,
             let confirmView = questionForKey("confirm_password")?.questionView,
-            case let .TextSingle(confirmStack) = confirmView
+            case let .textSingle(confirmStack) = confirmView
             else {
                 return nil
         }
@@ -42,17 +42,17 @@ class RegisterForm: Form {
             let signUpView = viewKeys["sign_up"]
             else { return super.createFormView() }
         
-        titleView.setContentHuggingPriority(255, forAxis: .Horizontal)
+        titleView.setContentHuggingPriority(255, for: .horizontal)
         
         var nameStack = CreateStackView([firstView, lastView])
         nameStack.spacing = 8.0
-        nameStack.stackDistribution = .FillEqually
+        nameStack.stackDistribution = .fillEqually
         
         var wholeNameStack = CreateStackView([titleView, nameStack.view])
         wholeNameStack.spacing = 8.0
         
         var completeStack = CreateStackView([wholeNameStack.view, emailView, passwordView, confirmView, signUpView])
-        completeStack.axis = .Vertical
+        completeStack.axis = .vertical
         completeStack.spacing = 16.0
         
         return completeStack

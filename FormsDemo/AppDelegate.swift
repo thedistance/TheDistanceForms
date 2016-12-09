@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let _ = MyVendor.shared()
-        ThemeKit.setLicenseKey(ThemeKitLicense)
         
         return true
     }

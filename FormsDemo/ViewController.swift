@@ -28,7 +28,7 @@ class ViewController: UIViewController, FormContainer {
         view.addSubview(scroll)
         view.addConstraints(NSLayoutConstraint.constraintsToAlign(view: scroll, to: view))
         
-        guard let jsonURL = NSBundle.mainBundle().URLForResource("Form", withExtension: "json"),
+        guard let jsonURL = Bundle.main.url(forResource: "Form", withExtension: "json"),
             let form = addFormFromURL(jsonURL, toContainerView: scroll, withInsets: UIEdgeInsetsMake(16.0, 16.0, 16.0, 8.0))
             else { return }
         
@@ -36,7 +36,7 @@ class ViewController: UIViewController, FormContainer {
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
     }
     
-    func buttonTappedForQuestion(question: FormQuestion) {
+    func buttonTappedForQuestion(_ question: FormQuestion) {
         print("Tapped button: \(question.key)")
         
         if question.key == "Submit" {
@@ -50,7 +50,7 @@ class ViewController: UIViewController, FormContainer {
         
         let validation = form.validateForm()
         
-        if validation.0 == .Valid {
+        if validation.0 == .valid {
             
             let results = form.answersJSON()
             
@@ -59,14 +59,14 @@ class ViewController: UIViewController, FormContainer {
             
             let errors = validation.1.flatMap({ (question, result) -> String? in
                 switch result {
-                case .Valid:
+                case .valid:
                     return nil
-                case .Invalid(let reason):
+                case .invalid(let reason):
                     return "\(question.key): \(reason)"
                 }
             })
             
-            let errorString = errors.joinWithSeparator("\n")
+            let errorString = errors.joined(separator: "\n")
             
             print("errors still in form:\n\(errorString)")
             
@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController, FormContainer {
         view.addSubview(scroll)
         view.addConstraints(NSLayoutConstraint.constraintsToAlign(view: scroll, to: view))
         
-        guard let jsonURL = NSBundle.mainBundle().URLForResource("RegisterForm", withExtension: "json"),
+        guard let jsonURL = Bundle.main.url(forResource: "RegisterForm", withExtension: "json"),
             let form = addFormFromURL(jsonURL, ofType: RegisterForm.self, toContainerView: scroll, withInsets: UIEdgeInsetsMake(16.0, 16.0, 16.0, 8.0))
             else { return }
         
@@ -97,7 +97,7 @@ class RegisterViewController: UIViewController, FormContainer {
         keyboardResponder = setUpKeyboardResponder(onForm: form, withScrollView: scroll)
     }
     
-    func buttonTappedForQuestion(question: FormQuestion) { }
+    func buttonTappedForQuestion(_ question: FormQuestion) { }
     
 }
 
