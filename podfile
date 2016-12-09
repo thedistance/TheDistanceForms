@@ -32,13 +32,15 @@ end
 
 target 'TheDistanceFormsThemed' do
 
-    core_pods	
+    core_pods
+    pod 'TheDistanceForms'		
     
 end
 
 target 'TheDistanceFormsPhotosVideos' do
 
-    core_pods	
+    core_pods
+    pod 'TheDistanceForms'		
     
 end
 

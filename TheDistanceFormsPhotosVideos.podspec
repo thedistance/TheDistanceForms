@@ -1,5 +1,5 @@
 Pod::Spec.new do |s| 
-  s.name         = "TheDistanceForms"
+  s.name         = "TheDistanceFormsPhotosVideos"
   s.version      = "0.2.8"
   s.summary      = "An framework for creating flexible forms as generic collections of user input elements."
   s.homepage     = "https://github.com/thedistance"
@@ -11,16 +11,17 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
   
-  s.module_name 	= "TheDistanceForms"   
-  s.default_subspec = "TheDistanceForms"
+  s.module_name 	= "TheDistanceFormsPhotosVideos"   
+  s.default_subspec = "TheDistanceFormsPhotosVideos"
 
-  s.subspec 'TheDistanceForms' do |c|
-	c.source_files = 'TheDistanceForms/Classes/**/*.swift'
-  	c.dependency 'TheDistanceCore'
-  	c.dependency 'AdvancedOperationKit'
-  	c.dependency 'KeyboardResponder'
-  	c.dependency 'TDStackView'
-  	c.dependency 'SwiftyJSON'	
+  s.subspec 'TheDistanceFormsPhotosVideos' do |pv|
+	pv.source_files = 'TheDistanceFormsPhotosVideos/**/*.swift'
+  	pv.dependency 'TheDistanceCore'
+  	pv.dependency 'AdvancedOperationKit'
+  	pv.dependency 'KeyboardResponder'
+  	pv.dependency 'TDStackView'
+  	pv.dependency 'SwiftyJSON'
+  	pv.dependency 'TheDistanceForms'		
   end
-
+    
 end

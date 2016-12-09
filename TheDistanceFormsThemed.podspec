@@ -1,5 +1,5 @@
 Pod::Spec.new do |s| 
-  s.name         = "TheDistanceForms"
+  s.name         = "TheDistanceFormsThemed"
   s.version      = "0.2.8"
   s.summary      = "An framework for creating flexible forms as generic collections of user input elements."
   s.homepage     = "https://github.com/thedistance"
@@ -10,17 +10,19 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
+    
+  s.module_name 	= "TheDistanceFormsThemed"   
+  s.default_subspec = "TheDistanceFormsThemed"
+
+  s.subspec 'TheDistanceFormsThemed' do |t|
+	t.source_files = 'TheDistanceFormsThemed/ThemedClasses/*.swift'
+  	t.dependency 'ThemeKit'	
+  	t.dependency 'TheDistanceCore'
+  	t.dependency 'AdvancedOperationKit'
+  	t.dependency 'KeyboardResponder'
+  	t.dependency 'TDStackView'
+  	t.dependency 'SwiftyJSON'
+  	t.dependency 'TheDistanceForms'	
+  end 
   
-  s.module_name 	= "TheDistanceForms"   
-  s.default_subspec = "TheDistanceForms"
-
-  s.subspec 'TheDistanceForms' do |c|
-	c.source_files = 'TheDistanceForms/Classes/**/*.swift'
-  	c.dependency 'TheDistanceCore'
-  	c.dependency 'AdvancedOperationKit'
-  	c.dependency 'KeyboardResponder'
-  	c.dependency 'TDStackView'
-  	c.dependency 'SwiftyJSON'	
-  end
-
 end
