@@ -16,22 +16,22 @@ import SwiftyJSON
 open class TKFormQuestion: FormQuestion {
     
     /// - returns: A new `TKTextFieldStack`
-    public override func newTextSingleView() -> TextFieldStack {
+    open override func newTextSingleView() -> TextFieldStack {
         return TKTextFieldStack()
     }
     
     /// - returns: A new `TKTextViewStack`
-    public override func newTextMultilineView() -> TextViewStack {
+    open override func newTextMultilineView() -> TextViewStack {
         return TKTextViewStack()
     }
     
     /// - returns: A new `TKSegmentedTextFieldStack`
-    public override func newSegmentChoiceViewWithChoices(_ choices: [String]) -> SegmentedTextFieldStack {
+    open override func newSegmentChoiceViewWithChoices(_ choices: [String]) -> SegmentedTextFieldStack {
         return TKSegmentedTextFieldStack(items: choices as [AnyObject]?)
     }
     
     /// - returns: A new `TKSwitchStack`
-    public override func newSwitchView() -> SwitchStack {
+    open override func newSwitchView() -> SwitchStack {
         return TKSwitchStack()
     }
     

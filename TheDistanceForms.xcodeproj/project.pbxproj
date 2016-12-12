@@ -148,7 +148,7 @@
 		A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKTextViewStack.swift; path = ThemedClasses/TKTextViewStack.swift; sourceTree = "<group>"; };
 		A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKSegmentedTextFieldStack.swift; path = ThemedClasses/TKSegmentedTextFieldStack.swift; sourceTree = "<group>"; };
 		A592A0531CD0C10D00128D4D /* TKSwitchStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKSwitchStack.swift; path = ThemedClasses/TKSwitchStack.swift; sourceTree = "<group>"; };
-		A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKFormQuestion.swift; sourceTree = "<group>"; };
+		A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedClasses/TKFormQuestion.swift; sourceTree = "<group>"; };
 		A592A05D1CD0C49200128D4D /* MyTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTheme.swift; sourceTree = "<group>"; };
 		A592A05F1CD0C4D000128D4D /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		A5961F341D51FAB4004D9636 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				A592A0421CD0A9E500128D4D /* TheDistanceFormsThemed.h */,
-				A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */,
 				A592A04C1CD0AA2F00128D4D /* Themed Classes */,
 				A592A0441CD0A9E500128D4D /* Info.plist */,
 			);
@@ -319,6 +318,7 @@
 		A592A04C1CD0AA2F00128D4D /* Themed Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */,
 				A592A04D1CD0AA5800128D4D /* TKTextFieldStack.swift */,
 				A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */,
 				A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */,
