@@ -11,9 +11,6 @@ import ThemeKitCore
 
 // Define your app specific theme
 
-/// License Key for you app's bundle ID. Use "Simulator" for a trial that allows the framework to run on Simulator.
-let ThemeKitLicense =  "Simulator"
-
 struct MyTheme: Theme {
     
     /// Use the default text sizes as standard

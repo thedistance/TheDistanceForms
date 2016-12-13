@@ -3,34 +3,34 @@
     "questions": [
         {
             "key": "event_title",
-            "question_type": "TextSingle",
+            "question_type": "textSingle",
             "prompt": "Title",
-            "capitalization": "Words",
+            "capitalization": "words",
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "String",
+                "type": "notEmpty",
+                "value_type": "string",
                 "message": "Please enter a title for your event."
             }
         },
         {
             "key": "start_date",
-            "question_type": "DateTime",
+            "question_type": "dateTime",
             "prompt": "Start Date",
                   "minute_interval": 5,
-            "date_format_style": "Short",
-            "time_format_style": "Short"
+            "date_format_style": "short",
+            "time_format_style": "short"
         },
         {
             "key": "end_date",
-            "question_type": "DateTime",
+            "question_type": "dateTime",
             "prompt": "End Date",
                   "minute_interval": 5,
-            "date_format_style": "Short",
-            "time_format_style": "Short"
+            "date_format_style": "short",
+            "time_format_style": "short"
         },
         {
             "key": "notes",
-            "question_type": "TextMultiline",
+            "question_type": "textMultiline",
             "prompt": "Notes"
         }
     ]

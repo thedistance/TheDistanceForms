@@ -3,44 +3,44 @@
     "questions": [
         {
             "key": "first_name",
-            "question_type": "TextSingle",
+            "question_type": "textSingle",
             "prompt": "First Name",
-            "keyboard_type": "Default",
-            "capitalization": "Sentences",
+            "keyboard_type": "default",
+            "capitalization": "sentences",
             "auto_correct": true,
             "secure_text_entry": false,
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "String",
+                "type": "notEmpty",
+                "value_type": "string",
                 "message": "Please enter your name"
             }
         },
         {
             "key": "birthday",
-            "question_type": "Date",
+            "question_type": "date",
             "prompt": "Birthday",
-            "date_format_style": "Medium",
+            "date_format_style": "medium",
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "Date",
+                "type": "notEmpty",
+                "value_type": "date",
                 "message": "Please enter your name"
             }
         },
         {
             "key": "event_start",
-            "question_type": "Time",
+            "question_type": "time",
             "prompt": "Event Start Time",
-            "time_format_style": "Short",
+            "time_format_style": "short",
             "minute_interval": 5,
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "Date",
+                "type": "notEmpty",
+                "value_type": "date",
                 "message": "Please enter the start time"
             }
         },
          {
             "key": "station",
-            "question_type": "ChoiceDropdown",
+            "question_type": "choiceDropdown",
             "prompt": "Select a station",
             "choices":[
                 "London King's Cross",
@@ -52,14 +52,14 @@
                 "Edinburgh Weverley"
             ],
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "String",
+                "type": "notEmpty",
+                "value_type": "string",
                 "message": "You must select a station"
             }
         },
         {
             "key": "interests",
-            "question_type": "ChoiceSelect",
+            "question_type": "choiceSelect",
             "prompt": "Select up to 3 interests",
             "choices": [
                 ["art", "Art & Design"],
@@ -68,13 +68,13 @@
                 ["applied_math", "Applied Mathematics"],
                 ["physics", "Physics"]
             ],
-            "selection_type": "All",
+            "selection_type": "all",
             "selection_min": 0,
             "selection_max": 3,
         },
         {
             "key": "contact",
-            "question_type": "ChoiceSegments",
+            "question_type": "choiceSegments",
                   "title": "Contact Preferences",
             "subtitle": "How would you like us to keep in touch with you?",
             "choices":[
@@ -83,26 +83,26 @@
                 "SMS"
             ],
             "validation": {
-                "type": "NotEmpty",
-                "value_type": "Number",
+                "type": "notEmpty",
+                "value_type": "number",
                 "message": "You must select a preference"
             }
         },
         {
             "key": "newsletter",
-            "question_type": "Boolean",
+            "question_type": "boolean",
             "title": "Newsletter",
             "subtitle": "Would you like to keep up to date with all our latest news and offers?",
             "default": false
         },
         {
             "key": "view_terms",
-            "question_type": "Button",
+            "question_type": "button",
             "title": "View Terms & Conditions"
         },
         {
             "key": "Submit",
-            "question_type": "Button",
+            "question_type": "button",
             "title": "Submit"
         }
     ]
