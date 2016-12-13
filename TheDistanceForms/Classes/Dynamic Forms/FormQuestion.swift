@@ -119,7 +119,7 @@ open class FormQuestion {
             let validationValue = FormValueType(rawValue: validationTypeString) {
             
             switch validationValue {
-            case .String:
+            case .string:
                 textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
             default:
                 break
@@ -160,7 +160,7 @@ open class FormQuestion {
         // Validation
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .String {
+            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .string {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
@@ -224,8 +224,8 @@ open class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = questionDefinition["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = questionDefinition["question_type"].string, valueType == .Date &&
-                type == .NotEmpty {
+            let message = questionDefinition["question_type"].string, valueType == .date &&
+                type == .notEmpty {
             
             textElement.validation = NonEmptyStringValidation(message)
         }
@@ -259,7 +259,7 @@ open class FormQuestion {
         textElement.pickerController = controller
         
         if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .String {
+            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .string {
             
             textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         }
@@ -283,7 +283,7 @@ open class FormQuestion {
         segmentElement.subtitleLabel.isHidden = segmentElement.subtitleLabel.text?.isEmpty ?? true
         
         if let validationValueTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationValueTypeString), validationValue == .Number {
+            let validationValue = FormValueType(rawValue: validationValueTypeString), validationValue == .number {
             
             segmentElement.validation = numberValidationForDefinition(questionDefinition["validation"])
         }
@@ -332,20 +332,20 @@ open class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["message"].string, valueType == .String
+            let message = definition?["message"].string, valueType == .string
             else { return nil }
         
         
         switch type {
-        case .NotEmpty:
+        case .notEmpty:
             return NonEmptyStringValidation(message)
-        case .Email:
+        case .email:
             return EmailValidationWithMessage(message)
-        case .Number:
+        case .number:
             return NumberValidationWithMessage(message)
-        case .Postcode:
+        case .postcode:
             return UKPostcodeValidationWithMessage(message)
-        case .Regex:
+        case .regex:
             if let reg = definition?["regex"].string {
                 return RegexValidationWithMessage(message, regex: reg)
             } else {
@@ -360,12 +360,12 @@ open class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["question_type"].string, valueType == .Number
+            let message = definition?["question_type"].string, valueType == .number
             else { return nil }
         
         
         switch type {
-        case .NotEmpty:
+        case .notEmpty:
             return Validation(message: message, validation: { (value) -> Bool in
                 value != nil
             })
