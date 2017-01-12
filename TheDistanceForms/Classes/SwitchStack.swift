@@ -72,6 +72,8 @@ open class SwitchStack: ErrorStack, ValueElement {
                    errorLabel: errorLabel,
                    errorImageView: errorImageView,
                    iconImageView: iconImageView)
+        
+        switchControl.addTarget(self, action: #selector(SwitchStack.switchTapped(_:)), for: .touchUpInside)        
     }
     
     // MARK: - ValueElement Methods
@@ -106,5 +108,12 @@ open class SwitchStack: ErrorStack, ValueElement {
     /// `ValueElement` conformation. Uses the `validation` property to determine validity. If `validation` is `nil`, any value is `.Valid`.
     open func validateValue() -> ValidationResult {
         return validation?.validate(switchControl.isOn) ?? .valid
+    }
+    
+    @objc open func switchTapped(_ sender: AnyObject?) {
+        
+        switchControl.willChangeValue(forKey: "on")
+        switchControl.didChangeValue(forKey: "on")
+        
     }
 }
