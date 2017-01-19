@@ -23,7 +23,11 @@ open class UIPickerViewDataController:NSObject, UIPickerViewDataSource, UIPicker
     // MARK: Properties
     
     /// An array of strings forming the data source for `pickerView`.
-    open let choices:[[String]]
+    open var choices:[[String]]{
+        didSet {
+            pickerView.reloadAllComponents()
+        }
+    }
     
     /// The `UIPickerView` shown as the `inputView` associated with `textField`, i.e. this is shown instead of the keyboard if this field becomes first responder.
     open let pickerView:UIPickerView
