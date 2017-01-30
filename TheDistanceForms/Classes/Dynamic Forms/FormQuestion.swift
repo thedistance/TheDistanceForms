@@ -333,8 +333,10 @@ open class FormQuestion {
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
             let message = definition?["message"].string, valueType == .string
-            else { return nil }
-        
+            else {
+                print ("^^Error in stringValidationForDefinition \(definition)")
+                return nil
+        }
         
         switch type {
         case .notEmpty:
@@ -360,8 +362,11 @@ open class FormQuestion {
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["question_type"].string, valueType == .number
-            else { return nil }
+            let message = definition?["message"].string, valueType == .number
+            else {
+                print ("^^Error in numberValidationForDefinition \(definition)")
+                return nil
+        }
         
         
         switch type {
