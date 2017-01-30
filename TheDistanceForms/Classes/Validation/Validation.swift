@@ -188,24 +188,24 @@ public func UKPostcodeValidationWithMessage(_ message:String, allowingNull:Bool 
  - returns: A validation if a, `NSRegularExpression` is created with the given `regex`, `nil` otherwise.
  
  */
-public func RegexValidationWithMessage(_ message:String, regex:String, allowingNull:Bool = false) -> Validation<String>? {
+public func RegexValidationWithMessage(_ message:String, regex:String, allowingNull:Bool = true) -> Validation<String>? {
     
     if let regex = try? NSRegularExpression(pattern: regex, options: .caseInsensitive) {
         return Validation<String>(message: message, validation: { (value) -> Bool in
-            let nullValidation = NonEmptyStringValidation("")
             
             guard let stringValue = value else {
                 return false
             }
             
-            if !allowingNull && nullValidation.validate(stringValue) != .valid {
-                return false
+            if !allowingNull{
+                if (stringValue.isEmpty) {
+                    return false
+                }
+                if NonEmptyStringValidation("").validate(stringValue) != .valid {
+                    return false
+                }
             }
             
-            if allowingNull && stringValue.isEmpty {
-                return true
-            }
-        
             return regex.matches(in: stringValue, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
             
         })
