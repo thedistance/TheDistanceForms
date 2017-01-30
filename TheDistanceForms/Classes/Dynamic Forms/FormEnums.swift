@@ -43,6 +43,7 @@ public enum FormQuestionType:String {
 
 public enum ValidationType:String {
     
+    case notNegative
     case notEmpty
     case email
     case number

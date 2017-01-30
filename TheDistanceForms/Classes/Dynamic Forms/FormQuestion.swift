@@ -339,6 +339,8 @@ open class FormQuestion {
         }
         
         switch type {
+        case .notNegative:
+            return NonNegativeIntValidation(message)
         case .notEmpty:
             return NonEmptyStringValidation(message)
         case .email:
@@ -370,6 +372,10 @@ open class FormQuestion {
         
         
         switch type {
+        case .notNegative:
+            return Validation(message: message, validation: { (value) -> Bool in
+                value! >= 0
+            })
         case .notEmpty:
             return Validation(message: message, validation: { (value) -> Bool in
                 value != nil

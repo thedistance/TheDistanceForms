@@ -64,6 +64,27 @@ public struct Validation<Type> {
 
 /**
  
+ Convenience creator for a validation that checks whether a given number is positive.
+ 
+ - parameter message: The `message` property of the returned `Validation`. validation fails.
+ 
+ - returns: A configured `Validation<String>` object.
+ */
+public func NonNegativeIntValidation(_ message:String) -> Validation<String> {
+    
+    return Validation<String>(message: message, validation: { (value) -> Bool in
+        
+        if let str = value {
+            return Int(str)! >= 0
+        }
+        
+        return false
+    })
+}
+
+
+/**
+ 
  Convenience creator for a validation that checks whether a given string, trimmed from whitespace, has content.
  
  - parameter message: The `message` property of the returned `Validation`. validation fails.
