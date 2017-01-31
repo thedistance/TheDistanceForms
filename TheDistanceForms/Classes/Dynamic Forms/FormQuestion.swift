@@ -115,16 +115,7 @@ open class FormQuestion {
         
         // Validation
         
-        if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString) {
-            
-            switch validationValue {
-            case .string:
-                textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
-            default:
-                break
-            }
-        }
+        textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         
         return .textSingle(textElement)
     }
@@ -159,11 +150,7 @@ open class FormQuestion {
         
         // Validation
         
-        if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .string {
-            
-            textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
-        }
+        textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         
         return .textMultiline(textElement)
     }
@@ -258,11 +245,7 @@ open class FormQuestion {
         let controller = UIPickerViewDataController(choices: [choices], pickerView: pickerView, textField: textElement.textField)
         textElement.pickerController = controller
         
-        if let validationTypeString = questionDefinition["validation", "value_type"].string,
-            let validationValue = FormValueType(rawValue: validationTypeString), validationValue == .string {
-            
-            textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
-        }
+        textElement.validation = stringValidationForDefinition(questionDefinition["validation"])
         
         return .choiceDropdown(textElement, controller)
     }
@@ -328,34 +311,49 @@ open class FormQuestion {
     
     open func stringValidationForDefinition(_ definition:JSON?) -> Validation<String>? {
         
+        if definition?.type == .null {
+            //no validation section in the json
+            return nil
+        }
+        
         guard let typeString = definition?["type"].string,
             let type = ValidationType(rawValue: typeString),
             let valueTypeString = definition?["value_type"].string,
             let valueType = FormValueType(rawValue: valueTypeString),
-            let message = definition?["message"].string, valueType == .string
+            let message = definition?["message"].string
             else {
                 print ("^^Error in stringValidationForDefinition \(definition)")
                 return nil
         }
         
-        switch type {
-        case .notNegative:
-            return NonNegativeIntValidation(message)
-        case .notEmpty:
-            return NonEmptyStringValidation(message)
-        case .email:
-            return EmailValidationWithMessage(message)
+        switch valueType {
+        case .string:
+            switch type {
+            case .notNegative:
+                return NonNegativeIntValidation(message)
+            case .notEmpty:
+                return NonEmptyStringValidation(message)
+            case .email:
+                return EmailValidationWithMessage(message)
+            case .number:
+                return NumberValidationWithMessage(message)
+            case .postcode:
+                return UKPostcodeValidationWithMessage(message)
+            case .regex:
+                if let reg = definition?["regex"].string {
+                    return RegexValidationWithMessage(message, regex: reg)
+                } else {
+                    return nil
+                }
+            }
         case .number:
             return NumberValidationWithMessage(message)
-        case .postcode:
-            return UKPostcodeValidationWithMessage(message)
-        case .regex:
-            if let reg = definition?["regex"].string {
-                return RegexValidationWithMessage(message, regex: reg)
-            } else {
-                return nil
-            }
+        default:
+            print ("^^Unhandled valueType \(valueType)")
         }
+        
+        return nil
+        
     }
     
     open func numberValidationForDefinition(_ definition:JSON?) -> Validation<Int>? {
