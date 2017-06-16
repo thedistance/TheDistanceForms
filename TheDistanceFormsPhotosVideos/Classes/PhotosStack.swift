@@ -25,7 +25,7 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     public let textField:UITextField
     
-    public let contentStack:StackView
+    public var contentStack:StackView
     
     public var validation:Validation<[PhotosStackAsset]>?
     
