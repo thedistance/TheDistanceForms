@@ -50,10 +50,10 @@ open class ErrorStack:CreatedStack {
     open let iconImageView:UIImageView
     
     /// A horizontal `StackView` containing the `errorImageView` and `centerComponent` from the default initialiser
-    open let centerStack:StackView
+    open var centerStack:StackView
     
     /// A vertical `StackView` containing the `centerStack` and `errorLabel`.
-    open let errorStack:StackView
+    open var errorStack:StackView
     
     /**
      
