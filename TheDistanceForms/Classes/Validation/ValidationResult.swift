@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+
+ Already defined in TDStackView/Validation.swift
+
 /// Enum used to represent the validity of a user entered value used in conjunction with a `Validation` object.
 public enum ValidationResult: Equatable {
     
@@ -55,3 +59,6 @@ public func ||(v1:ValidationResult, v2:ValidationResult) -> ValidationResult {
         return .invalid(reason: m1 + "\n" + m2)
     }
 }
+
+*/
+

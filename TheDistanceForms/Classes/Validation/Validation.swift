@@ -7,6 +7,7 @@
 
 import Foundation
 import TheDistanceCore
+import TDStackView
 
 /**
 
@@ -19,7 +20,7 @@ Structure that performs validation on a value of a given type, returning `true` 
  - seealso: `PhoneValidationWithMessage(_:allowingNull:)`
  - seealso: `UKPostcodeValidationWithMessage(_:allowingNull:)`
  
-*/
+
 public struct Validation<Type> {
     
     /// Should return `true` if the value passes, `false` otherwise. The value is optional as user data is likely to contain `nil` entries.
@@ -61,6 +62,7 @@ public struct Validation<Type> {
         }
     }
 }
+*/
 
 /**
  
@@ -69,8 +71,8 @@ public struct Validation<Type> {
  - parameter message: The `message` property of the returned `Validation`. validation fails.
  
  - returns: A configured `Validation<String>` object.
- */
-public func NonNegativeIntValidation(_ message:String) -> Validation<String> {
+*/
+ public func NonNegativeIntValidation(_ message:String) -> Validation<String> {
     
     return Validation<String>(message: message, validation: { (value) -> Bool in
         
@@ -84,13 +86,11 @@ public func NonNegativeIntValidation(_ message:String) -> Validation<String> {
 
 
 /**
- 
  Convenience creator for a validation that checks whether a given string, trimmed from whitespace, has content.
  
  - parameter message: The `message` property of the returned `Validation`. validation fails.
  
  - returns: A configured `Validation<String>` object.
- */
 public func NonEmptyStringValidation(_ message:String) -> Validation<String> {
     
     return Validation<String>(message: message, validation: { (value) -> Bool in
@@ -102,6 +102,8 @@ public func NonEmptyStringValidation(_ message:String) -> Validation<String> {
         return false
     })
 }
+*/
+
 
 /**
 
