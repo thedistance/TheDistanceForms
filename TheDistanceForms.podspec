@@ -1,6 +1,6 @@
 Pod::Spec.new do |s| 
   s.name         = "TheDistanceForms"
-  s.version      = "0.3.5"
+  s.version      = "0.3.6"
   s.summary      = "An framework for creating flexible forms as generic collections of user input elements."
   s.homepage     = "https://github.com/thedistance"
   s.license      = "MIT"

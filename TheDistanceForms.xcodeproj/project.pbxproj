@@ -13,7 +13,6 @@
 		5A7589C61DF9A9F50034F388 /* PhotoStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7589C11DF9A9F50034F388 /* PhotoStackManager.swift */; };
 		5A7589C71DF9A9F50034F388 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7589C31DF9A9F50034F388 /* Media.xcassets */; };
 		7A30F8F14284F9D854EF0F01 /* Pods_TheDistanceFormsThemed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A6B1A9C711471AE2495394 /* Pods_TheDistanceFormsThemed.framework */; };
-		A54511B51D070BE40067714A /* UIDatePickerDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B41D070BE40067714A /* UIDatePickerDataController.swift */; };
 		A54511B81D071B030067714A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B71D071B030067714A /* Validation.swift */; };
 		A54511BA1D071B0E0067714A /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511B91D071B0E0067714A /* ValidationResult.swift */; };
 		A54511C01D071E8B0067714A /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54511BC1D071E8B0067714A /* Form.swift */; };
@@ -126,7 +125,6 @@
 		7B39020C39FCC95B33AD664B /* Pods-TheDistanceForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDistanceForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms.debug.xcconfig"; sourceTree = "<group>"; };
 		82A9E022FC1D3D3487520B10 /* Pods_TheDistanceFormsPhotosVideos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDistanceFormsPhotosVideos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF44920690FB21ECA738765 /* Pods-FormsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo.release.xcconfig"; sourceTree = "<group>"; };
-		A54511B41D070BE40067714A /* UIDatePickerDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerDataController.swift; sourceTree = "<group>"; };
 		A54511B71D071B030067714A /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		A54511B91D071B0E0067714A /* ValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		A54511BC1D071E8B0067714A /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
@@ -451,7 +449,6 @@
 			isa = PBXGroup;
 			children = (
 				A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */,
-				A54511B41D070BE40067714A /* UIDatePickerDataController.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -707,7 +704,7 @@
 					};
 					A5F0DE2A1CC8C5F80032534D = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0900;
 					};
 					A5F0DE341CC8C5F80032534D = {
 						CreatedOnToolsVersion = 7.3;
@@ -1002,7 +999,6 @@
 				A54511C11D071E8B0067714A /* FormEnums.swift in Sources */,
 				A54511C51D0807D70067714A /* FormContainer.swift in Sources */,
 				A54511C01D071E8B0067714A /* Form.swift in Sources */,
-				A54511B51D070BE40067714A /* UIDatePickerDataController.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
 				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
 				A54511C71D0808160067714A /* ValueElement.swift in Sources */,
@@ -1293,7 +1289,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceForms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1314,7 +1311,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceForms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
