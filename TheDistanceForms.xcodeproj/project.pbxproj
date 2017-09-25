@@ -42,7 +42,6 @@
 		A5F0DE541CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0DE4A1CC8C60C0032534D /* TheDistanceFormsPhotosVideos.framework */; };
 		A5F0DE591CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE581CC8C60C0032534D /* TheDistanceFormsPhotosVideosTests.swift */; };
 		A5F0DE811CC8C7EF0032534D /* ErrorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */; };
-		A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */; };
 		A5F0DE841CC8C7EF0032534D /* SwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */; };
 		A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */; };
 		A5F0DED31CC9004C0032534D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0DED21CC9004C0032534D /* AppDelegate.swift */; };
@@ -168,7 +167,6 @@
 		A5F0DE6A1CC8C6BC0032534D /* AdvancedOperationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdvancedOperationKit.framework; path = Carthage/Build/iOS/AdvancedOperationKit.framework; sourceTree = "<group>"; };
 		A5F0DE6B1CC8C6BC0032534D /* PSOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSOperations.framework; path = Carthage/Build/iOS/PSOperations.framework; sourceTree = "<group>"; };
 		A5F0DE701CC8C7EF0032534D /* ErrorStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStack.swift; sourceTree = "<group>"; };
-		A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerDataControllers.swift; sourceTree = "<group>"; };
 		A5F0DE741CC8C7EF0032534D /* SwitchStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStack.swift; sourceTree = "<group>"; };
 		A5F0DE791CC8C7EF0032534D /* TextViewStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewStack.swift; sourceTree = "<group>"; };
 		A5F0DED01CC9004C0032534D /* FormsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -448,7 +446,6 @@
 		A5F0DE711CC8C7EF0032534D /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
-				A5F0DE721CC8C7EF0032534D /* UIPickerDataControllers.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -1000,7 +997,6 @@
 				A54511C51D0807D70067714A /* FormContainer.swift in Sources */,
 				A54511C01D071E8B0067714A /* Form.swift in Sources */,
 				A5F0DE881CC8C7EF0032534D /* TextViewStack.swift in Sources */,
-				A5F0DE821CC8C7EF0032534D /* UIPickerDataControllers.swift in Sources */,
 				A54511C71D0808160067714A /* ValueElement.swift in Sources */,
 				A54511B81D071B030067714A /* Validation.swift in Sources */,
 				A54511BA1D071B0E0067714A /* ValidationResult.swift in Sources */,

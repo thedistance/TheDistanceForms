@@ -90,10 +90,10 @@ open class ErrorStack:CreatedStack {
             iv.backgroundColor = UIColor.clear
             iv.isHidden = true
             
-            iv.setContentHuggingPriority(255, for: .horizontal)
+            iv.setContentHuggingPriority(UILayoutPriority(rawValue: 255), for: .horizontal)
             
-            iv.setContentCompressionResistancePriority(760, for: .horizontal)
-            iv.setContentCompressionResistancePriority(760, for: .vertical)
+            iv.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760), for: .horizontal)
+            iv.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760), for: .vertical)
         }
         
         centerStack = CreateStackView([centerComponent, errorImageView])

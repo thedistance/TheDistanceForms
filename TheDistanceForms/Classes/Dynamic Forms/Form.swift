@@ -39,7 +39,7 @@ extension String: RawRepresentable {
     }
     
     public init(rawValue: String) {
-        self.init(rawValue)!
+        self.init(rawValue)
     }
 }
 
