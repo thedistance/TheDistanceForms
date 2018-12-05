@@ -32,7 +32,7 @@
 		A592A0501CD0B1A400128D4D /* TKTextViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */; };
 		A592A0521CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */; };
 		A592A0541CD0C10D00128D4D /* TKSwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0531CD0C10D00128D4D /* TKSwitchStack.swift */; };
-		A592A0561CD0C1CF00128D4D /* ThemedClasses/TKFormQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0551CD0C1CF00128D4D /* ThemedClasses/TKFormQuestion.swift */; };
+		A592A0561CD0C1CF00128D4D /* TKFormQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */; };
 		A592A05E1CD0C49200128D4D /* MyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A05D1CD0C49200128D4D /* MyTheme.swift */; };
 		A592A0601CD0C4D000128D4D /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A05F1CD0C4D000128D4D /* ThemeViewController.swift */; };
 		A5961F351D51FAB4004D9636 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5961F341D51FAB4004D9636 /* FormViewController.swift */; };
@@ -145,7 +145,7 @@
 		A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKTextViewStack.swift; path = ThemedClasses/TKTextViewStack.swift; sourceTree = "<group>"; };
 		A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKSegmentedTextFieldStack.swift; path = ThemedClasses/TKSegmentedTextFieldStack.swift; sourceTree = "<group>"; };
 		A592A0531CD0C10D00128D4D /* TKSwitchStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKSwitchStack.swift; path = ThemedClasses/TKSwitchStack.swift; sourceTree = "<group>"; };
-		A592A0551CD0C1CF00128D4D /* ThemedClasses/TKFormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedClasses/TKFormQuestion.swift; sourceTree = "<group>"; };
+		A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedClasses/TKFormQuestion.swift; sourceTree = "<group>"; };
 		A592A05D1CD0C49200128D4D /* MyTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTheme.swift; sourceTree = "<group>"; };
 		A592A05F1CD0C4D000128D4D /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		A5961F341D51FAB4004D9636 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 		A592A04C1CD0AA2F00128D4D /* Themed Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A592A0551CD0C1CF00128D4D /* ThemedClasses/TKFormQuestion.swift */,
+				A592A0551CD0C1CF00128D4D /* TKFormQuestion.swift */,
 				A592A04D1CD0AA5800128D4D /* TKTextFieldStack.swift */,
 				A592A04F1CD0B1A400128D4D /* TKTextViewStack.swift */,
 				A592A0511CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift */,
@@ -557,7 +557,6 @@
 				A592A03C1CD0A9E500128D4D /* Frameworks */,
 				A592A03D1CD0A9E500128D4D /* Headers */,
 				A592A03E1CD0A9E500128D4D /* Resources */,
-				884CA5F1A63132F97CD452FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -578,7 +577,6 @@
 				A5F0DE271CC8C5F80032534D /* Frameworks */,
 				A5F0DE281CC8C5F80032534D /* Headers */,
 				A5F0DE291CC8C5F80032534D /* Resources */,
-				CF38717C168C2EA60E1A324D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -616,7 +614,6 @@
 				A5F0DE461CC8C60C0032534D /* Frameworks */,
 				A5F0DE471CC8C60C0032534D /* Headers */,
 				A5F0DE481CC8C60C0032534D /* Resources */,
-				6493EA1A7A2F8AE8F6A6831E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -655,7 +652,6 @@
 				A5F0DECD1CC9004C0032534D /* Frameworks */,
 				A5F0DECE1CC9004C0032534D /* Resources */,
 				028C802435EBBCC0BBFED936 /* [CP] Embed Pods Frameworks */,
-				D2FAC7EDCA89F6A0A3FFDAEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -877,36 +873,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6493EA1A7A2F8AE8F6A6831E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceFormsPhotosVideos/Pods-TheDistanceFormsPhotosVideos-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		884CA5F1A63132F97CD452FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceFormsThemed/Pods-TheDistanceFormsThemed-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		92CFD8423BED43014016E542 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -943,36 +909,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF38717C168C2EA60E1A324D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheDistanceForms/Pods-TheDistanceForms-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2FAC7EDCA89F6A0A3FFDAEF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormsDemo/Pods-FormsDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -982,7 +918,7 @@
 			files = (
 				A592A0521CD0B2D900128D4D /* TKSegmentedTextFieldStack.swift in Sources */,
 				A592A0541CD0C10D00128D4D /* TKSwitchStack.swift in Sources */,
-				A592A0561CD0C1CF00128D4D /* ThemedClasses/TKFormQuestion.swift in Sources */,
+				A592A0561CD0C1CF00128D4D /* TKFormQuestion.swift in Sources */,
 				A592A0501CD0B1A400128D4D /* TKTextViewStack.swift in Sources */,
 				A592A04E1CD0AA5800128D4D /* TKTextFieldStack.swift in Sources */,
 			);
@@ -1134,6 +1070,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1155,6 +1092,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsThemed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1351,6 +1289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1371,6 +1310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.TheDistanceFormsPhotosVideos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1408,6 +1348,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1423,6 +1364,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.thedistance.FormsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

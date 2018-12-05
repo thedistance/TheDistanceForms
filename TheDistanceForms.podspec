@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
+  s.swift_version = '3.0'
   
   s.module_name 	= "TheDistanceForms"   
   s.default_subspec = "TheDistanceForms"
@@ -20,7 +21,7 @@ Pod::Spec.new do |s|
   	c.dependency 'AdvancedOperationKit'
   	c.dependency 'KeyboardResponder'
   	c.dependency 'TDStackView'
-  	c.dependency 'SwiftyJSON'	
+  	c.dependency 'SwiftyJSON', '~> 3.1.3'
   end
 
 end
