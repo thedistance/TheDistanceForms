@@ -25,7 +25,7 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     public let textField:UITextField
     
-    public var contentStack:StackView
+    public var contentStack: UIStackView
     
     public var validation:Validation<[PhotosStackAsset]>?
     
@@ -59,7 +59,7 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         contentStack.axis = .vertical
         contentStack.spacing = 8.0
         
-        super.init(centerComponent: contentStack.view,
+        super.init(centerComponent: contentStack,
                    errorLabel: errorLabel,
                    errorImageView: errorImageView,
                    iconImageView: iconImageView)

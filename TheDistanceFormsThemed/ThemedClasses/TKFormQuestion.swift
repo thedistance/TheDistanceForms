@@ -11,6 +11,7 @@ import Foundation
 import TheDistanceForms
 import ThemeKitCore
 import SwiftyJSON
+import TDStackView
 
 /// FormQuestion subclass that returns ThemeKit views.
 open class TKFormQuestion: FormQuestion {
@@ -21,7 +22,7 @@ open class TKFormQuestion: FormQuestion {
     }
     
     /// - returns: A new `TKTextViewStack`
-    open override func newTextMultilineView() -> TextViewStack {
+    open override func newTextMultilineView() -> TheDistanceForms.TextViewStack {
         return TKTextViewStack()
     }
     
@@ -31,7 +32,7 @@ open class TKFormQuestion: FormQuestion {
     }
     
     /// - returns: A new `TKSwitchStack`
-    open override func newSwitchView() -> SwitchStack {
+    open override func newSwitchView() -> TheDistanceForms.SwitchStack {
         return TKSwitchStack()
     }
     

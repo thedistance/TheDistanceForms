@@ -34,7 +34,7 @@ public extension FormContainer {
         responder.inputAccessoryView = accessoryView ?? KeyboardResponderToolbar(navigationDelegate: responder)
         
         // set components
-        responder.components = form.questions.flatMap { $0.questionView.inputComponent?.inputComponent }
+        responder.components = form.questions.compactMap { $0.questionView.inputComponent?.inputComponent }
         
         // add targets to the buttons
         for question in form.questions {
@@ -72,16 +72,17 @@ public extension FormContainer where Self:UIViewController {
     public func addFormFromURL(_ jsonURL:URL, ofType formType:Form.Type = Form.self, questionType:FormQuestion.Type = FormQuestion.self, toContainerView container:UIView, withInsets:UIEdgeInsets = UIEdgeInsets.zero) -> Form? {
         
         guard let data = try? Data(contentsOf: jsonURL),
-            let form = formType.init(definition: JSON(data:data), questionType: questionType)
-            else {
-                return nil
+            let definition = try? JSON(data:data),
+            let form = formType.init(definition: definition, questionType: questionType)
+        else {
+            return nil
         }
         
-        form.formView.view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(form.formView.view)
-        container.addConstraints(NSLayoutConstraint.constraintsToAlign(view: form.formView.view, to: container, withInsets:withInsets))
+        form.formView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(form.formView)
+        container.addConstraints(NSLayoutConstraint.constraintsToAlign(view: form.formView, to: container, withInsets:withInsets))
         
-        container.addConstraint(NSLayoutConstraint(item: form.formView.view,
+        container.addConstraint(NSLayoutConstraint(item: form.formView,
             attribute: .width,
             relatedBy: .equal,
             toItem: container,

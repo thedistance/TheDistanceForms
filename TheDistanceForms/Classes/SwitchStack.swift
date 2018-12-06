@@ -17,13 +17,13 @@ import TDStackView
 open class SwitchStack: ErrorStack, ValueElement {
     
     /// `UILabel` to show the title. Defaults to `UIFontTextStyleHeadline`.
-    open let titleLabel:UILabel
+    public let titleLabel:UILabel
     
     /// `UILabel` to show subtitle title. Defaults to `UIFontTextStyleSubheadline`.
-    open let subtitleLabel:UILabel
+    public let subtitleLabel:UILabel
     
     /// The switch the user will interact with.
-    open let switchControl:UISwitch
+    public let switchControl:UISwitch
     
     /// `Validation` used for `ValueElement` conformation.
     open var validation:Validation<Bool>?
@@ -53,22 +53,22 @@ open class SwitchStack: ErrorStack, ValueElement {
         
         self.titleLabel = titleLabel
         self.titleLabel.numberOfLines = 0
-        self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         
         self.subtitleLabel = subtitleLabel
         self.subtitleLabel.numberOfLines = 0
-        self.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        self.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
         
-        var textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
+        let textStack = CreateStackView([self.titleLabel, self.subtitleLabel])
         textStack.axis = .vertical
         textStack.spacing = 4.0
         
-        var switchStack = CreateStackView([textStack.view, self.switchControl])
+        let switchStack = CreateStackView([textStack, self.switchControl])
         switchStack.axis = .horizontal
         switchStack.spacing = 8.0
-        switchStack.stackAlignment = .center
+        switchStack.alignment = .center
         
-        super.init(centerComponent: switchStack.view,
+        super.init(centerComponent: switchStack,
                    errorLabel: errorLabel,
                    errorImageView: errorImageView,
                    iconImageView: iconImageView)

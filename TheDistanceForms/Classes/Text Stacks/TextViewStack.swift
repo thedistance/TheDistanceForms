@@ -51,17 +51,17 @@ open class TextViewStack: TextStack, KeyboardResponderInputContainer {
     }
     
     /// The `UITextView` the user interacts with.
-    open let textView:UITextView
+    public let textView:UITextView
     
     /// The `textContainerInset` applied to `textView` when `enabled == true`. Default is `(4,-5,4,-5)`.
-    open var activeTextContainerInset = UIEdgeInsetsMake(4,-5,4,-5) {
+    open var activeTextContainerInset = UIEdgeInsets(top: 4,left: -5,bottom: 4,right: -5) {
         didSet {
             stackView.setNeedsLayout()
         }
     }
     
     /// The `textContainerInset` applied to `textView` when `enabled == false`. Default is `(0,-5,0,-5)`.
-    open var inactiveTextContainerInset = UIEdgeInsetsMake(0,-5,0,-5) {
+    open var inactiveTextContainerInset = UIEdgeInsets(top: 0,left: -5,bottom: 0,right: -5) {
         didSet {
             stackView.setNeedsLayout()
         }
@@ -160,8 +160,8 @@ open class TextViewStack: TextStack, KeyboardResponderInputContainer {
         addUnderlineForView(textView)
         
         // configure the stack
-        stack.axis = UILayoutConstraintAxis.vertical
-        stack.stackAlignment = .fill
+        stack.axis = NSLayoutConstraint.Axis.vertical
+        stack.alignment = .fill
         //        stack.spacing = 0.0
         
         
@@ -182,16 +182,16 @@ open class TextViewStack: TextStack, KeyboardResponderInputContainer {
             self.configurePlaceholder()
         }
         
-        let beginObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidBeginEditing.rawValue, object: textView) { (note) -> () in
+        let beginObserver = NotificationObserver(name: UITextView.textDidBeginEditingNotification.rawValue, object: textView) { (note) -> () in
             self.configureUnderline()
             self.configurePlaceholder()
         }
         
-        let changeObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidChange.rawValue, object: textView) { (note) -> () in
+        let changeObserver = NotificationObserver(name: UITextView.textDidChangeNotification.rawValue, object: textView) { (note) -> () in
             self.configurePlaceholder()
         }
         
-        let endObserver = NotificationObserver(name: NSNotification.Name.UITextViewTextDidEndEditing.rawValue, object: textView) { (note) -> () in
+        let endObserver = NotificationObserver(name: UITextView.textDidEndEditingNotification.rawValue, object: textView) { (note) -> () in
             self.configureUnderline()
             self.configurePlaceholder()
             

@@ -35,7 +35,7 @@ public enum PhotosStackAsset: Equatable {
             
             let thumbnailImage:UIImage?
             
-            if let thumbnail = try? generator.copyCGImage(at: CMTimeMakeWithSeconds(0.5, 4), actualTime: nil) {
+            if let thumbnail = try? generator.copyCGImage(at: CMTimeMakeWithSeconds(0.5, preferredTimescale: 4), actualTime: nil) {
                 thumbnailImage = UIImage(cgImage: thumbnail).orientationNeutralImage()
             } else {
                 thumbnailImage = nil

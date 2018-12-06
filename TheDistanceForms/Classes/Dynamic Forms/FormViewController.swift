@@ -30,7 +30,8 @@ open class FormViewController: UIViewController, FormContainer {
     public init?(url: URL, questionType: FormQuestion.Type) {
         
         guard let data = try? Data(contentsOf: url),
-            let form = Form(definition: JSON(data: data), questionType: questionType) else {
+            let definition = try? JSON(data: data),
+            let form = Form(definition: definition, questionType: questionType) else {
                 return nil
         }
         
@@ -54,10 +55,10 @@ open class FormViewController: UIViewController, FormContainer {
         view.addSubview(scroll)
         view.addConstraints(NSLayoutConstraint.constraintsToAlign(view: scroll, to: view))
         
-        if let formView = self.form?.createFormView().view {
+        if let formView = self.form?.createFormView() {
             formView.translatesAutoresizingMaskIntoConstraints = false
             scroll.addSubview(formView)
-            let insets = UIEdgeInsetsMake(16, 8, 16, 8)
+            let insets = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
             let constrs = NSLayoutConstraint.constraintsToAlign(view: formView, to: scroll, withInsets: insets)
             let width = NSLayoutConstraint(item: formView,
                                            attribute: .width,

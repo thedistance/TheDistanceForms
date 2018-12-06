@@ -41,19 +41,19 @@ open class ErrorStack:CreatedStack {
     }
     
     /// The label showing the error associated with the user's input. The text for this label should be set through the `errorText` property, which configures properties such as showing and hiding the label.
-    open let errorLabel:UILabel
+    public let errorLabel:UILabel
     
     /// The `UIImageView` to show an error icon centered on the text input if there is an error.
-    open let errorImageView:UIImageView
+    public let errorImageView:UIImageView
     
     /// The `UIImageView` to show an icon aligned to the left of the text input.
-    open let iconImageView:UIImageView
+    public let iconImageView:UIImageView
     
     /// A horizontal `StackView` containing the `errorImageView` and `centerComponent` from the default initialiser
-    open var centerStack:StackView
+    open var centerStack: UIStackView
     
     /// A vertical `StackView` containing the `centerStack` and `errorLabel`.
-    open var errorStack:StackView
+    open var errorStack: UIStackView
     
     /**
      
@@ -82,7 +82,7 @@ open class ErrorStack:CreatedStack {
         
         errorLabel.numberOfLines = 0
         errorLabel.isHidden = true
-        errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        errorLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
         
         for iv in [errorImageView, iconImageView] {
             
@@ -100,13 +100,13 @@ open class ErrorStack:CreatedStack {
         centerStack.axis = .horizontal
         centerStack.spacing = 8.0
         
-        errorStack = CreateStackView([centerStack.view, errorLabel])
-        errorStack.axis = UILayoutConstraintAxis.vertical
-        errorStack.stackAlignment = .fill
-        errorStack.stackDistribution = .fill
+        errorStack = CreateStackView([centerStack, errorLabel])
+        errorStack.axis = .vertical
+        errorStack.alignment = .fill
+        errorStack.distribution = .fill
         errorStack.spacing = 8.0
         
-        super.init(arrangedSubviews: [iconImageView, errorStack.view])
+        super.init(arrangedSubviews: [iconImageView, errorStack])
         
         /*
          

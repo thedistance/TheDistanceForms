@@ -1,6 +1,6 @@
 Pod::Spec.new do |s| 
   s.name         = "TheDistanceFormsPhotosVideos"
-  s.version      = "0.3.5"
+  s.version      = "0.4"
   s.summary      = "An framework for creating flexible forms as generic collections of user input elements."
   s.homepage     = "https://github.com/thedistance"
   s.license      = "MIT"
@@ -8,8 +8,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/thedistance/TheDistanceForms.git", :tag => "#{s.version}" }  
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
+  s.swift_version = '4.2'
   
   s.module_name 	= "TheDistanceFormsPhotosVideos"   
   s.default_subspec = "TheDistanceFormsPhotosVideos"

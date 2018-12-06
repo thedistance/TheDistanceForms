@@ -47,7 +47,7 @@ public class VideoCollectionViewCell: PhotoCollectionViewCell {
     public var videoIconView = UIImageView()
     public var timeLabel = UILabel()
     
-    private(set) public var footerStack:StackView!
+    private(set) public var footerStack: UIStackView!
     
     override public func createViews() {
         super.createViews()
@@ -57,19 +57,19 @@ public class VideoCollectionViewCell: PhotoCollectionViewCell {
         videoIconView.image = UIImage(named: "ic_videocam_white.png")
         videoIconView.tintColor = whiteTint
         
-        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
         timeLabel.textColor = whiteTint
         
         // configure stack
         footerStack = CreateStackView([videoIconView, timeLabel])
-        footerStack.stackDistribution = .equalSpacing
+        footerStack.distribution = .equalSpacing
         
         // add as subview
-        footerStack.view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(footerStack.view)
+        footerStack.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(footerStack)
         
         // add constraints to align to the bottom
-        let footerConstraints = NSLayoutConstraint.constraintsToAlign(view: footerStack.view, to: contentView, withInsets: UIEdgeInsetsMake(0.0, 2.0, 2.0, 4.0))
+        let footerConstraints = NSLayoutConstraint.constraintsToAlign(view: footerStack, to: contentView, withInsets: UIEdgeInsets(top: 0.0, left: 2.0, bottom: 2.0, right: 4.0))
         contentView.addConstraints(Array(footerConstraints[1...3]))
     }
 }

@@ -47,9 +47,9 @@ open class Form: KeyedValueElementContainer, KeyedView {
     
     public typealias KeyType = String
     
-    open let title:String?
-    
-    open let questions:[FormQuestion]
+    public let title:String?
+      
+    public let questions:[FormQuestion]
     
     open var elements: [ValueElement] {
         return questions.map { $0.questionView }
@@ -59,16 +59,19 @@ open class Form: KeyedValueElementContainer, KeyedView {
         return Dictionary(questions.map { ($0.key, $0.questionView.view ) })
     }
     
-    open fileprivate(set) var formView:StackView
+    open fileprivate(set) var formView: UIStackView
     
     convenience public init?(filename: String, inBundle: Bundle = Bundle.main, questionType: FormQuestion.Type = FormQuestion.self) {
         
-        guard let url = inBundle.url(forResource: filename, withExtension: "json"),
-            let data = try? Data(contentsOf: url) else {
-                return nil
+        guard
+            let url = inBundle.url(forResource: filename, withExtension: "json"),
+            let data = try? Data(contentsOf: url),
+            let definition = try? JSON(data: data)
+        else {
+            return nil
         }
         
-        self.init(definition: JSON(data: data), questionType: questionType)
+        self.init(definition: definition, questionType: questionType)
     }
     
     required public init?(definition:JSON, questionType:FormQuestion.Type = FormQuestion.self) {
@@ -82,7 +85,7 @@ open class Form: KeyedValueElementContainer, KeyedView {
         self.title = title
         
         // initialise as empty so can call other methods from this initialiser
-        questions = questionsJSON.flatMap { questionType.init(json: $0) }
+        questions = questionsJSON.compactMap { questionType.init(json: $0) }
         
         formView = CreateStackView([])
         formView = createFormView()
@@ -94,7 +97,7 @@ open class Form: KeyedValueElementContainer, KeyedView {
      
      */
     open func inputComponents() -> [KeyboardResponderInputType] {
-        return questions.flatMap { $0.questionView.inputComponent?.inputComponent }
+        return questions.compactMap { $0.questionView.inputComponent?.inputComponent }
     }
     
     open func questionForKey(_ key:String) -> FormQuestion? {
@@ -102,12 +105,12 @@ open class Form: KeyedValueElementContainer, KeyedView {
             .first
     }
     
-    open func createFormView() -> StackView {
+    open func createFormView() -> UIStackView {
         
-        var stack = CreateStackView(questions.map { $0.questionView.view })
+        let stack = CreateStackView(questions.map { $0.questionView.view })
         stack.axis = .vertical
-        stack.stackDistribution = .fill
-        stack.stackAlignment = .fill
+        stack.distribution = .fill
+        stack.alignment = .fill
         stack.spacing = 26.0
         
         return stack

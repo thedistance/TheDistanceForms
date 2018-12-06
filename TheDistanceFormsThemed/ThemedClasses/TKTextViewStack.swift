@@ -10,6 +10,7 @@ import Foundation
 
 import TheDistanceForms
 import ThemeKitCore
+import TDStackView
 
 /**
  
@@ -23,7 +24,7 @@ import ThemeKitCore
  - `underline` is a `TKView` which is `.Accent` alpha 1.0 when `textView.isFirstResponder` is `true`, `.SecondaryText` when `textView.isFirstResponder` is `false` but `textView.enabled`, and invisible when `textView.enabled` is `false`.
  
  */
-public class TKTextViewStack: TextViewStack {
+public class TKTextViewStack: TheDistanceForms.TextViewStack {
     
     /// Default initialiser. Creates and styles the components.
     init() {

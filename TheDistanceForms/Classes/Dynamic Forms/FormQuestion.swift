@@ -17,9 +17,9 @@ open class FormQuestion {
     
     fileprivate(set) open var questionView:FormQuestionView!
     
-    open let key:String
-    open let type:FormQuestionType
-    open let definition:JSON
+    public let key:String
+    public let type:FormQuestionType
+    public let definition:JSON
     
     // MARK: Initialisers
     
@@ -233,7 +233,7 @@ open class FormQuestion {
         
         guard checkQuestionDefinition(questionDefinition, isType: .choiceDropdown),
             let prompt = questionDefinition["prompt"].string,
-            let choices = questionDefinition["choices"].array?.flatMap({ $0.string }), choices.count > 0
+            let choices = questionDefinition["choices"].array?.compactMap({ $0.string }), choices.count > 0
             else { return nil }
         
         // Create the view
@@ -253,7 +253,7 @@ open class FormQuestion {
     open func segmentViewForQuestion(_ questionDefinition:JSON) -> FormQuestionView? {
         
         guard checkQuestionDefinition(questionDefinition, isType: .choiceSegments),
-            let choices = questionDefinition["choices"].array?.flatMap({ $0.string }), choices.count > 0
+            let choices = questionDefinition["choices"].array?.compactMap({ $0.string }), choices.count > 0
             else { return nil }
         
         let segmentElement = newSegmentChoiceViewWithChoices(choices)
@@ -322,7 +322,7 @@ open class FormQuestion {
             let valueType = FormValueType(rawValue: valueTypeString),
             let message = definition?["message"].string
             else {
-                print ("^^Error in stringValidationForDefinition \(definition)")
+                print ("^^Error in stringValidationForDefinition \(String(describing: definition))")
                 return nil
         }
         
@@ -364,7 +364,7 @@ open class FormQuestion {
             let valueType = FormValueType(rawValue: valueTypeString),
             let message = definition?["message"].string, valueType == .number
             else {
-                print ("^^Error in numberValidationForDefinition \(definition)")
+                print ("^^Error in numberValidationForDefinition \(String(describing: definition))")
                 return nil
         }
         
@@ -404,9 +404,9 @@ open class FormQuestion {
         
         let textStack = TextFieldStack()
         
-        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
-        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
-        textStack.textField.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+        textStack.textField.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         
         return textStack
     }
@@ -424,9 +424,9 @@ open class FormQuestion {
         
         let textStack = TextViewStack()
         
-        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
-        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
-        textStack.textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        textStack.placeholderLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+        textStack.errorLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+        textStack.textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         
         return textStack
     }
@@ -445,8 +445,8 @@ open class FormQuestion {
         let segments = UISegmentedControl(items: choices)
         let input = newTextSingleView()
         let segmentElement = SegmentedTextFieldStack(control: segments, inputStack: input)
-        segmentElement.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        segmentElement.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        segmentElement.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        segmentElement.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
         
         return segmentElement
     }
@@ -461,8 +461,8 @@ open class FormQuestion {
     open func newSwitchView() -> SwitchStack {
         
         let switchStack = SwitchStack(switchControl: UISwitch())
-        switchStack.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        switchStack.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        switchStack.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        switchStack.subtitleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
         
         return switchStack
     }
@@ -477,7 +477,7 @@ open class FormQuestion {
     open func newButtonView() -> UIButton {
         
         let button = UIButton(type: .system)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         return button
     }
     

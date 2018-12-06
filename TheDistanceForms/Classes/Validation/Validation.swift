@@ -229,7 +229,7 @@ public func RegexValidationWithMessage(_ message:String, regex:String, allowingN
                 }
             }
             
-            return regex.matches(in: stringValue, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, stringValue.characters.count)).count > 0
+            return regex.matches(in: stringValue, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, stringValue.count)).count > 0
             
         })
     } else {

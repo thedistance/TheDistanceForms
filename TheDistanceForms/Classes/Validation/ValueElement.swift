@@ -90,7 +90,7 @@ public typealias KeyedValueElementContainerView = KeyedView & KeyedValueElementC
 public extension KeyedValueElementContainer where Self:KeyedView {
     
     var elements:[ValueElement] {
-        return viewKeys.flatMap({ $0.0 as? ValueElement })
+        return viewKeys.compactMap({ $0.0 as? ValueElement })
     }
     
     public func elementForKey(_ key:KeyType) -> ValueElement? {
