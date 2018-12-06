@@ -25,9 +25,9 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     public let textField:UITextField
     
-    public var contentStack: UIStackView
+    open var contentStack: UIStackView
     
-    public var validation:Validation<[PhotosStackAsset]>?
+    open var validation:Validation<[PhotosStackAsset]>?
     
     public init(collectionView: UICollectionView,
                 manager:PhotosStackManager,
@@ -79,18 +79,18 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
     
     open func photosStackManagerCancelled(stack: PhotosStackManager) { }
     
-    public func updateMediaCollectionViewHeight() {
+    open func updateMediaCollectionViewHeight() {
         let contentSize = mediaCollectionView.collectionViewLayout.collectionViewContentSize
         if contentSize.height != mediaCollectionViewHeightConstraint.constant {
             mediaCollectionViewHeightConstraint.constant = contentSize.height
         }
     }
     
-    public func getValue() -> Any? {
+    open func getValue() -> Any? {
         return mediaManager.mediaDataSource
     }
     
-    public func setValue<T>(_ value: T?) -> Bool {
+    open func setValue<T>(_ value: T?) -> Bool {
         
         guard let mediaObjects = value as? [PhotosStackAsset] else { return false }
         
@@ -99,7 +99,7 @@ open class PhotosStack: ErrorStack, ValueElement, PhotosStackManagerDelegate {
         return true
     }
     
-    public func validateValue() -> ValidationResult {
+    open func validateValue() -> ValidationResult {
         
         let value = getValue() as? [PhotosStackAsset]
         let result = validation?.validate(value) ?? .valid

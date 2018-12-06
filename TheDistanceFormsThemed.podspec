@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.requires_arc = true
-  S.swift_version = '4.2'
+  s.swift_version = '4.2'
     
   s.module_name 	= "TheDistanceFormsThemed"   
   s.default_subspec = "TheDistanceFormsThemed"
